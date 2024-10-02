@@ -1,0 +1,105 @@
+{
+  "common": {
+    "cancel": "Cancel",
+    "connectionError": "Error while contacting our servers. Please check your Internet connection or try again later.",
+    "language": "Language",
+    "languages": {
+      "en": "English",
+      "fr": "French"
+    },
+    "ok": "ok",
+    "password": {
+      "diversityError": "Please add at least one {list, list(style: short; type: disjunction)}.",
+      "diversityLowercase": "lowercase letter",
+      "diversityNumber": "number",
+      "diversitySymbol": "symbol",
+      "diversityUppercase": "uppercase letter",
+      "helperText": "Password must be at least 8 characters long, contain numbers, uppercase letters or symbols.",
+      "minError": "Password must be at least 8 characters long"
+    }
+  },
+  "Sidebar": {
+    "mainPage": "Home page",
+    "moviesPage": "Movies page",
+    "aboutPage": "About page"
+  },
+  "Navbar": {
+    "welcome": "Hello and welcome {username}",
+    "signup": "Sign up",
+    "signIn": "Sign in",
+    "signOut": "Sign out"
+  },
+  "Home": {
+    "title": "Home page"
+  },
+  "ContactMe": {
+    "title": "Contact me"
+  },
+  "Hero": {
+    "words": [
+      "Hi, My name is Hamza Missaoui",
+      "I am software engineer and web developer who loves",
+      "I love programming and design elegant web applications",
+      "I have advanced knowledge in typescript, react, next and node",
+      "Knowledge in libraries / frameworks such as react, next js, django and spring boot",
+      "Knowledge in aws cloud services and docker containerisation"
+    ],
+    "title": "Software engineer and fullstack web developer",
+    "description": "I am highly qualified and competent developer in typescript, react and next js and many other technologies",
+    "routes": {
+      "aboutMe": "About me",
+      "skills": "Skills",
+      "projects": "Projects",
+      "experience": "Experience",
+      "contactMe": "Contact me"
+    }
+  },
+  "AboutMe": {
+    "title": "About Me",
+    "intro": "Here is a litte background about me",
+    "details": "I am a dedicated and experienced Full-Stack Web Developer with a strong proficiency in TypeScrip, React Js and node js frameworks (Koa, express) and diverse modern technologies and librairies besides Other than the basic knowledge i have in other languages : Python, C# and Java. and list of technologies i worked with. I have Experience in writing clean, maintainable code and optimizing existing codebases to improve performance and reduce load times. Besides Proven ability to develop and apply best practices to ensure efficient and scalable web solutions swiftly without compromising quality. Skilled in leveraging frameworks, libraries, and tools to accelerate development cycles while ensuring robust performance. My commitment to learning programming and my enthusiasm for software development drive since i was young help to gain more expertise and deliver high-quality code, user-focused hybrid applications.",
+    "skills": {
+      "technicalProficiency": "Technical Proficiency: Skilled in a diverse range of programming languages and technologies such as Java, Python, JavaScript, React, Node.js, and SQL, with a strong ability to learn and adapt to new tools.",
+      "problemSolving": "Problem-Solving Skills: Expert in troubleshooting and resolving technical issues, optimizing code performance, and implementing innovative solutions to enhance system efficiency and user experience.",
+      "projectManagement": "Project Management: Demonstrated ability to lead and collaborate on complex projects, utilizing Agile methodologies to ensure timely delivery and high-quality outcomes."
+    }
+  },
+  "Education": {},
+  "Skills": {},
+  "Projects": {
+    "personal": {
+      "1": {
+        "title": "Work on application with python and django that is for hotel reservations in any region of selected country",
+        "skills": [
+          "react",
+          "python",
+          "django"
+        ],
+        "live": "https://",
+        "code": "github.com/"
+      },
+      "2": {
+        "title": "concept and Implement a clone application of amazon websites",
+        "live": "https://"
+      },
+      "3": {
+        "title": "Make a google drive simplified clone",
+        "live": "https://"
+      }
+    },
+    "professional": {
+      "b2bAliveLtd": {
+        "description": "Work on main porgressive web application of advertisement that help user to manage medias",
+        "skills": [
+          "React",
+          "Next Js",
+          "GraphQl",
+          "AWS / AWS-Lambda"
+        ]
+      },
+      "globalnet3S": {
+        "description": "Work on mobile application that considered like uber clone with react native"
+      }
+    }
+  }
+}

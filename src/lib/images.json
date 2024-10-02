@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "1": {
+      "id": "selfie-02-09",
+      "title": "hero photo 02 september 2024",
+      "url": "https://res.cloudinary.com/hamzaostouri/image/upload/v1727841111/selfie_cin_xbu0tx.jpg"
+    },
+    "2": {
+      "id": "old selfie",
+      "title": "hero photo 02 september 2024",
+      "url": "https://res.cloudinary.com/hamzaostouri/image/upload/v1726863288/1000038420_dtfl74.jpg"
+    }
+  },
+  "assets": [
+    {
+      "id": "sheep",
+      "title": "Sheep",
+      "image": "samples/sheep.jpg",
+      "width": 1600,
+      "height": 1067
+    },
+    {
+      "id": "nature-mountains",
+      "title": "Nature",
+      "image": "samples/landscapes/nature-mountains.jpg",
+      "width": 3000,
+      "height": 2000
+    },
+    {
+      "id": "leather-bag-gray",
+      "title": "Bag",
+      "image": "samples/ecommerce/leather-bag-gray.jpg",
+      "width": 2385,
+      "height": 1590
+    },
+    {
+      "id": "bike",
+      "title": "Bike",
+      "image": "samples/bike.jpg",
+      "width": 2000,
+      "height": 1333
+    }
+  ]
+}
