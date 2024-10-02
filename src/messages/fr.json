@@ -1,0 +1,103 @@
+{
+  "common": {
+    "cancel": "Annuler",
+    "connectionError": "Erreur lors de la prise de contact avec nos serveurs. ",
+    "language": "Langue",
+    "languages": {
+      "en": "Anglais",
+      "fr": "Français"
+    },
+    "ok": "d'accord",
+    "password": {
+      "diversityError": "Veuillez en ajouter au moins un {list, list(style: short; type: disjunction;)}.",
+      "diversityLowercase": "lettre minuscule",
+      "diversityNumber": "nombre",
+      "diversitySymbol": "symbole",
+      "diversityUppercase": "lettre majuscule",
+      "helperText": "Le mot de passe doit comporter au moins 8 caractères et contenir des chiffres, des lettres majuscules ou des symboles.",
+      "minError": "Le mot de passe doit comporter au moins 8 caractères"
+    }
+  },
+  "Sidebar": {
+    "mainPage": "Page Principale",
+    "moviesPage": "Page Films",
+    "aboutPage": "Page À propos de moi"
+  },
+  "Navbar": {
+    "welcome": "Bonjour et bienvenue {username}",
+    "signup": "S'inscrire",
+    "signIn": "Se connecter",
+    "signOut": "se déconnecter"
+  },
+  "Home": {
+    "title": "Page d'accueil"
+  },
+  "ContactMe": {
+    "title": "Me contacter"
+  },
+  "Hero": {
+    "words": [
+      "Bonjour, je m'appelle Hamza Missaoui",
+      "Je suis ingénieur logiciel et développeur Web qui aime",
+      "J'aime programmer et concevoir des applications Web élégantes",
+      "J'ai des connaissances avancées en TypeScript, React, Next et Node.",
+      "Connaissance des bibliothèques / frameworks tels que React, Next Js, Django et Spring Boot",
+      "Connaissance des services cloud AWS et de la conteneurisation Docker"
+    ],
+    "title": "Ingénieur logiciel et développeur web fullstack",
+    "description": "Je suis un développeur hautement qualifié et compétent en TypeScript, React et Next Js et bien d'autres technologies.",
+    "routes": {
+      "aboutMe": "A propos moi",
+      "skills": "Compétences",
+      "projects": "Projets",
+      "experience": "Expérience",
+      "contactMe": "Contactez-moi"
+    }
+  },
+  "AboutMe": {
+    "title": "A propos moi",
+    "intro": "Voici un petit aperçu de moi",
+    "details": "Je suis un développeur Web Full-Stack dévoué et expérimenté avec une forte maîtrise des frameworks TypeScrip, React Js et node js (Koa, express) ainsi que de diverses technologies et bibliothèques modernes en plus des connaissances de base que j'ai dans d'autres langages : Python, C#. ",
+    "skills": {
+      "technicalProficiency": "Compétence technique : Maîtrise d'un large éventail de langages et de technologies de programmation tels que Java, Python, JavaScript, React, Node.js et SQL, avec une forte capacité à apprendre et à s'adapter à de nouveaux outils.",
+      "problemSolving": "Compétences en résolution de problèmes : expert en dépannage et en résolution de problèmes techniques, en optimisation des performances du code et en mise en œuvre de solutions innovantes pour améliorer l'efficacité du système et l'expérience utilisateur.",
+      "projectManagement": "Gestion de projet : Capacité démontrée à diriger et à collaborer sur des projets complexes, en utilisant des méthodologies Agile pour garantir une livraison dans les délais et des résultats de haute qualité."
+    }
+  },
+  "Education": {},
+  "Skills": {},
+  "Projects": {
+    "personal": {
+      "1": {
+        "title": "Travailler sur une application web destinée pour organizer des voyages et réserver un hôtel à la destination d'utilisateur dans différents pays du monde avec le bon stratégie pour lui ( par meilleur prix ou service de luxe..)",
+        "skills": [
+          "React",
+          "Django"
+        ],
+        "live": "https://",
+        "code": "github.com/"
+      },
+      "2": {
+        "title": "concept et implémentation d'une application clone de sites Web Amazon",
+        "live": "https://clone-127fa.web.app/"
+      },
+      "3": {
+        "title": "Créer une application web clone de calendrier de Google",
+        "live": "https://calendar.google.com/calendar/u/0/r?pli=1"
+      }
+    },
+    "professional": {
+      "b2bAliveLtd": {
+        "description": "Travailler sur l'application web progressive de société en publicité qui aide l'utilisateur à gérer les médias supportés tel que images vidéos et zone de text et faires leur propre présentations et faire une arborescense des dossiers et des fichiers",
+        "skills": [
+          "React",
+          "GraphQl",
+          "AWS / AWS-Lambda"
+        ]
+      },
+      "globalnet3S": {
+        "description": "Travailler sur une application mobile considérée comme un uber clone avec React Native"
+      }
+    }
+  }
+}
