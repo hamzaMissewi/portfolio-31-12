@@ -26,11 +26,17 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
-
+.env.local
+.env
+/src/*.js
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/src/components/templates/
+/src/js*
+
+.vercel
+*.txt
