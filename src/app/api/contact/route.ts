@@ -1,4 +1,4 @@
-import { generateEmailContent, transporter } from "@/config/nodemailer";
+import { generateEmailContent, transporter } from "@/lib/nodemailer";
 // import { NextResponse,NextRequest } from "next/server";
 import { NextApiRequest, NextApiResponse } from "next";
 

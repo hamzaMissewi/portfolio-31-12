@@ -16,7 +16,7 @@ import { SendMailOutput, useSendmailHook } from "@/hooks/useSendMail";
 import { useEnqueueSnackbar } from "@/components/common/Alerter";
 import { Snackbar, SnackbarCloseReason } from "@mui/base";
 import { useTranslations } from "next-intl";
-import { MailFieldsType } from "@/config/nodemailer";
+import { MailFieldsType } from "@/lib/nodemailer";
 
 
 
