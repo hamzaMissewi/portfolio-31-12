@@ -20,7 +20,9 @@ const Gallery = ({ id, media_type }: IGallery) => {
   const items = credits.map(
     (c: { profile_path?: string; name?: string }, index) => (
       <div className="carouselItem" key={index}>
-        <img
+        <Image
+          width={100}
+          height={100}
           src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
           alt={c?.name}
           onDragStart={handleDragStart}

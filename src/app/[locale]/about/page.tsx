@@ -1,9 +1,14 @@
-"use client";
+// "use client";
 import { Stack } from "@mui/material";
 import About from "@/components/About";
 import Experience from "@/components/Projects";
 
-function Page() {
+// export const metadata = {
+//   title: "About Me",
+//   description: "Learn more about me",
+// };
+
+export default function AboutPage() {
   return (
     <Stack spacing={2} className={"items-center"}>
       About me page
@@ -14,5 +19,3 @@ function Page() {
     </Stack>
   );
 }
-
-export default Page;

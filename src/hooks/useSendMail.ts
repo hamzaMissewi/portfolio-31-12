@@ -1,13 +1,12 @@
 "use client";
 import { ContactRoutePayload } from "@/app/api/contact/route";
 import { MailFieldsType } from "@/lib/nodemailer";
-import { useCallback } from "react";
 
 export type SendMailOutput = ContactRoutePayload & {
   error: Record<string, string | undefined> | null;
 } & { formatData?: MailFieldsType };
 
-export const useSendmailHook = useCallback(() => {
+export const useSendmailHook = () => {
   const sendMail = async (
     formatData: MailFieldsType,
   ): Promise<SendMailOutput> => {
@@ -37,18 +36,13 @@ export const useSendmailHook = useCallback(() => {
       };
 
       // const response = await sendContactForm(formatData);
-      // return response;
     } catch (error: any) {
       console.log("email error message ", error.message);
-      // enqueueSnackbar(error?.message, {
-      //   autoHideDuration: 6000,
-      //   variant: "error",
-      // });
       return { success: false, error: error };
     }
   };
   return { sendMail };
-}, []);
+};
 
 // email error message  Unexpected token '<', "<!DOCTYPE "... is not valid JSON
 

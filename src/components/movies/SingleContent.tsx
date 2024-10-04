@@ -34,7 +34,9 @@
 //         badgeContent={vote_average}
 //         color={vote_average > 6 ? "primary" : "secondary"}
 //       />
-//       <img
+//               <Image
+//           width={100}
+//           height={100}
 //         className="poster"
 //         src={poster ? `${img_300}${poster}` : unavailable}
 //         alt={title}

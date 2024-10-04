@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { SendMailOutput, useSendmailHook } from "@/hooks/useSendMail";
+import { SendMailOutput } from "@/hooks/useSendMail";
 import { useEnqueueSnackbar } from "@/components/common/Alerter";
 import { Snackbar, SnackbarCloseReason } from "@mui/base";
 import { useTranslations } from "next-intl";
@@ -41,7 +41,7 @@ function ContactMe() {
     defaultValues: initContact,
   });
 
-  const { sendMail } = useSendmailHook();
+  // const { sendMail } = useSendmailHook();
 
   const [sendEmailResponse, setSendEmailResponse] = useState<SendMailOutput>({
     success: false,
@@ -74,9 +74,40 @@ function ContactMe() {
   const handleContactMeSubmit: SubmitHandler<MailFieldsType> = useCallback(
     async (formatData) => {
       setEmailSending(true);
-      const { response, success, error } = await sendMail(formatData);
+      // const { response, success, error } = await sendMail(formatData);
 
-      if (error) {
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          body: JSON.stringify(formatData),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            // Authorization: `Bearer ${process.env.MAIL_PASSWORD}`,
+          },
+        });
+        const data = await response.json();
+
+        console.log("nodemailer data ", JSON.stringify(data));
+        // return {
+        //   formatData: formatData,
+        //   error: null,
+        //   response: data.response,
+        //   success: data.success,
+        // };
+
+        if (data.response && response.ok) {
+          showEnqueueSnackbar(
+            `Send email successfully, response ${data.response}, details: email: ${formatData.email}, message: ${formatData.message}, name: ${formatData.name}, subject: ${formatData.subject}`,
+            {
+              autoHideDuration: 6000,
+              variant: "success",
+              anchorOrigin: { horizontal: "center", vertical: "top" },
+            },
+          );
+          setSendEmailResponse({ success: true, response, error: null });
+        }
+      } catch (error) {
         showEnqueueSnackbar(
           `Error while sending email,${response},error: ${error?.message}`,
           {
@@ -85,16 +116,6 @@ function ContactMe() {
           },
         );
         setSendEmailResponse({ success: false, response, error: error });
-      } else if (success && response) {
-        showEnqueueSnackbar(
-          `Send email successfully, response ${response}, details: email: ${formatData.email}, message: ${formatData.message}, name: ${formatData.name}, subject: ${formatData.subject}`,
-          {
-            autoHideDuration: 6000,
-            variant: "success",
-            anchorOrigin: { horizontal: "center", vertical: "top" },
-          },
-        );
-        setSendEmailResponse({ success: true, response, error: null });
       }
 
       setEmailSending(false);

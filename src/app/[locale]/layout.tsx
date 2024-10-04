@@ -7,11 +7,9 @@ import Sidebar from "@/components/Sidebar";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/app/layout";
 import { ClerkProvider } from "@clerk/nextjs";
-import { lightTheme, darkTheme, colorTheme } from "@/styles/theme";
-import { Html, Head } from "next/document";
+import { Head, Html } from "next/document";
 import "@/styles/globals.css";
-// import Head from "next/head";
-// import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+
 
 export enum Language {
   FR = "fr",

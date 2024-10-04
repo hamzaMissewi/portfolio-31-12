@@ -107,7 +107,9 @@ export default function ContentModal({
               // <div className={classes.paper}>
               <StyledPaper>
                 <div className="ContentModal">
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src={
                       content.poster_path
                         ? `${img_500}/${content.poster_path}`
@@ -116,7 +118,9 @@ export default function ContentModal({
                     alt={content.name || content.title}
                     className="ContentModal__portrait"
                   />
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     src={
                       content.backdrop_path
                         ? `${img_500}/${content.backdrop_path}`

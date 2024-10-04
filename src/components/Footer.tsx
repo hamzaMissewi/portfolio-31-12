@@ -65,7 +65,9 @@ const Footer = () => {
       </div>
 
       <div className="footer-content">
-        <img
+        <Image
+          width={100}
+          height={100}
           className="w-12 h-12 rounded-full filter grayscale hover:grayscale-0"
           src={
             "https://res.cloudinary.com/hamzaostouri/image/upload/v1663664915/avatar_photos/ra3cbssf64n3ihc2fw0o.png"
