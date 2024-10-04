@@ -1,6 +1,6 @@
 import { getDiscoverMovies } from "@/lib/getMovies";
-import MoviesCarousel from "@/components/movies/sonny/MoviesCarousel";
-import AIAzureSuggestion from "@/components/movies/sonny/OpenAIAzureSuggestion";
+import MoviesCarousel from "../../../../../components/movies/sonny/MoviesCarousel";
+import AIAzureSuggestion from "../../../../../components/movies/sonny/OpenAIAzureSuggestion";
 
 async function GenrePage({
   params: { id },
