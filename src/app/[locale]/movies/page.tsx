@@ -11,6 +11,9 @@
 // import Banner from "@/components/movies/sonny/Banner";
 // // export type ContentType = Movie & TV
 //
+export default function MoviesPage() {
+  return <div>Movies page TODO</div>;
+}
 // export default function Movies() {
 //   const [searchTerm, setSearchTerm] = useState<string>("");
 //   const [moviesRes, setMoviesRes] = useState<Movie[]>([]);
