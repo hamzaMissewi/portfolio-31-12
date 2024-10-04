@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-type AboutProps = {};
+// type AboutProps = {};
 
 function About() {
   const t = useTranslations("AboutMe");

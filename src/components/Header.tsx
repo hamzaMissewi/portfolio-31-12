@@ -95,8 +95,7 @@ const Header: React.FC = () => {
         <ThemeToggler />
       </div>
 
-      {/*<div*/}
-      {/*    className={"fixed top-0 w-full items-start justify-between mx-auto z-20 p-5 flex xl:items-center"}>*/}
+      {/*<div className={"fixed top-0 w-full items-start justify-between mx-auto z-20 p-5 flex xl:items-center"}>*/}
 
       <motion.div
         initial={{ opacity: 0, x: -500, scale: 0.5 }}

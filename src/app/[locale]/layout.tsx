@@ -6,10 +6,10 @@ import { getMessages } from "next-intl/server";
 import Sidebar from "@/components/Sidebar";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import Document, { Html } from "next/document";
-import Head from "next/head";
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+
+// import Head from "next/head";
 
 function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
@@ -44,11 +44,11 @@ async function Layout({
       suppressHydrationWarning
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
-      <Head>
+      <head>
         {/* Global meta tags or links can go here */}
         <title>Hamza Missaoui's Portfolio</title>
         <link rel="icon" href="/assets/b2b-alive-ltd-icon.svg" />
-      </Head>
+      </head>
 
       {/*<Head>*/}
       {/*  /!*<meta name="description" content="Global description for the site." />*!/*/}

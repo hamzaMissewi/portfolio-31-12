@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import { Stack } from "@mui/material";
 import About from "@/components/About";
 import Experience from "@/components/Projects";
