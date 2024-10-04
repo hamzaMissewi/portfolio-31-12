@@ -1,4 +1,3 @@
-import "@/styles/globals.css";
 import React from "react";
 import Header from "@/components/Header";
 import localFont from "next/font/local";
@@ -9,9 +8,10 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/app/layout";
 import { ClerkProvider } from "@clerk/nextjs";
 import { lightTheme, darkTheme, colorTheme } from "@/styles/theme";
+import { Html, Head } from "next/document";
+import "@/styles/globals.css";
 // import Head from "next/head";
 // import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-
 
 export enum Language {
   FR = "fr",
@@ -39,18 +39,27 @@ async function RootLayout({
   const clerkFrontendApi = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
   return (
-    <html
+    <Html
       lang={locale}
       suppressHydrationWarning
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
-      <head>
+      <Head>
         {/*<meta name="description" content="Global description for the site." />*/}
-        {/*<link href="/assets/b2b-alive-ltd-icon.svg" color="#5bbad5" />*/}
         <title className={"text-gray-800 accent-gray-300 mb-5"}>
           Hamza Missaoui's Portfolio
         </title>
-      </head>
+
+        <meta name="description" content="Welcome to the Home Page" />
+        <meta property="og:title" content="Home Page" />
+        <meta property="og:description" content="Welcome to the Home Page" />
+        <meta
+          property="og:image"
+          content="/assets/b2b-alive-ltd-icon.svg"
+          color="#5bbad5"
+        />
+        {/*<link  href="/path/to/image.jpg" />*/}
+      </Head>
 
       <body
         suppressHydrationWarning={true}
@@ -76,7 +85,7 @@ async function RootLayout({
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
-    </html>
+    </Html>
   );
 }
 
