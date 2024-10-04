@@ -65,21 +65,27 @@ const ExperienceCard = ({
 
         <ul className={"list-disc space-y-4 ml-5 text-lg"}>
           <li>
-            Proven Expertise: "Experienced software developer with 2 years in
-            web developing,including cloud-based solutions."
+            <span>
+              Proven Expertise: Experienced software developer with 2 years in
+              web developing,including cloud-based solutions.
+            </span>
           </li>
           <li>
-            Innovation and Efficiency: "Implemented automated testing frameworks
-            and CI/CD pipelines that reduced deployment time by 40% and
-            increased code quality."
+            <span>
+              Innovation and Efficiency: Implemented automated testing
+              frameworks and CI/CD pipelines that reduced deployment time by 40%
+              and increased code quality.
+            </span>
           </li>
           <li>
-            Leadership and Mentoring: "Experienced in mentoring junior
-            developers and leading technical teams, fostering a collaborative
-            environment that encourages innovation and professional growth."
+            <span>
+              Leadership and Mentoring: Experienced in mentoring junior
+              developers and leading technical teams, fostering a collaborative
+              environment that encourages innovation and professional growth.
+            </span>
           </li>
-          <li>Workflow</li>
-          <li>Communications</li>
+          {/*<li>Workflow</li>*/}
+          {/*<li>Communications</li>*/}
         </ul>
       </div>
     </article>

@@ -20,13 +20,13 @@ export const useSendmailHook = () => {
           // Authorization: `Bearer ${process.env.MAIL_PASSWORD}`,
         },
       });
-      const data = await response.json();
-      // if (!data.success) {
+      // if (!response.ok) {
       //   return {
       //     success: false,
       //     error: { message: "Failed to send email, not OK" },
       //   };
       // }
+      const data = await response.json();
       console.log("nodemailer data ", JSON.stringify(data));
       return {
         formatData: formatData,
