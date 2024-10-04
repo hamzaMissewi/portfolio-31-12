@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 type ExperienceCardType = {
   image?: string;
@@ -50,10 +51,10 @@ const ExperienceCard = ({
           {/*    TECH USED*/}
           {images &&
             images.map((image, i) => (
-              <img
-                //        width={100}
-                //        height={100}
+              <Image
                 key={i}
+                width={100}
+                height={100}
                 className={"h-12 w-12 rounded-full object-fill bg-white"}
                 alt={image.name}
                 src={image.url}

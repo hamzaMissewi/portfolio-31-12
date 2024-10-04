@@ -169,9 +169,8 @@ function Experience() {
           { length: projectUrls.professional.length - 1 },
           (_, index) => index,
         ).map((index) => {
-          // const url = t(`professionalProjects.projects.${index}`);
           return (
-            <div>
+            <div key={index}>
               <h3 className={"text-lg text-center md:text-left"}>
                 {t(`professionalProjects.projects.${index}.society`)}
               </h3>

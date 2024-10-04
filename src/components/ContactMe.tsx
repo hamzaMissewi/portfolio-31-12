@@ -40,6 +40,9 @@ function ContactMe() {
   } = useForm<MailFieldsType>({
     defaultValues: initContact,
   });
+
+  const { sendMail } = useSendmailHook();
+
   const [sendEmailResponse, setSendEmailResponse] = useState<SendMailOutput>({
     success: false,
     response: "",
@@ -71,7 +74,7 @@ function ContactMe() {
   const handleContactMeSubmit: SubmitHandler<MailFieldsType> = useCallback(
     async (formatData) => {
       setEmailSending(true);
-      const { response, success, error } = await useSendmailHook(formatData);
+      const { response, success, error } = await sendMail(formatData);
 
       if (error) {
         showEnqueueSnackbar(
@@ -96,7 +99,7 @@ function ContactMe() {
 
       setEmailSending(false);
     },
-    [],
+    [showEnqueueSnackbar],
   );
 
   return (

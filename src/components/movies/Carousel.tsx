@@ -17,17 +17,19 @@ interface IGallery {
 const Gallery = ({ id, media_type }: IGallery) => {
   const [credits, setCredits] = useState([]);
 
-  const items = credits.map((c: { profile_path?: string; name?: string }) => (
-    <div className="carouselItem">
-      <img
-        src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
-        alt={c?.name}
-        onDragStart={handleDragStart}
-        className="carouselItem__img"
-      />
-      <b className="carouselItem__txt">{c?.name}</b>
-    </div>
-  ));
+  const items = credits.map(
+    (c: { profile_path?: string; name?: string }, index) => (
+      <div className="carouselItem" key={index}>
+        <img
+          src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
+          alt={c?.name}
+          onDragStart={handleDragStart}
+          className="carouselItem__img"
+        />
+        <b className="carouselItem__txt">{c?.name}</b>
+      </div>
+    ),
+  );
 
   const responsive = {
     0: {

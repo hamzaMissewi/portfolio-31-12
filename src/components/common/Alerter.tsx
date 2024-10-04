@@ -35,7 +35,7 @@ export function useAlerter(
         onClose: handleClose,
       },
     };
-  }, [message, severity, open]);
+  }, [message, severity, open, handleClose, openAlerter]);
 }
 
 interface IAlertProps {
@@ -65,43 +65,39 @@ export function useEnqueueSnackbar() {
   //   // setSnackbarKey(undefined);
   // };
 
-  const showSnackbar = useCallback(
-    (message: SnackbarMessage, options: OptionsWithExtraProps<BaseVariant>) => {
-      const { variant, autoHideDuration, style, anchorOrigin, ...props } =
-        options;
+  const showSnackbar = (
+    message: SnackbarMessage,
+    options: OptionsWithExtraProps<BaseVariant>,
+  ) => {
+    const { variant, autoHideDuration, style, anchorOrigin, ...props } =
+      options;
 
-      enqueueSnackbar(message, {
-        ...props,
-        preventDuplicate: true,
-        persist: props.persist && !autoHideDuration, // || false,
-        anchorOrigin: anchorOrigin ?? { vertical: "top", horizontal: "center" },
-        autoHideDuration: autoHideDuration ?? 5000,
-        variant: variant,
-        style: style ?? {
-          position: "relative",
-          display: "flex",
-          flexDirection: "row",
-          backgroundColor: "#befff3",
-          textAlign: "center",
-          color: "black",
-        },
-        action: (key) => (
-          <IconButton
-            onClick={() => closeSnackbar(key)}
-            sx={{ position: "absolute", top: 0, right: 0 }}
-          >
-            {/*<CloseIcon fontSize={"small"} color={"action"} />*/}
-            <AppIcon
-              fontSize={"small"}
-              color={"action"}
-              type={IconType.CANCEL}
-            />
-          </IconButton>
-        ),
-      });
-    },
-    [],
-  );
+    enqueueSnackbar(message, {
+      ...props,
+      preventDuplicate: true,
+      persist: props.persist && !autoHideDuration, // || false,
+      anchorOrigin: anchorOrigin ?? { vertical: "top", horizontal: "center" },
+      autoHideDuration: autoHideDuration ?? 5000,
+      variant: variant,
+      style: style ?? {
+        position: "relative",
+        display: "flex",
+        flexDirection: "row",
+        backgroundColor: "#befff3",
+        textAlign: "center",
+        color: "black",
+      },
+      action: (key) => (
+        <IconButton
+          onClick={() => closeSnackbar(key)}
+          sx={{ position: "absolute", top: 0, right: 0 }}
+        >
+          {/*<CloseIcon fontSize={"small"} color={"action"} />*/}
+          <AppIcon fontSize={"small"} color={"action"} type={IconType.CANCEL} />
+        </IconButton>
+      ),
+    });
+  };
 
   return { showEnqueueSnackbar: showSnackbar };
 }
