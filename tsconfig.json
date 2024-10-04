@@ -27,15 +27,14 @@
     "paths": {
       // This helps TypeScript resolve module paths without extensions
       "@/app/*": [
-        "./src/app/*"
+        "src/app/*"
       ],
       "@/components/*": [
-        "./src/components/*"
+        "src/components/*"
       ],
       "@/*": [
-        "./src/*"
+        "src/*"
       ]
-
       //      "@/lib/*": [
       //        "./src/lib/*"
       //      ],
@@ -54,7 +53,8 @@
     "**/*.ts",
     "**/*.tsx"
     //    ".next/types/**/*.ts",
-    //    "build/types/**/*.ts"
+    //    "build/types/**/*.ts",
+    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
