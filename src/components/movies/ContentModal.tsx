@@ -26,17 +26,18 @@ const StyledPaper = styled(Box)((theme: any) => {
   };
 });
 
-interface ITransitionsModal {
+interface IContentModal {
   id: number;
   media_type: string;
   children: React.ReactNode;
 }
 
-export default function TransitionsModal({
+// TransitionsModal
+export default function ContentModal({
   children,
   media_type,
   id,
-}: ITransitionsModal) {
+}: IContentModal) {
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState<{
     poster_path?: string;
@@ -77,7 +78,6 @@ export default function TransitionsModal({
   useEffect(() => {
     fetchData();
     fetchVideo();
-    // eslint-disable-next-line
   }, []);
 
   return (

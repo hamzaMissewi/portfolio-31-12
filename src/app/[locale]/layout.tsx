@@ -22,7 +22,7 @@ export enum Language {
   AR = "ar",
 }
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "Portfolio Next Hamza",
   description: "Resume about me as web developer react - next - typescript",
 };
@@ -55,7 +55,6 @@ async function RootLayout({
       <Head>
         <meta name="description" content="Global description for the site." />
         <link href="/assets/b2b-alive-ltd-icon.svg" color="#5bbad5" />
-        {/*<meta name="description" content={.description} />*/}
         <title className={"text-gray-800 accent-gray-300 mb-5"}>
           Hamza Missaoui's Portfolio
         </title>

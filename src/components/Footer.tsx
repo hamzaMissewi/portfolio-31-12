@@ -24,11 +24,11 @@ const Footer = () => {
         <p>
           <b>Whatsapp: </b>(+216) 56521184
         </p>
-        {t("address")}
+        <p>{t("address")}</p>
+
         <p>
-          <b>{t("email")}: </b>hamza.missaoui@b2b-alive.com |
-          hamza.missaoui47@gmail.com
-          {/*<b>{t("email")}: </b>hamzashadow47@gmail.com*/}
+          <b>{t("email")} </b>
+          hamza.missaoui@b2b-alive.com - hamza.missaoui47@gmail.com
         </p>
 
         <Stack>

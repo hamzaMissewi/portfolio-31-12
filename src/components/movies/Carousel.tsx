@@ -58,7 +58,6 @@ const Gallery = ({ id, media_type }: IGallery) => {
     <AliceCarousel
       mouseTracking
       infinite
-      // disableSlideInfo
       disableDotsControls
       disableButtonsControls
       responsive={responsive}

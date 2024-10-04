@@ -114,6 +114,7 @@ export default function Movies() {
           moviesRes.map((movie) => (
             // <Stack key={movie.id}>
             <MovieCard key={movie.id} movie={movie} />
+            // </Stack>
           ))}
       </div>
       {/*<SingleContent*/}

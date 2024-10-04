@@ -1,5 +1,6 @@
 // "use client";
 import { SearchResults } from "../../tmdbTypings";
+import axios from "axios";
 
 export const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
@@ -163,3 +164,13 @@ export async function fetchMoviesRouteByPage(page?: number) {
     throw error;
   }
 }
+
+export const BASE_URL = "https://api.themoviedb.org/3";
+
+export const movieDbInstance = axios.create({
+  baseURL: BASE_URL,
+  params: {
+    api_key: TMDB_API_KEY, //process.env.REACT_APP_API_KEY,
+    language: "en-US",
+  },
+});
