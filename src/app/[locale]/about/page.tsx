@@ -1,7 +1,7 @@
 "use client";
 import { Stack } from "@mui/material";
-import About from "@/components/About";
-import Experience from "@/components/Projects";
+import About from "@/components/About.js";
+import Experience from "@/components/Projects.js";
 
 // export const metadata = {
 //   title: "About Me",

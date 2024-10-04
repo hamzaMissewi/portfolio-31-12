@@ -23,16 +23,18 @@
     ],
     //    MODIFIED
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       // This helps TypeScript resolve module paths without extensions
       "@/*": [
         "./src/*"
       ]
-      //      "*": [
-      //        "*"
-      //      ]
     }
+    //CHAT GPT
+    //    "baseUrl": ".",
+    //    "paths": {
+    //      "@/*": ["src/*"]
+    //    }
   },
   "include": [
     "next-env.d.ts",

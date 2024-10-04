@@ -1,15 +1,15 @@
 // import React from "react";
 import "../globals.css";
-import Header from "@/components/Header";
 import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import Sidebar from "@/components/Sidebar";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import Footer from "@/components/Footer";
+import Header from "@/components/Header.js";
+import Sidebar from "@/components/Sidebar.js";
+import Footer from "@/components/Footer.js";
 // import Head from "next/head";
 
 function ThemeProvider({ children, ...props }: ThemeProviderProps) {
