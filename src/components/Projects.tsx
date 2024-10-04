@@ -100,44 +100,44 @@ function Experience() {
         {Array.from(
           { length: projectUrls.personal.length - 1 },
           (_, index) => index,
-        ).map((i) => (
+        ).map((index) => (
           <div
-            key={i}
+            key={index}
             className={
               "relative h-fit flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20" +
               " md:p-44"
             }
           >
             <p className={"text-lg text-center md:text-left"}>
-              {t(`personalProjects.projects.${i}.description`)}
+              {t(`personalProjects.projects.${index}.description`)}
             </p>
 
             <div className="relative">
-              {projectUrls.personal[i] && (
+              {projectUrls.personal[index] && (
                 <motion.img
                   initial={{ y: -300, opacity: 0 }}
                   transition={{ duration: 1.2 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  src={projectUrls.personal[i].thumbnail}
+                  src={projectUrls.personal[index].thumbnail}
                   alt={"project name"}
                   className="rounded-md w-[100%] md:h-[550px] sm:w-10 sm:h-10 items-center object-center p-2"
                 />
               )}
 
               <div className={"right-0 top-0 z-15"}>
-                {projectUrls.personal[i]?.live && (
+                {projectUrls.personal[index]?.live && (
                   <Link
-                    href={projectUrls.personal[i].live}
+                    href={projectUrls.personal[index].live}
                     rel={
-                      projectUrls.personal[i]
+                      projectUrls.personal[index]
                         ? "noopener noreferrer"
                         : undefined
                     }
-                    target={projectUrls.personal[i] ? "_blank" : undefined}
+                    target={projectUrls.personal[index] ? "_blank" : undefined}
                   >
                     <TabIcon fontSize={"small"} color={"error"} />
-                    <p>Live {projectUrls.personal[i].thumbnail}</p>
+                    <p>Live {projectUrls.personal[index].thumbnail}</p>
                   </Link>
                 )}
                 {/*TODO*/}
@@ -148,7 +148,7 @@ function Experience() {
             <div className={"space-y-10 px-0 md:px-10"}>
               <h4 className={"text-4xl font-semibold text-center"}>
                 <span className={"underline decoration-[#F7AB0A]/50"}>
-                  Case Study {i + 1} of {projectUrls.personal.length}
+                  Case Study {index + 1} of {projectUrls.personal.length}
                 </span>
               </h4>
             </div>

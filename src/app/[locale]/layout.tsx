@@ -59,7 +59,6 @@ async function RootLayout({
       {/*  />*/}
       {/*  /!*<link  href="/path/to/image.jpg" />*!/*/}
       {/*</Head>*/}
-      <Header />
 
       <body
         suppressHydrationWarning={true}
@@ -74,7 +73,8 @@ async function RootLayout({
         >
           <NextIntlClientProvider messages={messages}>
             <ClerkProvider publishableKey={clerkFrontendApi}>
-              <div className="flex flex-col min-h-screen overflow-x-hidden mx-auto">
+              <div className="flex flex-col w-full h-full min-h-screen overflow-x-hidden mx-auto">
+                <Header />
                 <div className={"container flex flex-grow spacing-2 w-full"}>
                   <Sidebar />
                   <div className={"w-full flex-grow"}>{children}</div>
