@@ -3,18 +3,14 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {
-      overrideBrowserslist: ["> 1%", "last 2 versions", "Firefox ESR"],
-      cascade: false,
+      // overrideBrowserslist: ["> 1%", "last 2 versions", "Firefox ESR"],
+      // cascade: false,
     },
   },
   // plugins: [
   //     'tailwindcss',
   //     // 'autoprefixer',
-  //     require('autoprefixer')({
-  //         // Configure Autoprefixer options here
-  //         overrideBrowserslist: ['> 1%', 'last 2 versions', 'Firefox ESR'],
-  //         cascade: false, // Optional: Prevent cascading
-  //     }),
+  //     require('autoprefixer')({ }),
   //     // 'postcss-plugin'
   // ],
 };

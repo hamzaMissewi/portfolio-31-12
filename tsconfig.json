@@ -21,10 +21,17 @@
         "name": "next"
       }
     ],
+    //    MODIFIED
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
+      // This helps TypeScript resolve module paths without extensions
+      "*": [
+        "*"
       ]
+      //      "@/*": [
+      //        "./src/*"
+      //      ]
     }
   },
   "include": [
