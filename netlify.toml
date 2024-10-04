@@ -2,8 +2,8 @@
 command = "npm run build"
 publish = "build"
 
-[dev]
-command = "npm run dev"  # Optional: for local development
+#[dev]
+#command = "npm run dev"  # Optional: for local development
 
 [context.production.environment]
 NODE_ENV = "production"
