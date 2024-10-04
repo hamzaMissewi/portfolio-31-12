@@ -2,7 +2,6 @@
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 
-// import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 
 // export const metadata: Metadata = {
 //   title: "Portfolio Next Hamza",
@@ -20,8 +19,8 @@ export default function RootLayout({
 }>) {
   // const clerkFrontendApi = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
-  return children;
+  return <html>{children}</html>;
   // return (
-  //   <ClerkProvider publishableKey={clerkFrontendApi}>{children}</ClerkProvider>
+  // <ClerkProvider publishableKey={clerkFrontendApi}>{children}</ClerkProvider>
   // );
 }

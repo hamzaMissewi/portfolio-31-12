@@ -25,9 +25,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: {
-    locale: string;
-  };
+  params: { locale: string };
 }
 
 async function RootLayout({
@@ -38,17 +36,19 @@ async function RootLayout({
   const clerkFrontendApi = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
   return (
-    <html
+    <Html
       lang={locale}
       suppressHydrationWarning
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
+      <Head>
+        {/* Global meta tags or links can go here */}
+        <title>Hamza Missaoui's Portfolio</title>
+        <link rel="icon" href="/assets/b2b-alive-ltd-icon.svg" />
+      </Head>
+
       {/*<Head>*/}
       {/*  /!*<meta name="description" content="Global description for the site." />*!/*/}
-      {/*  <title className={"text-gray-800 accent-gray-300 mb-5"}>*/}
-      {/*    Hamza Missaoui's Portfolio*/}
-      {/*  </title>*/}
-
       {/*  <meta name="description" content="Welcome to the Home Page" />*/}
       {/*  <meta property="og:title" content="Home Page" />*/}
       {/*  <meta property="og:description" content="Welcome to the Home Page" />*/}
@@ -61,8 +61,8 @@ async function RootLayout({
       {/*</Head>*/}
 
       <body
-        suppressHydrationWarning={true}
         className={locale === "ar" ? arFont.className : inter.className}
+        suppressHydrationWarning={true}
       >
         <ThemeProvider
           themes={["dark", "light", "system"]}
@@ -84,7 +84,7 @@ async function RootLayout({
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
-    </html>
+    </Html>
   );
 }
 
