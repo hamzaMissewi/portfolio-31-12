@@ -12,29 +12,30 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "moduleResolution": "NodeNext",
-    //"bundler",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    //    "plugins": [
-    //      {"name": "next"}
-    //    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     //    MODIFIED
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       // This helps TypeScript resolve module paths without extensions
-      "@/app/*": [
-        "src/app/*"
-      ],
-      "@/components/*": [
-        "src/components/*"
-      ],
-      "@/*": [
-        "src/*"
-      ]
+      //      "@/app/*": [
+      //        "src/app/*"
+      //      ],
+      //      "@/components/*": [
+      //        "src/components/*"
+      //      ],
+      //      "@/*": [
+      //        "src/*"
+      //      ]
       //      "@/lib/*": [
       //        "./src/lib/*"
       //      ],

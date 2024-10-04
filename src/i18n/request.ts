@@ -1,5 +1,5 @@
 import { getRequestConfig } from "next-intl/server";
-import { locales } from "@/lib/intl";
+import { locales } from "../lib/intl";
 import { notFound } from "next/navigation";
 
 export default getRequestConfig(async ({ locale }) => {

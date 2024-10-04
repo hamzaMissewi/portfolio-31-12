@@ -1,12 +1,12 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import WorkExperience from "@/components/Experience";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Projects";
-import ContactMe from "@/components/ContactMe";
+import Hero from "../../components/Hero";
+import About from "../../components/About";
+import WorkExperience from "../../components/Experience";
+import Skills from "../../components/Skills";
+import Experience from "../../components/Projects";
+import ContactMe from "../../components/ContactMe";
 import { NextPage } from "next";
 import React from "react";
-import ChatBot from "@/components/ChatBot";
+import ChatBot from "../../components/ChatBot";
 import { useLocale } from "next-intl";
 
 const Home: NextPage = () => {

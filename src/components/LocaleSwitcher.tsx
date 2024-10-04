@@ -2,11 +2,11 @@
 import React, { ChangeEvent, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
-import { locales } from "@/lib/intl";
-import { Button } from "@/components/ui/button";
+import { locales } from "../lib/intl";
+import { Button } from "../components/ui/button";
 import UpdateLanguageDialog, {
   useUpdateLanguageDialog,
-} from "@/components/common/UpdateLanguage";
+} from "../components/common/UpdateLanguage";
 
 // const useLanguage = () => {
 //   const router = useCustomRouter();

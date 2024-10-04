@@ -1,7 +1,10 @@
 // "use client";
 // import AISuggestion from "@/components/AISuggestion";
 import MoviesCarousel from "../../../../../components/movies/sonny/MoviesCarousel";
-import { getPopularMovies, getSearchedMovies } from "@/lib/getMovies";
+import {
+  getPopularMovies,
+  getSearchedMovies,
+} from "../../../../../lib/getMovies";
 import { notFound } from "next/navigation";
 import { Typography } from "@mui/material";
 import CarouselBanner from "../../../../../components/movies/sonny/CarouselBanner";

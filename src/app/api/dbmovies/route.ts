@@ -1,4 +1,4 @@
-import { fetchFromTMDB, TMDB_API_KEY } from "@/lib/getMovies";
+import { fetchFromTMDB, TMDB_API_KEY } from "../../../lib/getMovies";
 import { NextRequest } from "next/server";
 import { NextApiResponse } from "next";
 

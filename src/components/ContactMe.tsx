@@ -12,11 +12,11 @@ import {
   Typography,
 } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { SendMailOutput } from "@/hooks/useSendMail";
-import { useEnqueueSnackbar } from "@/components/common/Alerter";
+import { SendMailOutput } from "../hooks/useSendMail";
+import { useEnqueueSnackbar } from "../components/common/Alerter";
 import { Snackbar, SnackbarCloseReason } from "@mui/base";
 import { useTranslations } from "next-intl";
-import { MailFieldsType } from "@/lib/nodemailer";
+import { MailFieldsType } from "../lib/nodemailer";
 
 
 
@@ -58,7 +58,7 @@ function ContactMe() {
     if (reason === "clickaway") {
       return;
     }
-    setSendEmailResponse((prevState) => {
+    setSendEmailResponse((prevState: SendMailOutput) => {
       return { ...prevState, error: null };
     });
   };

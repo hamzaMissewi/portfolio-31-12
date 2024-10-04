@@ -1,4 +1,3 @@
-// "use client";
 import { SearchResults } from "../../tmdbTypings";
 import axios from "axios";
 

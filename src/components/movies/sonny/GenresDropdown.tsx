@@ -5,7 +5,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "../../../components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { Genres } from "../../../../tmdbTypings";

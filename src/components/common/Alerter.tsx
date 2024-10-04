@@ -7,7 +7,7 @@ import {
   useSnackbar,
 } from "notistack";
 import IconButton from "@mui/material/IconButton";
-import { AppIcon, IconType } from "@/components/common/AppIcon";
+import { AppIcon, IconType } from "./AppIcon";
 
 // import CloseIcon from "@mui/icons-material/Close";
 

@@ -1,5 +1,5 @@
 import { enqueueSnackbar } from "notistack";
-import { ContactRoutePayload } from "@/app/api/contact/route";
+import { ContactRoutePayload } from "../app/api/contact/route";
 
 export const sendContactForm = async (data: {
   name: string;

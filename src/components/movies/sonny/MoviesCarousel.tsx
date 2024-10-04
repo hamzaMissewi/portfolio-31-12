@@ -1,7 +1,7 @@
 import { Movie } from "../../../../tmdbTypings";
 import MovieCard from "./MovieCard";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { cn } from "../../../lib/utils";
 
 type Props = { title: string; movies: Movie[]; isVertical?: boolean };
 

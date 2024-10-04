@@ -1,6 +1,6 @@
 // "use client";
 import {MenuItem, MenuList} from "@mui/material";
-import {Link} from "@/lib/intl";
+import { Link } from "../lib/intl";
 import {useTranslations} from "next-intl";
 
 function Sidebar() {

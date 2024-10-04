@@ -1,4 +1,4 @@
-import { getDiscoverMovies } from "@/lib/getMovies";
+import { getDiscoverMovies } from "../../../../../lib/getMovies";
 import MoviesCarousel from "../../../../../components/movies/sonny/MoviesCarousel";
 import AIAzureSuggestion from "../../../../../components/movies/sonny/OpenAIAzureSuggestion";
 

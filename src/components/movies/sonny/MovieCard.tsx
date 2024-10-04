@@ -1,6 +1,6 @@
-import getImagePath from "@/lib/getImagePath";
-import { Movie } from "../../../../tmdbTypings";
 import Image from "next/image";
+import { Movie } from "../../../../tmdbTypings";
+import getImagePath from "../../../lib/getImagePath";
 
 function MovieCard({ movie }: { movie: Movie }) {
   return (

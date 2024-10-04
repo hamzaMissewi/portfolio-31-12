@@ -1,8 +1,8 @@
 "use client";
-import BackgroundCircles from "@/components/BackgroundCircles";
+import BackgroundCircles from "../components/BackgroundCircles";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Link from "next/link";
-import CloudinaryImage from "@/components/cloudinary/CloudinaryImage";
+import CloudinaryImage from "../components/cloudinary/CloudinaryImage";
 import data from "../lib/images.json";
 import { useLocale, useTranslations } from "next-intl";
 

@@ -3,17 +3,17 @@ import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
-import { ThemeToggler } from "@/components/movies/sonny/ThemeToggler";
 import { useRouter } from "next/navigation";
 import { ButtonGroup, Stack } from "@mui/material";
 import Image from "next/image";
 import { SignedIn, SignedOut, SignOutButton, UserButton } from "@clerk/nextjs";
 
 import { useUser } from "@clerk/clerk-react";
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
 import NextTopLoader from "nextjs-toploader";
+import { ThemeToggler } from "./movies/sonny/ThemeToggler";
+import LocaleSwitcher from "./LocaleSwitcher";
+import { Button } from "./ui/button";
 // import SearchInput from "@/components/movies/sonny/SearchInput";
 
 // const b2bAliveLogo =

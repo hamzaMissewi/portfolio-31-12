@@ -8,7 +8,6 @@ import {
   ClickAwayListener,
   Divider,
   IconButton,
-  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -17,9 +16,9 @@ import { Snackbar } from "@mui/base";
 import ErrorIcon from "@mui/icons-material/Error";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { motion } from "framer-motion";
-import { useAskChatGptHook } from "@/hooks/useAskOpenAi4o";
 import { useSnackbar } from "notistack";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import { useAskChatGptHook } from "../hooks/useAskOpenAi4o";
 
 function ChatBot() {
   const { askChatGpt } = useAskChatGptHook();

@@ -17,10 +17,10 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { AppIcon, IconType } from "@/components/common/AppIcon";
+import { AppIcon, IconType } from "./AppIcon";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { useCallback, useState } from "react";
-import { Language } from "@/app/[locale]/layout";
+import { Language } from "../../app/[locale]/layout";
 
 export function useUpdateLanguageDialog() {
   const [open, setOpen] = useState(false);
