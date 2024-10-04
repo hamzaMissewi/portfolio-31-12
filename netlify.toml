@@ -2,5 +2,11 @@
 command = "npm run build"
 publish = ".next"
 
+[context.deploy-preview]
+publish = "build/"
+
 [build.environment]
 NODE_ENV = "production"
+
+[cache]
+paths = ["build/**/*", ".next/cache/**/*"]  # Specify the cache paths
