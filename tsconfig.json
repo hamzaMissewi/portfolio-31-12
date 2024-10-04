@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    //    "target": "es5",
-    //    "module": "esnext",
+    "target": "es5",
+    "module": "esnext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -17,12 +17,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
     //    MODIFIED
+    //    "plugins": [
+    //      {
+    //        "name": "next"
+    //      }
+    //    ],
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
@@ -42,16 +42,15 @@
       //      "@/hooks/*": [
       //        "./src/hooks/*"
       //      ]
-    },
-    "module": "esnext"
+    }
   },
   "include": [
     "next-env.d.ts",
     //    "src/**/*.tsx",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "build/types/**/*.ts"
+    ".next/types/**/*.ts"
+    //    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
