@@ -1,6 +1,6 @@
 "use client";
-import { MailFieldsType } from "@/components/ContactMe";
 import { ContactRoutePayload } from "@/app/api/contact/route";
+import { MailFieldsType } from "@/config/nodemailer";
 
 export type SendMailOutput = ContactRoutePayload & {
   error: Record<string, string | undefined> | null;

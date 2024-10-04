@@ -12,35 +12,13 @@ import {
   Typography,
 } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { createTheme } from "@mui/material/styles";
 import { SendMailOutput, useSendmailHook } from "@/hooks/useSendMail";
 import { useEnqueueSnackbar } from "@/components/common/Alerter";
 import { Snackbar, SnackbarCloseReason } from "@mui/base";
 import { useTranslations } from "next-intl";
+import { MailFieldsType } from "@/config/nodemailer";
 
-export type MailFieldsType = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: "#757ce8",
-      main: "#3f50b5",
-      dark: "#002884",
-      contrastText: "#fff",
-    },
-    secondary: {
-      light: "#ff7961",
-      main: "#f44336",
-      dark: "#ba000d",
-      contrastText: "#000",
-    },
-  },
-});
 
 const initContact = {
   // subject: "send me message", //"Pleasure doing business as web developer",
