@@ -1,7 +1,4 @@
 "use client";
-import { Stack } from "@mui/material";
-import About from "@/components/About.js";
-import Experience from "@/components/Projects.js";
 
 // export const metadata = {
 //   title: "About Me",
@@ -10,12 +7,13 @@ import Experience from "@/components/Projects.js";
 
 export default function AboutPage() {
   return (
-    <Stack spacing={2} className={"items-center"}>
-      About me page
-      <div className="flex h-screen items-center justify-center">
-        <About />
-      </div>
-      <Experience />
-    </Stack>
+    <div>About page</div>
+    // <Stack spacing={2} className={"items-center"}>
+    //   About me page
+    //   <div className="flex h-screen items-center justify-center">
+    //     <About />
+    //   </div>
+    //   <Experience />
+    // </Stack>
   );
 }

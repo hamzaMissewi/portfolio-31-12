@@ -22,7 +22,7 @@
       }
     ],
     //    MODIFIED
-    "forceConsistentCasingInFileNames": true,
+    //    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       // This helps TypeScript resolve module paths without extensions
