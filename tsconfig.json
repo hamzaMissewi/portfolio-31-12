@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es5",
+    "module": "esnext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -11,8 +12,8 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "NodeNext",
+    //"bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -21,7 +22,7 @@
     //      {"name": "next"}
     //    ],
     //    MODIFIED
-    //    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       // This helps TypeScript resolve module paths without extensions
@@ -41,16 +42,13 @@
       //        "./src/hooks/*"
       //      ]
     }
-    //CHAT GPT
-    //    "baseUrl": ".",
-    //    "paths": {
-    //      "@/*": ["src/*"]
-    //    }
+
   },
   "include": [
     "next-env.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
+    //    "src/**/*.tsx",
+    "**/*.ts",
+    "**/*.tsx",
     "build/types/**/*.ts"
     //    ".next/types/**/*.ts",
     //    "build/types/**/*.ts",

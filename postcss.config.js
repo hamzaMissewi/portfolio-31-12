@@ -2,10 +2,9 @@
 module.exports = {
   plugins: {
     tailwindcss: {},
-    autoprefixer: {
-      // overrideBrowserslist: ["> 1%", "last 2 versions", "Firefox ESR"],
-      // cascade: false,
-    },
+    autoprefixer: {},
+    // overrideBrowserslist: ["> 1%", "last 2 versions", "Firefox ESR"],
+    // cascade: false,
   },
   // plugins: [
   //     'tailwindcss',
