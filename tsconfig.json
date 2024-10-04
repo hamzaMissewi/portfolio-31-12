@@ -23,14 +23,14 @@
     ],
     //    MODIFIED
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
       // This helps TypeScript resolve module paths without extensions
-      "*": [
-        "*"
+      "@/*": [
+        "./src/*"
       ]
-      //      "@/*": [
-      //        "./src/*"
+      //      "*": [
+      //        "*"
       //      ]
     }
   },
