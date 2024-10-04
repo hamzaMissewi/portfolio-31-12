@@ -1,4 +1,4 @@
-const callCompletion = async () => {
+export const callCompletion = async () => {
   try {
     const res = await fetch("/api/llama3", {
       method: "POST",

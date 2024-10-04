@@ -1,19 +1,18 @@
-import { redirect, RedirectType } from "next/navigation";
-import { useLocale } from "next-intl";
+import { redirect } from "next/navigation";
 
-interface MainPageProps {
-  children: React.ReactNode;
-}
+// interface MainPageProps {
+//   children: React.ReactNode;
+// }
 
-function Page({ children }: MainPageProps) {
-  // const router = useRouter();
-  const locale = useLocale();
-
-  if (locale === "en") {
-    return children;
-  }
-  // redirect("/en", RedirectType.replace);
+// function Page({ children }: MainPageProps) {
+// const locale = useLocale();
+//
+// if (locale === "en") {
+//   return children;
+// }
+function Page() {
   redirect("/en");
+  // redirect("/en", RedirectType.replace);
 }
 
 export default Page;

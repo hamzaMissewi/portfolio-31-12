@@ -2,19 +2,23 @@ import axios, { AxiosResponse } from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 import ChatCompletion = OpenAI.ChatCompletion;
+import { NextRequest, NextResponse } from "next/server";
 
 // export const openAI = new OpenAI({
 //     apiKey: process.env.OPENAI_API_KEY,
 // });
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-  // if (req.method !== 'POST') {
-  //     return res.status(405).json({error: 'Method not allowed'});
-  // }
-  const { prompt } = req.body;
+// export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest, res: NextApiResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({error: 'Method not allowed'});
+  }
+  const request = await req.json();
+  const {prompt} = request.body;
 
   if (!prompt) {
     return res.status(400).json({ error: "Prompt is required" });
+    // return NextResponse.json({ error: "Prompt is required" });
   }
   try {
     // const response = await openAI.chat.completions.create({
@@ -27,20 +31,17 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
           {
             role: "user",
             content: prompt,
-            // {
             //     type: 'image_url',
             //     image_url: {
             //         url: imageB64,
             //         detail: 'low'
             //     }
-            // }
           },
           { role: "system", content: "You are a helpful assistant." },
         ],
         max_tokens: 1000,
       },
       {
-        // method: "GET",
         headers: {
           Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
           // 'Content-Type': 'application/json',
@@ -53,9 +54,10 @@ export async function POST(req: NextApiRequest, res: NextApiResponse) {
     const message = response.data.choices[0].message?.content; //|| 'Sorry, I did not get that.';
 
     if (!message || message === "") {
-      res
-        .status(404)
-        .json({ reply: null, error: "No reply found for that question" });
+      res.status(404).json({
+        reply: null,
+        error: "No reply found for that question",
+      });
       return;
     }
 

@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { fetchFromTMDB, TMDB_API_KEY } from "@/lib/getMovies";
+import { NextRequest, NextResponse } from "next/server";
 
 // Next js 9 example
 // export default async function handler(
@@ -17,22 +17,26 @@ import { fetchFromTMDB, TMDB_API_KEY } from "@/lib/getMovies";
 //     return {results: data.results, totalPages: data.total_pages, page: data.page};
 // }
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
-  const page = req.body?.page ? Number(req.body.page) : undefined;
+// TODO must use nextRequest and nextResponse
+export async function GET(req: NextRequest) {
+  const request = await req.json();
+  const data = request.body;
+
+  const page = data?.page ? Number(data.page) : undefined;
   const url = new URL("https://api.themoviedb.org/3/discover/movie");
 
   url.searchParams.set("api_key", TMDB_API_KEY!);
 
   if (page) {
-    url.searchParams.set("page", req.body.page);
+    url.searchParams.set("page", data.page);
   }
 
-  if (req.body.keywords) {
-    url.searchParams.set("with_keywords", req.body.keywords);
+  if (data.keywords) {
+    url.searchParams.set("with_keywords", data.keywords);
   }
 
-  if (req.body.id) {
-    url.searchParams.set("with_genres", req.body.id);
+  if (data.id) {
+    url.searchParams.set("with_genres", data.id);
   }
 
   try {
@@ -56,14 +60,9 @@ export async function GET(req: NextApiRequest, res: NextApiResponse) {
 
     const data = await fetchFromTMDB(url);
     console.log("movies data ", data);
-    res.status(201).json(data);
+    return NextResponse.json(data);
+    // res.status(201).json(data);
     // res.status(200).json({results: data.results, totalPage: data.total_page})
-
-    // return new Response({results: data.results, totalPage: data.total_page})
-    // return new Response(JSON.stringify(data), {
-    // headers: {'Content-Type': 'application/json'},
-    // status: 201,
-    // });
   } catch (error) {
     return new Response("Failed to fetch movies ", { status: 500 });
   }

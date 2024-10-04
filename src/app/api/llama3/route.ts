@@ -1,5 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import axios from "axios";
+import { NextRequest, NextResponse } from "next/server";
 
 const VERSIONS = {
   "yorickvp/llava-13b":
@@ -30,22 +29,24 @@ const getLamaAIResponse = async (prompt: string): Promise<{ data: any }> => {
 };
 
 export async function POST(
-  req: NextApiRequest,
-  res: NextApiResponse<{
-    data?: string;
-    error?: string;
-  }>,
+  req: NextRequest,
+  // res: NextResponse<{
+  //   data?: string;
+  //   error?: string;
+  // }>,
 ) {
-  const prompt = req.body.prompt;
-  if (!prompt) res.status(404).json({ error: "Prompt not found" });
+  const request = await req.json();
+  const prompt = request.prompt;
+  // if (!prompt) res.status(404).json({ error: "Prompt not found" });
+  if (!prompt) NextResponse.json({ error: "Prompt not found" });
 
   try {
     const result = await getLamaAIResponse(prompt);
     console.log("Fb AI Response:", result);
-    res.status(200).json({ data: JSON.stringify(result.data) });
+    NextResponse.json({ data: JSON.stringify(result.data) });
   } catch (error) {
     console.error("Failed to get AI response:", error);
-    res.status(500).json({ error: "Error getting AI response" });
+    NextResponse.json({ error: "Error getting AI response" });
   }
 }
 

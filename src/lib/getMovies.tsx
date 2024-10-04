@@ -144,26 +144,24 @@ export async function getPopularMoviesByPage(page: number) {
 }
 
 //hamza
-
-export async function fetchMoviesRouteByPage(page?: number) {
-  try {
-    const response = await fetch("/api/dbmovies", {
-      method: "GET",
-      body: JSON.stringify({ page: page || 1 }),
-      cache: "no-cache",
-    });
-
-    if (!response.ok) {
-      throw new Error(`Failed to fetch movies data, ${response.ok}`);
-    }
-
-    const data = (await response.json()) as SearchResults;
-    return { movies: data.movies, totalPages: data.total_pages };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
-  }
-}
+// export async function fetchMoviesRouteByPage(page?: number) {
+//   try {
+//     const response = await fetch("/api/dbmovies", {
+//       method: "GET",
+//       body: JSON.stringify({ page: page || 1 }),
+//       cache: "no-cache",
+//     });
+//     if (!response.ok) {
+//       throw new Error(`Failed to fetch movies data, ${response.ok}`);
+//     }
+//
+//     const data = (await response.json()) as SearchResults;
+//     return { movies: data.movies, totalPages: data.total_pages };
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     throw error;
+//   }
+// }
 
 export const BASE_URL = "https://api.themoviedb.org/3";
 

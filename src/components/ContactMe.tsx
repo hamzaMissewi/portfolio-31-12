@@ -89,12 +89,6 @@ function ContactMe() {
         const data = await response.json();
 
         console.log("nodemailer data ", JSON.stringify(data));
-        // return {
-        //   formatData: formatData,
-        //   error: null,
-        //   response: data.response,
-        //   success: data.success,
-        // };
 
         if (data.response && response.ok) {
           showEnqueueSnackbar(
@@ -105,17 +99,25 @@ function ContactMe() {
               anchorOrigin: { horizontal: "center", vertical: "top" },
             },
           );
-          setSendEmailResponse({ success: true, response, error: null });
+          setSendEmailResponse({
+            success: true,
+            response: data.response,
+            error: null,
+          });
         }
-      } catch (error) {
+      } catch (error: any) {
         showEnqueueSnackbar(
-          `Error while sending email,${response},error: ${error?.message}`,
+          `Error while sending email, error: ${error?.message}`,
           {
             autoHideDuration: 6000,
             variant: "error",
           },
         );
-        setSendEmailResponse({ success: false, response, error: error });
+        setSendEmailResponse({
+          // success: false,
+          response: undefined,
+          error: { message: error?.message, name: error?.name },
+        });
       }
 
       setEmailSending(false);

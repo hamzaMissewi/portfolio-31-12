@@ -20,7 +20,7 @@ export default async function Page({
         {searchParams?.title}
       </Typography>
       {movies.movies.map((movie) => (
-        <MovieCard movie={movie} />
+        <MovieCard movie={movie} key={movie.id} />
       ))}
     </div>
   );
