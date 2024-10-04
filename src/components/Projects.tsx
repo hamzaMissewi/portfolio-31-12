@@ -50,21 +50,18 @@ const projectUrls: {
   ],
 };
 
-//   "I Worked on main application of visual content company in Typescript on different features and tasks , allowed me to gain hands-on experience withReact and TypeScript for the front-end, and Node.js with Koa js for the back-end, Some tasks like working on medias and upload them to AWS s3 bucket.Thisexperience not only honed my technical skills but also providedvaluable insights into real-world enterprise workflows andproject management. My commitment to learning programming and myenthusiasm for software development drive me to continuallyenhance my expertise and deliver high-quality code, user-focusedhybrid applications.Besides developing i did some tests ofqueries and mutations of graphql",
-
 function Experience() {
   const t = useTranslations("Experience");
   const router = useRouter();
-  // const projectRef = useRef<HTMLDivElement | null>(null);
 
-  const numberPersonalProjects = Array.from(
-    { length: projectUrls.personal.length },
-    (_, index) => index, //+ 1,
-  );
-  const numberProfessionalProjects = Array.from(
-    { length: projectUrls.professional.length },
-    (_, index) => index,
-  );
+  // const numberPersonalProjects = Array.from(
+  //   { length: projectUrls.personal.length },
+  //   (_, index) => index, //+ 1,
+  // );
+  // const numberProfessionalProjects = Array.from(
+  //   { length: projectUrls.professional.length },
+  //   (_, index) => index,
+  // );
 
   const handleOpenCodeDemo = useCallback((code?: string) => {
     if (!code) return;
@@ -79,20 +76,20 @@ function Experience() {
   return (
     <motion.div
       className={
-        "h-screen relative flex flex-col overflow-hidden text-left md:flex-row max-w-full justify-evenly mx-auto" +
+        "h-screen relative flex flex-col overflow-x-hidden text-left md:flex-row max-w-full justify-evenly mx-auto" +
         " items-center z-0"
       }
     >
-      <div className={"flex flex-col "}>
-        <h3 className="z-1 uppercase tracking tracking-[20px] text-gray-500 text-2xl">
-          {t("title")}
-        </h3>
-        <p className={"relative z-1 text-gray-500 text-md"}>
-          {t("description")}
-        </p>
-      </div>
+      {/*<div className={"flex flex-col"}>*/}
+      {/*  <h3 className="z-1 uppercase tracking tracking-[20px] text-gray-500 text-2xl">*/}
+      {/*    {t("title")}*/}
+      {/*  </h3>*/}
+      {/*  <p className={"relative z-1 text-gray-500 text-md"}>*/}
+      {/*    {t("description")}*/}
+      {/*  </p>*/}
+      {/*</div>*/}
 
-      <div className="w-full flex flex-wrap snap-x snap-mandatory z-10  max-w-6xl">
+      <div className="w-screen flex flex-col snap-x snap-mandatory z-10  max-w-6xl">
         <h3 className="z-1 uppercase tracking tracking-[20px] text-gray-500 text-2xl">
           {t("personalProjects.title")}
         </h3>

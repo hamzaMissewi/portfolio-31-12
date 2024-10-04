@@ -129,7 +129,7 @@ function ContactMe() {
     <div
       className={
         // "flex min-h-screen h-screen relative flex-col text-center md:text-left md:flex-row md:flex-row max-w-7xl px-10
-        "min-h-screen snap-start shadow shadow-slate-300 relative flex flex-col text-center md:text-left" +
+        "h-full snap-start shadow shadow-slate-300 relative flex flex-col text-center md:text-left" +
         " max-w-7xl px-10 justify-evenly mx-auto items-center"
       }
     >
@@ -179,7 +179,7 @@ function ContactMe() {
         <form
           onSubmit={handleSubmit(handleContactMeSubmit)}
           className={
-            "flex flex-col space-y-2 w-fit mx-auto items-center min-h-screen p-4 bg-gray-100"
+            "flex flex-col space-y-2 w-fit mx-auto items-center p-4 bg-gray-100"
           }
         >
           <Stack direction={"row"} spacing={2}>

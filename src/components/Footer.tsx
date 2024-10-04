@@ -12,7 +12,8 @@ const Footer = () => {
   const t = useTranslations("Footer");
 
   return (
-    <div className="footer-container">
+    // footer-container
+    <div className="w-screen">
       <div className="flex flex-col">
         <a href="/">Homepage</a>
         <a href="/about">About</a>

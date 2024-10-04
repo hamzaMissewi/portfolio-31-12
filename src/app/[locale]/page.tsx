@@ -50,12 +50,12 @@ const Home: NextPage = () => {
       </section>
 
       <section id={"chatbot"}>
-        <div className={"absolute z-100 right-2 bottom-0 p-1"}>
+        <div className={"fixed z-100 right-2 bottom-0 p-1"}>
           <ChatBot />
         </div>
       </section>
 
-      <footer className={"fixed flex self-center cursor-pointer"}>
+      <footer className={"fixed cursor-pointer w-full"}>
         <section id={"footer"} className={"snap-end bottom-0"}>
           <Link href={"#hero"}>
             <Image
