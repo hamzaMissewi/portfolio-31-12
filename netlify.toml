@@ -8,16 +8,16 @@ command = "npm run dev"  # Optional: for local development
 [context.production.environment]
 NODE_ENV = "production"
 
-#[context.deploy-preview.environment]
-#NODE_ENV = "development"
+[context.deploy-preview.environment]
+NODE_ENV = "development"
 
-#[context.production]
-#publish = "build/"
-#command = "make publish"
+[context.production]
+publish = "build/"
+command = "make publish"
 
 
-#[context.deploy-preview]
-#publish = "build/"
+[context.deploy-preview]
+publish = "build/"
 
 [build.environment]
 NODE_ENV = "development"
