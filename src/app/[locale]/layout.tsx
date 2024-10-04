@@ -10,7 +10,6 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Footer from "@/components/Footer";
-
 // import Head from "next/head";
 
 function ThemeProvider({ children, ...props }: ThemeProviderProps) {
@@ -47,23 +46,19 @@ async function Layout({
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <head>
-        {/* Global meta tags or links can go here */}
         <title>Hamza Missaoui's Portfolio</title>
         <link rel="icon" href="/assets/b2b-alive-ltd-icon.svg" />
+        {/*  /!*<meta name="description" content="Global description for the site." />*!/*/}
+        {/*  <meta name="description" content="Welcome to the Home Page" />*/}
+        {/*  <meta property="og:title" content="Home Page" />*/}
+        {/*  <meta property="og:description" content="Welcome to the Home Page" />*/}
+        {/*  <meta*/}
+        {/*    property="og:image"*/}
+        {/*    content="/assets/b2b-alive-ltd-icon.svg"*/}
+        {/*    color="#5bbad5"*/}
+        {/*  />*/}
+        {/*  /!*<link  href="/path/to/image.jpg" />*!/*/}
       </head>
-
-      {/*<Head>*/}
-      {/*  /!*<meta name="description" content="Global description for the site." />*!/*/}
-      {/*  <meta name="description" content="Welcome to the Home Page" />*/}
-      {/*  <meta property="og:title" content="Home Page" />*/}
-      {/*  <meta property="og:description" content="Welcome to the Home Page" />*/}
-      {/*  <meta*/}
-      {/*    property="og:image"*/}
-      {/*    content="/assets/b2b-alive-ltd-icon.svg"*/}
-      {/*    color="#5bbad5"*/}
-      {/*  />*/}
-      {/*  /!*<link  href="/path/to/image.jpg" />*!/*/}
-      {/*</Head>*/}
 
       <body
         className={locale === "ar" ? arFont.className : inter.className}

@@ -1,22 +1,23 @@
 "use client";
 // import { AiFillInstagram, AiFillGithub } from "react-icons/ai";
+// import { InstagramIcon, TwitterIcon } from "lucide-react";
 import { LinkedIn, Twitter } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YoutubeIcon from "@mui/icons-material/YouTube";
-// import { InstagramIcon, TwitterIcon } from "lucide-react";
-import React from "react";
+import {FacebookIcon} from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { FacebookIcon } from "lucide-react";
+
+const addressCoords = "El Mourouj 1";
 
 const Footer = () => {
   const t = useTranslations("Footer");
 
   const handleClickLocationMap = () => {
-    const addressCoords = "";
     const query = encodeURIComponent(addressCoords);
-    const url = `https://www.google.com/maps/search/?api=${process.env.GOOGLE_MAPS_KEY}&query=${query}`;
+      // const url = `https://www.google.com/maps/search/?api=${process.env.GOOGLE_MAPS_KEY}&query=${query}`;
+      const url = `https://www.google.com/maps/search/?api=1&query=${query}`;
     window.open(url, "_blank");
   };
 
@@ -43,9 +44,13 @@ const Footer = () => {
         <p>
           <b>Whatsapp: </b>(+216) 56521184
         </p>
-        <p>
-          <span onClick={handleClickLocationMap}>{t("address")}</span>
-        </p>
+
+          <span
+              onClick={handleClickLocationMap}
+              className="text-blue cursor-pointer underline"
+          >
+          {t("address")}
+        </span>
 
         <p>
           <b>{t("email")} </b>

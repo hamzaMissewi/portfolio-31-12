@@ -124,10 +124,11 @@
     }
   },
   "Footer": {
-    "copyright": "2024 Hamza Missaoui. All rights reserved",
-    "phone": "Phone",
-    "socialMedia": "Contact details",
-    "address": "Address, Tunisia, Mourouj 1 street eagle, zip 2074",
-    "email": "Email"
+    "copyright": "2024 Hamza Missaoui, All rights reserved",
+    "phone": "Phone: ",
+    "socialMedia": "Contact details: ",
+    "address": "Address: Tunisia, Mourouj 1 street eagle, zip 2074",
+    "email": "Email: ",
+    "emailValue": "Email: hamza.missaoui@b2b-alive.com"
   }
 }
