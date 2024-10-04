@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import { getDiscoverMoviesByPage } from "@/lib/getMovies";
-import MovieCard from "@/components/movies/sonny/MovieCard";
+import { getDiscoverMoviesByPage } from "../../../../lib/getMovies";
+import MovieCard from "../../../../components/movies/sonny/MovieCard";
 
 export default async function Page({
   params,

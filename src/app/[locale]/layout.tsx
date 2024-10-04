@@ -7,9 +7,9 @@ import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import Header from "../../components/Header.js";
-import Sidebar from "../../components/Sidebar.js";
-import Footer from "../../components/Footer.js";
+import Header from "../../components/Header";
+import Sidebar from "../../components/Sidebar";
+import Footer from "../../components/Footer";
 // import Head from "next/head";
 
 function ThemeProvider({ children, ...props }: ThemeProviderProps) {

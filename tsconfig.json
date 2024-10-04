@@ -27,7 +27,7 @@
     "paths": {
       // This helps TypeScript resolve module paths without extensions
       "@/*": [
-        "./src/*"
+        "src/*"
       ]
     }
     //CHAT GPT

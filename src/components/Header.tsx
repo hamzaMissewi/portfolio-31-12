@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import { ThemeToggler } from "@/components/movies/sonny/ThemeToggler";
-import SearchInput from "@/components/movies/sonny/SearchInput";
 import { useRouter } from "next/navigation";
 import { ButtonGroup, Stack } from "@mui/material";
 import Image from "next/image";
@@ -15,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import NextTopLoader from "nextjs-toploader";
+// import SearchInput from "@/components/movies/sonny/SearchInput";
 
 // const b2bAliveLogo =
 // "https://media.licdn.com/dms/image/C4E0BAQECttqhzuGqBw/company-logo_200_200/0/1651029832992/b2b_alive_logo?e=2147483647&v=beta&t=yaQVzsyhkQw3LhBJexMtVjWovIEQXEzzxRmGTF20RHk";
