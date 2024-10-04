@@ -5,12 +5,16 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Sidebar from "@/components/Sidebar";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/app/layout";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Html } from "next/document";
 import "@/styles/globals.css";
 import Head from "next/head";
+import type { ThemeProviderProps } from "next-themes/dist/types";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
+function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}
 
 export enum Language {
   FR = "fr",
@@ -28,7 +32,7 @@ interface RootLayoutProps {
   params: { locale: string };
 }
 
-async function RootLayout({
+async function Layout({
   children,
   params: { locale },
 }: Readonly<RootLayoutProps>) {
@@ -88,4 +92,4 @@ async function RootLayout({
   );
 }
 
-export default RootLayout;
+export default Layout;
