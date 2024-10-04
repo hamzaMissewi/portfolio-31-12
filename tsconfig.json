@@ -49,11 +49,11 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "build/types/**/*.ts"
     //    ".next/types/**/*.ts",
     //    "build/types/**/*.ts",
-    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
