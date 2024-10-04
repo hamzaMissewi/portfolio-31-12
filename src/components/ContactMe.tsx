@@ -25,7 +25,7 @@ const initContact = {
   subject: "Work Offer",
   message: "",
   email: "admin@gmail.com",
-  name: "joe woe",
+  name: "",
 };
 
 function ContactMe() {
@@ -185,7 +185,7 @@ function ContactMe() {
           <Stack direction={"row"} spacing={2}>
             <FormControl error={!!errors.name}>
               <TextField
-                placeholder={"Name"}
+                placeholder={"e.g: hamza missaoui"}
                 className={"contactInput"}
                 type={"text"}
                 {...register("name")}
@@ -195,7 +195,7 @@ function ContactMe() {
 
             <FormControl error={!!errors.email}>
               <TextField
-                placeholder={"Email"}
+                placeholder={"e.g: hamza.missaoui@gmail.com"}
                 className={"contactInput"}
                 type={"text"}
                 {...register("email")}
@@ -204,7 +204,7 @@ function ContactMe() {
             </FormControl>
           </Stack>
           <TextField
-            placeholder="Subjet"
+            placeholder="e.g: work Offer , CDI Contract, Freelance"
             className={"contactInput"}
             type={"text"}
             {...register("subject")}
@@ -212,7 +212,7 @@ function ContactMe() {
             style={{ width: "100%" }}
           />
           <TextareaAutosize
-            placeholder={"Message"}
+            // placeholder={""}
             className={"contactInput"}
             {...register("message")}
             required

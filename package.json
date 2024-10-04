@@ -5,6 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "dev": "next dev",
+    "build_new": "postcss src/app/globals.css -o build/app/globals.css",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -64,6 +65,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.6",
     "eslint-config-prettier": "^9.1.0",
+    "postcss-cli": "^11.0.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

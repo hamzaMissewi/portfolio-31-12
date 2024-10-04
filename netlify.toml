@@ -1,5 +1,5 @@
 [build]
-command = "npm run build"
+command = "npm run build_postcss"
 publish = "build"
 #publish = ".next"
 
@@ -12,11 +12,13 @@ NODE_ENV = "production"
 [context.deploy-preview.environment]
 NODE_ENV = "development"
 
+
 #[context.deploy-preview]
 #publish = "build/"
 
 [build.environment]
 NODE_ENV = "development"
+NODE_VERSION = "16"  # Change to your preferred version
 
 [cache]
 paths = ["build/**/*", ".next/cache/**/*"]  # Specify the cache paths

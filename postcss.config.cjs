@@ -2,11 +2,20 @@
 module.exports = {
     plugins: {
         tailwindcss: {},
-        autoprefixer: {}
+        autoprefixer: {},
     },
     // plugins: [
     //     'tailwindcss',
-    //     'autoprefixer',
+    //     // 'autoprefixer',
+    //     require('autoprefixer')({
+    //         // Configure Autoprefixer options here
+    //         overrideBrowserslist: ['> 1%', 'last 2 versions', 'Firefox ESR'],
+    //         cascade: false, // Optional: Prevent cascading
+    //     }),
+    //     // 'postcss-plugin'
     // ],
 };
+
+// plugins: ['postcss-plugin', 'postcss-plugin-a'],
+
 
