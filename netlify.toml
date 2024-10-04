@@ -1,7 +1,6 @@
 [build]
 command = "npm run build"
 publish = "build"
-#publish = ".next"
 
 [dev]
 command = "npm run dev"  # Optional: for local development
@@ -9,11 +8,11 @@ command = "npm run dev"  # Optional: for local development
 [context.production.environment]
 NODE_ENV = "production"
 
-[context.deploy-preview.environment]
-NODE_ENV = "development"
+#[context.deploy-preview.environment]
+#NODE_ENV = "development"
 
-[context.production]
-publish = "build/"
+#[context.production]
+#publish = "build/"
 #command = "make publish"
 
 
@@ -22,7 +21,7 @@ publish = "build/"
 
 [build.environment]
 NODE_ENV = "development"
-NODE_VERSION = "16"  # Change to your preferred version
+#NODE_VERSION = "16"  # Change to your preferred version
 
 [cache]
 paths = ["build/**/*", ".next/cache/**/*"]  # Specify the cache paths
