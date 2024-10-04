@@ -1,26 +1,36 @@
-"use client";
-import { MenuItem, MenuList, Typography } from "@mui/material";
+// "use client";
+import {MenuItem, MenuList} from "@mui/material";
+import {Link} from "@/lib/intl";
+import {useTranslations} from "next-intl";
 
 function Sidebar() {
+  const t = useTranslations("Sidebar");
+
   return (
     <div
       className={
-        "max-w-[500px] flex flex-col space-y-2 mr-1 shadow shadow-slate-700 bg-white"
+        "max-w-[30%] flex flex-col space-y-2 mr-1 shadow shadow-slate-700 bg-slate-800 border-1 dark:bg-gray-950 dark:hover:bg-gray-800" +
+        " border-black"
       }
     >
-      <Typography component={"h5"} style={{ color: "#ccc" }}>
-        Sidebar
-      </Typography>
+      {/*<Typography component={"h5"} style={{ color: "#ccc" }}>*/}
+      {/*  Sidebar*/}
+      {/*</Typography>*/}
       <div
         className={
-          "rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800"
+          "rounded-lg border border-gray-200 p-4 shadow-sm transition-colors hover:bg-gray-50 text-white"
         }
       >
         <MenuList>
-          {/*<Link href={"/skills"}>*/}
-          <MenuItem>Skills</MenuItem>
-          <MenuItem>Education</MenuItem>
-          <MenuItem>Projects</MenuItem>
+          <Link href={"/"}>
+            <MenuItem>{t("mainPage")}</MenuItem>
+          </Link>
+          <Link href={"/movies"}>
+            <MenuItem>{t("moviesPage")}</MenuItem>
+          </Link>
+          <Link href={"/about"}>
+            <MenuItem>{t("aboutPage")}</MenuItem>
+          </Link>
         </MenuList>
       </div>
     </div>

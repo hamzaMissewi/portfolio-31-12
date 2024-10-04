@@ -9,7 +9,7 @@
     },
     "ok": "d'accord",
     "password": {
-      "diversityError": "Veuillez en ajouter au moins un {list, list(style: short; type: disjunction;)}.",
+      "diversityError": "Veuillez ajouter au moins une {list, list(style: short; type: disjunction)}.",
       "diversityLowercase": "lettre minuscule",
       "diversityNumber": "nombre",
       "diversitySymbol": "symbole",
@@ -19,21 +19,23 @@
     }
   },
   "Sidebar": {
-    "mainPage": "Page Principale",
+    "mainPage": "Page d'accueil",
     "moviesPage": "Page Films",
-    "aboutPage": "Page À propos de moi"
+    "aboutPage": "À propos de la page"
   },
   "Navbar": {
     "welcome": "Bonjour et bienvenue {username}",
-    "signup": "S'inscrire",
+    "signUp": "S'inscrire",
     "signIn": "Se connecter",
     "signOut": "se déconnecter"
   },
   "Home": {
-    "title": "Page d'accueil"
+    "title": "Maison"
   },
   "ContactMe": {
-    "title": "Me contacter"
+    "title": "Contactez-moi",
+    "contact": "J'ai ce dont vous avez besoin pour répondre à vos demandes et concrétiser vos rêves. Parlons-en",
+    "address": "Tunisie, Mourouj 1 zip 2074"
   },
   "Hero": {
     "words": [
@@ -41,13 +43,13 @@
       "Je suis ingénieur logiciel et développeur Web qui aime",
       "J'aime programmer et concevoir des applications Web élégantes",
       "J'ai des connaissances avancées en TypeScript, React, Next et Node.",
-      "Connaissance des bibliothèques / frameworks tels que React, Next Js, Django et Spring Boot",
+      "Connaissance des bibliothèques/frameworks tels que React, Next Js, Django et Spring Boot",
       "Connaissance des services cloud AWS et de la conteneurisation Docker"
     ],
     "title": "Ingénieur logiciel et développeur web fullstack",
     "description": "Je suis un développeur hautement qualifié et compétent en TypeScript, React et Next Js et bien d'autres technologies.",
     "routes": {
-      "aboutMe": "A propos moi",
+      "aboutMe": "Sur moi",
       "skills": "Compétences",
       "projects": "Projets",
       "experience": "Expérience",
@@ -55,49 +57,75 @@
     }
   },
   "AboutMe": {
-    "title": "A propos moi",
+    "title": "Sur moi",
     "intro": "Voici un petit aperçu de moi",
-    "details": "Je suis un développeur Web Full-Stack dévoué et expérimenté avec une forte maîtrise des frameworks TypeScrip, React Js et node js (Koa, express) ainsi que de diverses technologies et bibliothèques modernes en plus des connaissances de base que j'ai dans d'autres langages : Python, C#. ",
+    "description": "Je suis un développeur Web Full-Stack dévoué et expérimenté avec une forte maîtrise des frameworks TypeScript, React Js et node js (Koa, express) ainsi que de diverses technologies et bibliothèques modernes en plus des connaissances de base que j'ai dans d'autres langages : Python, C#. ",
     "skills": {
       "technicalProficiency": "Compétence technique : Maîtrise d'un large éventail de langages et de technologies de programmation tels que Java, Python, JavaScript, React, Node.js et SQL, avec une forte capacité à apprendre et à s'adapter à de nouveaux outils.",
       "problemSolving": "Compétences en résolution de problèmes : expert en dépannage et en résolution de problèmes techniques, en optimisation des performances du code et en mise en œuvre de solutions innovantes pour améliorer l'efficacité du système et l'expérience utilisateur.",
       "projectManagement": "Gestion de projet : Capacité démontrée à diriger et à collaborer sur des projets complexes, en utilisant des méthodologies Agile pour garantir une livraison dans les délais et des résultats de haute qualité."
     }
   },
-  "Education": {},
-  "Skills": {},
-  "Projects": {
-    "personal": {
+  "Internships": {
+    "1": {
+      "title": "Stage d'ingénieur",
+      "location_date": "B2b Alive Ltd : 10 janvier 2022 - 15 septembre 2022",
+      "description": "Concevoir et développer une application Web pour un stage de fin d'études en utilisant la pile Mern (Mongo, express, React, NodeJs) et GraphQL Api et Apollo Client sur Ui au lieu de l'API Rest classique. "
+    },
+    "2": {
+      "title": "Stage de technicien",
+      "location_date": "Globalnet groupe 3s charguia 1 : 01 août 2021 - 01 septembre 2021",
+      "description": "Implémenter une application mobile avec React Native et TypeScript à l'aide de l'API Trip Advisor qui permet à l'utilisateur de choisir son voyage, son avion, son hôtel, sa maison, sa voiture et le lieu à visiter."
+    },
+    "3": {
+      "title": "Stage ouvrier",
+      "location_date": "Globalnet groupe 3s charguia 1 : 15 août 2020 - 15 septembre 2020",
+      "description": "S'intégrer dans le travail professionnel en entreprise\n "
+    },
+    "title": "Stages",
+    "intro": "J'ai effectué 3 stages au cours de mes 3 années de formation d'ingénieur"
+  },
+  "Experience": {
+    "title": "Expérience",
+    "description": "J'ai travaillé sur l'application principale d'une société de contenu visuel dans Typescript sur différentes fonctionnalités et tâches, m'a permis d'acquérir une expérience pratique avec React et TypeScript pour le front-end, et Node.js avec Koa js pour le back-end, tâches travaillées  ",
+    "personalProjects": {
+      "title": "Projets personnels",
       "1": {
-        "title": "Travailler sur une application web destinée pour organizer des voyages et réserver un hôtel à la destination d'utilisateur dans différents pays du monde avec le bon stratégie pour lui ( par meilleur prix ou service de luxe..)",
-        "skills": [
-          "React",
-          "Django"
-        ],
-        "live": "https://",
-        "code": "github.com/"
+        "description": "Travailler sur une application avec Python et Django destinée aux réservations d'hôtel dans n'importe quelle région du pays sélectionné"
       },
       "2": {
-        "title": "concept et implémentation d'une application clone de sites Web Amazon",
-        "live": "https://clone-127fa.web.app/"
+        "description": "Concevoir et implémenter une application clone de sites Web Amazon"
       },
       "3": {
-        "title": "Créer une application web clone de calendrier de Google",
-        "live": "https://calendar.google.com/calendar/u/0/r?pli=1"
+        "description": "Créer un clone simplifié de Google Drive"
+      },
+      "4": {
+        "description": "portefeuille"
       }
     },
-    "professional": {
-      "b2bAliveLtd": {
-        "description": "Travailler sur l'application web progressive de société en publicité qui aide l'utilisateur à gérer les médias supportés tel que images vidéos et zone de text et faires leur propre présentations et faire une arborescense des dossiers et des fichiers",
-        "skills": [
-          "React",
-          "GraphQl",
-          "AWS / AWS-Lambda"
-        ]
-      },
-      "globalnet3S": {
-        "description": "Travailler sur une application mobile considérée comme un uber clone avec React Native"
+    "professionalProjects": {
+      "title": "Projets professionnels",
+      "projects": {
+        "1": {
+          "society": "b2bAliveLtd",
+          "description": "Travailler sur la principale application Web progressive dans le domaine de la publicité et de l'affichage numérique qui aide l'utilisateur à gérer les médias et à ajouter des présentations."
+        },
+        "2": {
+          "society": "b2bAliveLtd",
+          "description": "Serveur de travail de l'application principale avec nœud TypeScript et graphql"
+        },
+        "3": {
+          "society": "globalnet3S",
+          "description": "Concepter et implémenter une application mobile avec React Native comme uber clone"
+        }
       }
     }
+  },
+  "Footer": {
+    "copyright": "2024 Hamza Missaoui. Tous les droits réservés",
+    "phone": "Téléphone",
+    "socialMedia": "Coordonnées",
+    "address": "Adresse, Tunisie, Mourouj 1 rue aigle, zip 2074",
+    "email": "E-mail"
   }
 }

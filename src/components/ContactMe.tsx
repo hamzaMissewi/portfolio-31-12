@@ -51,7 +51,7 @@ const initContact = {
 };
 
 function ContactMe() {
-  const t = useTranslations();
+  const t = useTranslations("ContactMe");
   const {
     handleSubmit,
     watch,
@@ -64,7 +64,7 @@ function ContactMe() {
   });
   const [sendEmailResponse, setSendEmailResponse] = useState<SendMailOutput>({
     success: false,
-    response: undefined,
+    response: "",
     error: null,
   });
   const [emailSending, setEmailSending] = useState(false);
@@ -124,39 +124,37 @@ function ContactMe() {
   return (
     <div
       className={
-        // "flex min-h-screen h-screen relative flex-col text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center"
-        "shadow shadow-slate-300 relative flex flex-col text-center md:text-left md:flex-row max-w-7xl px-10" +
-        " justify-evenly mx-auto items-center"
+        // "flex min-h-screen h-screen relative flex-col text-center md:text-left md:flex-row md:flex-row max-w-7xl px-10
+        "min-h-screen snap-start shadow shadow-slate-300 relative flex flex-col text-center md:text-left" +
+        " max-w-7xl px-10 justify-evenly mx-auto items-center"
       }
     >
       <Typography
-        component={"h3"}
         className={
-          "absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl"
+          // "absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl"
+          "text-gray-500 text-4xl"
         }
       >
         {t("title")}
       </Typography>
 
-      <Stack className={"flex flex-col space-y-10 relative top-5"}>
-        <Typography
-          component={"h4"}
-          className={"text-4xl font-semibold text-center"}
+      <Stack className={"relative flex flex-col space-y-10 mt-5"}>
+        <h4
+          className={
+            "font-semibold text-center text-slate-700 text-xl decoration-[#F7AB0A]/50"
+          }
         >
-          I have what you need to solve your demands and make your dreams come
-          to reality
-          <span className={"decoration-[#F7AB0A]/50 underline"}>
-            Lets talk.
-          </span>
-        </Typography>
+          {/*<span className={"decoration-[#F7AB0A]/50 underline"}>*/}
+          {t("contact")}
+        </h4>
 
         <Stack>
           <Box className={"flex items-center space-x-5 justify-center"}>
             <PhoneIcon className={"text-[#F7AB0A] h-7 w-7 animate-pulse"} />
             <Typography
               fontSize={"medium"}
-              color={"textcolor.secondary"}
-              className={"text-2xl"}
+              // color={"text.color.secondary"}
+              className={"text-md color-gray-500"}
             >
               (+216) 56521184
             </Typography>
@@ -169,12 +167,12 @@ function ContactMe() {
 
           <Box className={"flex items-center space-x-5 justify-center"}>
             <MapPinIcon className={"text-[#F7AB0A] h-7 w-7 animate-pulse"} />
-            <Typography>Tunisia, Mourouj 1 zip 2074</Typography>
+            <Typography>{t("address")}</Typography>
           </Box>
         </Stack>
 
-        <Stack
-          component={"form"}
+        {/*<Stack component={"form"}*/}
+        <form
           onSubmit={handleSubmit(handleContactMeSubmit)}
           className={
             "flex flex-col space-y-2 w-fit mx-auto items-center min-h-screen p-4 bg-gray-100"
@@ -207,12 +205,14 @@ function ContactMe() {
             type={"text"}
             {...register("subject")}
             required
+            style={{ width: "100%" }}
           />
           <TextareaAutosize
             placeholder={"Message"}
             className={"contactInput"}
             {...register("message")}
             required
+            style={{ width: "100%" }}
           />
           <LoadingButton
             className={
@@ -224,7 +224,7 @@ function ContactMe() {
           >
             Submit
           </LoadingButton>
-        </Stack>
+        </form>
       </Stack>
       {/*Alert error*/}
       <Snackbar

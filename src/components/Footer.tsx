@@ -5,8 +5,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { InstagramIcon } from "lucide-react";
 import React from "react";
 import { Stack } from "@mui/material";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("Footer");
+
   return (
     <div className="footer-container">
       <div className="flex flex-col">
@@ -19,11 +22,13 @@ const Footer = () => {
 
       <div className="footer-content">
         <p>
-          <b> Whatsapp:</b> (216) 56521184
+          <b>Whatsapp: </b>(+216) 56521184
         </p>
-
+        {t("address")}
         <p>
-          <b>email: </b>hamzashadow47@gmail.com
+          <b>{t("email")}: </b>hamza.missaoui@b2b-alive.com |
+          hamza.missaoui47@gmail.com
+          {/*<b>{t("email")}: </b>hamzashadow47@gmail.com*/}
         </p>
 
         <Stack>
@@ -68,7 +73,10 @@ const Footer = () => {
           alt={"footer-logo"}
         />
 
-        <h2>&copy; 2024 Hamza Missaoui. All rights reserved.</h2>
+        <div className="my-10 text-center">
+          <h2>&copy; {t("copyright")}</h2>
+          {/*<h2>&copy; 2024 Hamza Missaoui. All rights reserved.</h2>*/}
+        </div>
       </div>
     </div>
   );

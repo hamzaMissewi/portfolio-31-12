@@ -1,12 +1,10 @@
 "use client";
-import { useCallback, useState } from "react";
 import { MailFieldsType } from "@/components/ContactMe";
-import { useSnackbar } from "notistack";
-import { ContactMePostPayload } from "@/app/api/contact/route";
+import { ContactRoutePayload } from "@/app/api/contact/route";
 
-export type SendMailOutput = ContactMePostPayload & {
-  error: Record<string, string | null | undefined> | null;
-};
+export type SendMailOutput = ContactRoutePayload & {
+  error: Record<string, string | undefined> | null;
+} & { formatData?: MailFieldsType };
 
 export const useSendmailHook = async (
   formatData: MailFieldsType,
@@ -18,27 +16,36 @@ export const useSendmailHook = async (
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
+        // Authorization: `Bearer ${process.env.MAIL_PASSWORD}`,
       },
     });
     const data = await response.json();
-    if (!data.ok)
-      return {
-        success: false,
-        error: { message: "Failed to send email, not OK" },
-      };
+    // if (!data.success) {
+    //   return {
+    //     success: false,
+    //     error: { message: "Failed to send email, not OK" },
+    //   };
+    // }
     console.log("nodemailer data ", JSON.stringify(data));
-    return { ...data, error: null };
-    //return { message: formatData.message, email: formatData.email };
+    return {
+      formatData: formatData,
+      error: null,
+      response: data.response,
+      success: data.success,
+    };
 
     // const response = await sendContactForm(formatData);
-    // if (!response.ok) return { error: "Failed to send message" };
-    // const data = await response.json();
-    // return { message: data?.message, email: data?.email };
+    // return response;
   } catch (error: any) {
     console.log("email error message ", error.message);
+    // enqueueSnackbar(error?.message, {
+    //   autoHideDuration: 6000,
+    //   variant: "error",
+    // });
     return { success: false, error: error };
   }
 };
+// email error message  Unexpected token '<', "<!DOCTYPE "... is not valid JSON
 
 // try {
 //     fetch("/api/contact/", {
@@ -66,41 +73,3 @@ export const useSendmailHook = async (
 // } finally {
 //     setEmailSending(false)
 // }
-
-export const useSendmailHookOld = async (data: {
-  subject: string;
-  message: string;
-  email: string;
-  name: string;
-}) => {
-  const [result, setResult] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(false);
-  const { enqueueSnackbar } = useSnackbar();
-
-  const callback = useCallback(() => {
-    setLoading(true);
-
-    fetch("/api/contact", {
-      method: "POST",
-      body: JSON.stringify(data),
-      cache: "no-cache",
-      headers: {
-        Accept: "application/json",
-        //   Authorization: `Bearer ${process.env.MAIL_PASSWORD}`,
-      },
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to send email");
-        enqueueSnackbar("send email successfully", {
-          variant: "info",
-          autoHideDuration: 5000,
-        });
-        return res.json();
-      })
-      .then((data) => setResult(data))
-      .catch((error) => setResult(error))
-      .finally(() => setLoading(false));
-  }, []);
-
-  return { result, loading, callback };
-};
