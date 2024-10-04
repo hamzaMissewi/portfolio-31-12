@@ -23,18 +23,25 @@
     ],
     //    MODIFIED
     //    "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
       // This helps TypeScript resolve module paths without extensions
-      //      "@/*": [
-      //        "./*"
-      //      ],
       "@/app/*": [
         "./src/app/*"
       ],
       "@/components/*": [
         "./src/components/*"
+      ],
+      "@/*": [
+        "./src/*"
       ]
+
+      //      "@/lib/*": [
+      //        "./src/lib/*"
+      //      ],
+      //      "@/hooks/*": [
+      //        "./src/hooks/*"
+      //      ]
     }
     //CHAT GPT
     //    "baseUrl": ".",
@@ -45,9 +52,9 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "build/types/**/*.ts"
+    "**/*.tsx"
+    //    ".next/types/**/*.ts",
+    //    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
