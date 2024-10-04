@@ -1,5 +1,6 @@
 import { fetchFromTMDB, TMDB_API_KEY } from "@/lib/getMovies";
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
+import { NextApiResponse } from "next";
 
 // Next js 9 example
 // export default async function handler(
@@ -18,7 +19,7 @@ import { NextRequest, NextResponse } from "next/server";
 // }
 
 // TODO must use nextRequest and nextResponse
-export async function GET(req: NextRequest) {
+export async function GET(req: NextRequest, res: NextApiResponse) {
   const request = await req.json();
   const data = request.body;
 
@@ -60,8 +61,7 @@ export async function GET(req: NextRequest) {
 
     const data = await fetchFromTMDB(url);
     console.log("movies data ", data);
-    return NextResponse.json(data);
-    // res.status(201).json(data);
+    return res.status(201).json(data);
     // res.status(200).json({results: data.results, totalPage: data.total_page})
   } catch (error) {
     return new Response("Failed to fetch movies ", { status: 500 });

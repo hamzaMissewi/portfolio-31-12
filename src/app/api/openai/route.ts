@@ -1,8 +1,8 @@
 import axios, { AxiosResponse } from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiResponse } from "next";
 import OpenAI from "openai";
+import { NextRequest } from "next/server";
 import ChatCompletion = OpenAI.ChatCompletion;
-import { NextRequest, NextResponse } from "next/server";
 
 // export const openAI = new OpenAI({
 //     apiKey: process.env.OPENAI_API_KEY,
@@ -10,11 +10,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 // export async function POST(req: NextApiRequest, res: NextApiResponse) {
 export async function POST(req: NextRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({error: 'Method not allowed'});
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
   const request = await req.json();
-  const {prompt} = request.body;
+  const { prompt } = request.body;
 
   if (!prompt) {
     return res.status(400).json({ error: "Prompt is required" });
