@@ -18,6 +18,9 @@
       "minError": "Password must be at least 8 characters long"
     }
   },
+  "Home": {
+    "title": "Home"
+  },
   "Sidebar": {
     "mainPage": "Home page",
     "moviesPage": "Movies page",
@@ -25,15 +28,14 @@
   },
   "Navbar": {
     "welcome": "Hello and welcome {username}",
-    "signup": "Sign up",
+    "signUp": "Sign up",
     "signIn": "Sign in",
     "signOut": "Sign out"
   },
-  "Home": {
-    "title": "Home page"
-  },
   "ContactMe": {
-    "title": "Contact me"
+    "title": "Contact me",
+    "contact": "I have what you need to solve your demands and make your dreams come to reality, Let's talk",
+    "address": "Tunisia, Mourouj 1 zip 2074"
   },
   "Hero": {
     "words": [
@@ -56,50 +58,76 @@
   },
   "AboutMe": {
     "title": "About Me",
-    "intro": "Here is a litte background about me",
-    "details": "I am a dedicated and experienced Full-Stack Web Developer with a strong proficiency in TypeScrip, React Js and node js frameworks (Koa, express) and diverse modern technologies and librairies besides Other than the basic knowledge i have in other languages : Python, C# and Java. and list of technologies i worked with. I have Experience in writing clean, maintainable code and optimizing existing codebases to improve performance and reduce load times. Besides Proven ability to develop and apply best practices to ensure efficient and scalable web solutions swiftly without compromising quality. Skilled in leveraging frameworks, libraries, and tools to accelerate development cycles while ensuring robust performance. My commitment to learning programming and my enthusiasm for software development drive since i was young help to gain more expertise and deliver high-quality code, user-focused hybrid applications.",
+    "intro": "Here is a little background about me",
+    "description": "I am a dedicated and experienced Full-Stack Web Developer with a strong proficiency in TypeScript, React Js and node js frameworks (Koa, express) and diverse modern technologies and librairies besides Other than the basic knowledge i have in other languages : Python, C# and Java. and list of technologies i worked with. \nI have Experience in writing clean, maintainable code and optimizing existing codebases to improve performance and reduce load times. \nBesides Proven ability to develop and apply best practices to ensure efficient and scalable web solutions swiftly without compromising quality. Skilled in leveraging frameworks, libraries, and tools to accelerate development cycles while ensuring robust performance.\n My commitment to learning programming and my enthusiasm for software development drive since i was young help to gain more expertise and deliver high-quality code, user-focused hybrid applications.",
     "skills": {
       "technicalProficiency": "Technical Proficiency: Skilled in a diverse range of programming languages and technologies such as Java, Python, JavaScript, React, Node.js, and SQL, with a strong ability to learn and adapt to new tools.",
       "problemSolving": "Problem-Solving Skills: Expert in troubleshooting and resolving technical issues, optimizing code performance, and implementing innovative solutions to enhance system efficiency and user experience.",
       "projectManagement": "Project Management: Demonstrated ability to lead and collaborate on complex projects, utilizing Agile methodologies to ensure timely delivery and high-quality outcomes."
     }
   },
-  "Education": {},
-  "Skills": {},
-  "Projects": {
-    "personal": {
-      "1": {
-        "title": "Work on application with python and django that is for hotel reservations in any region of selected country",
-        "skills": [
-          "react",
-          "python",
-          "django"
-        ],
-        "live": "https://",
-        "code": "github.com/"
-      },
-      "2": {
-        "title": "concept and Implement a clone application of amazon websites",
-        "live": "https://"
-      },
-      "3": {
-        "title": "Make a google drive simplified clone",
-        "live": "https://"
+  "Internships": {
+    "title": "Intenrships",
+    "intro": "I did 3 internships during my 3 years in my engineering education period",
+    "1": {
+      "title": "Engineer internship",
+      "location_date": "B2b alive ltd: 10 january 2022 - 15 september 2022",
+      "description": "Design and develop web application for end of study internship using Mern stack (Mongo,express,react,nodeJs ) and GraphQL Api and Apollo Client on Ui instead of classic Rest api. The project has focused on digital signage and creating visual content for presentation of advertisement and use dynamic templates and medias for posters ."
+    },
+    "2": {
+      "title": "Technician internship",
+      "location_date": "Globalnet group 3s charguia 1: 01 August 2021 - 01 september 2021",
+      "description": "Implement a mobile application with react native and typescript  using trip advisor api that make user choose his trip , plane , hotel , house , car and location to visit"
+    },
+    "3": {
+      "title": "Worker internship",
+      "location_date": "Globalnet group 3s charguia 1: 15 August 2020 - 15 september 2020",
+      "description": "Integrate into professional corporate work\ncreated an application in typescript that provide service that show the supplier point sales locations on maps and worked on development of a feature for managing purchases of customer network products after doing authentication "
+    }
+  },
+  "Experience": {
+    "title": "Experience",
+    "description": "I worked on main application of visual content company in Typescript on different features and tasks , allowed me to gain hands-on experience with React and TypeScript for the front-end, and Node.js with Koa js for the back-end, tasks worked on like managing medias and upload them on AWS S3. \nI got  experience in writing clean, maintainable code and optimizing existing codebases to improve performance and reduce load times. Apply best practices to ensure efficient and scalable web solutions.\n Besides developping i work as tester sometimes to test some queries and mutations of graphql endpoint in server side ",
+    "personalProjects": {
+      "title": "Personal projects",
+      "projects": {
+        "0": {
+          "description": "Concept and implement a clone application of amazon websites"
+        },
+        "1": {
+          "description": "Make a google drive simplified clone"
+        },
+        "2": {
+          "description": "Hamza Portfolio"
+        },
+        "3": {
+          "description": "Work on application with python and django that is for hotel reservations in any region of selected country"
+        }
       }
     },
-    "professional": {
-      "b2bAliveLtd": {
-        "description": "Work on main porgressive web application of advertisement that help user to manage medias",
-        "skills": [
-          "React",
-          "Next Js",
-          "GraphQl",
-          "AWS / AWS-Lambda"
-        ]
-      },
-      "globalnet3S": {
-        "description": "Work on mobile application that considered like uber clone with react native"
+    "professionalProjects": {
+      "title": "Professional projects",
+      "projects": {
+        "0": {
+          "society": "b2bAliveLtd",
+          "description": "Work on main progressive web application in domain of advertising and digital signage that help user to manage medias and add presentations"
+        },
+        "1": {
+          "society": "b2bAliveLtd",
+          "description": "Work server of main application with node typescript and graphql"
+        },
+        "2": {
+          "society": "globalnet3S",
+          "description": "Work on mobile application with react native considered as uber clone"
+        }
       }
     }
+  },
+  "Footer": {
+    "copyright": "2024 Hamza Missaoui. All rights reserved",
+    "phone": "Phone",
+    "socialMedia": "Contact details",
+    "address": "Address, Tunisia, Mourouj 1 street eagle, zip 2074",
+    "email": "Email"
   }
 }

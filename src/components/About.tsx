@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 type AboutProps = {};
 
-function About({}: AboutProps) {
+function About() {
   const t = useTranslations("AboutMe");
 
   const skillKeys = [
@@ -13,20 +13,26 @@ function About({}: AboutProps) {
     "projectManagement",
   ] as const;
 
+  const selfies = [
+    "https://res.cloudinary.com/hamzaostouri/image/upload/v1724392322/1000038266_pzd2ji.jpg",
+    "https://res.cloudinary.com/hamzaostouri/image/upload/v1663579330/avatar_photos/gjyv2ua2oh43thk1xw5z.jpg",
+    "https://res.cloudinary.com/hamzaostouri/image/upload/v1663664915/avatar_photos/ra3cbssf64n3ihc2fw0o.png",
+  ];
+
   return (
-    <div
-      // md:flex-row max-w-7xl
+    <motion.div
+      // className="relative  md:flex-row max-w-7xl flex flex-col space-y-4 h-screen md:text-left max-w-7xl px-10 justify-evenly mx-auto
       className={
-        "relative flex flex-col space-y-4 h-screen md:text-left max-w-7xl px-10 justify-evenly mx-auto items-center"
+        "h-screen relative flex flex-col overflow-hidden text-left md:flex-row max-w-7xl justify-evenly mx-auto" +
+        " items-center z-0 space-y-2"
       }
     >
-      {/*<div className={"relative flex flex-col justify-center space-y-4"}>*/}
       <h3
-        className={"text-center uppercase tracking-[20px] text-2xl text-black"}
+        className="absolute top-14 z-1 uppercase text-gray-500 text-2xl"
+        // className={"text-center uppercase tracking tracking-[20px] text-2xl text-black"}
       >
         {t("title")}
       </h3>
-
       <div className={"relative flex flex-row items-center"}>
         <motion.img
           className={
@@ -42,12 +48,12 @@ function About({}: AboutProps) {
           }
         />
 
-        <div className={"space-y-10 px-0 md:px-10"}>
-          <h4 className={"text-4xl font-semibold"}>
+        <div className={"space-y-10 "}>
+          <h4 className={"text-4xl text-center text-black"}>
             {t("intro")}
             {/*<span className={"underline decoration-[#F7AB0A]/50"}>*/}
           </h4>
-          <p className={"text-base"}>{t("details")}</p>
+          <p className={"text-base"}>{t("description")}</p>
           <ul>
             {skillKeys.map((key) => (
               <li>{t(`skills.${key}`)}</li>
@@ -69,7 +75,7 @@ function About({}: AboutProps) {
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

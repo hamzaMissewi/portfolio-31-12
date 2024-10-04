@@ -49,7 +49,6 @@ const Header: React.FC = () => {
       </Link>
 
       <LocaleSwitcher />
-      {/*<UserProfileNavbar />*/}
 
       <div>
         {user && isSignedIn ? (

@@ -14,23 +14,24 @@ import Banner from "@/components/movies/sonny/Banner";
 export default function Movies() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [moviesRes, setMoviesRes] = useState<Movie[]>([]);
-  const [searchedMovies, setSearchedMovies] = useState<Movie[]>([]);
   const [numOfPages, setNumOfPages] = useState<number>(0);
   const [page, setPage] = useState(1);
+  // const [searchedMovies, setSearchedMovies] = useState<Movie[]>([]);
+
   // const [genres, setGenres] = useState<Genre[]>([]);
   // const [moviesRes, setMoviesRes] = useState<ContentType[]>([])
   // const [selectedGenres, setSelectedGenres] = useState<Genre[]>([]);
   // const genreForURL = useGenre(selectedGenres);
 
   const handleSearchMoviesByTerm = useCallback(async () => {
-    setSearchedMovies([]);
+    // setSearchedMovies([]);
     try {
       // url.searchParams.set("query", term);
       // const data = await fetchFromTMDB(url);
 
       const response = await getSearchedMovies(searchTerm!);
       setMoviesRes(response.movies);
-      setSearchedMovies(response.movies);
+      // setSearchedMovies(response.movies);
       setNumOfPages(response.totalPages);
       setPage(1);
     } finally {
@@ -78,7 +79,7 @@ export default function Movies() {
         Discover movies
       </h3>
 
-      {/*<GenresDropdown*/}
+      {/*<GenreDropdown*/}
       {/*// type="movie"*/}
       {/*// selectedGenres={selectedGenres}*/}
       {/*// setSelectedGenres={setSelectedGenres}*/}
