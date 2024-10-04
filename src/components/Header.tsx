@@ -27,9 +27,9 @@ const Header: React.FC = () => {
   const t = useTranslations("Navbar");
 
   return (
-    <header
+    <div
       className={
-        "sticky flex flex-row items-center justify-between bg-slate-800 dark:bg-white w-full z-20 border min-w-screen" +
+        "sticky flex items-center justify-between backdrop-blur-0 bg-slate-800 dark:bg-white w-full z-20 border min-w-screen" +
         " border-red-500"
       }
     >
@@ -48,7 +48,10 @@ const Header: React.FC = () => {
         {/*<p>{t("description")}</p>*/}
       </Link>
 
-      <LocaleSwitcher />
+      <div className={"flex flex-grow"}>
+        <LocaleSwitcher />
+        <ThemeToggler />
+      </div>
 
       <div>
         {user && isSignedIn ? (
@@ -90,10 +93,10 @@ const Header: React.FC = () => {
       </div>
       <NextTopLoader color="#000" showSpinner={false} />
 
-      <div className="flex flex-row space-x-2 flex-wrap my-2 px-2">
-        <SearchInput />
-        <ThemeToggler />
-      </div>
+      {/*<div className="flex flex-row space-x-2 flex-wrap my-2 px-2">*/}
+      {/*<SearchInput />*/}
+      {/*<ThemeToggler />*/}
+      {/*</div>*/}
 
       {/*<div className={"fixed top-0 w-full items-start justify-between mx-auto z-20 p-5 flex xl:items-center"}>*/}
 
@@ -138,7 +141,7 @@ const Header: React.FC = () => {
           </p>
         </Link>
       </motion.div>
-    </header>
+    </div>
   );
 };
 

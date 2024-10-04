@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   CircularProgress,
+  ClickAwayListener,
   Divider,
   IconButton,
   Stack,
@@ -32,8 +33,9 @@ function ChatBot() {
   const { enqueueSnackbar } = useSnackbar();
 
   const handleClickAskChatGpt = useCallback(
-    async (event: any) => {
+    async (event: React.FormEvent<HTMLButtonElement>) => {
       event.preventDefault();
+      event.stopPropagation();
       setChatLoading(true);
       try {
         if (!userMessage) {
@@ -89,90 +91,100 @@ function ChatBot() {
       whileInView={{ opacity: 1, x: 0 }}
       animate={{ x: -10, opacity: 1, scale: 1 }}
       // viewport={{once: true}}
-      className="min-h-0 w-[300px] flex flex-col bg-gray-100 rounded-lg border-2 border-amber-400"
+      className="min-h-0 w-fit flex flex-col bg-gray-100 rounded-lg border-2 border-amber-400"
     >
-      <Stack
-        direction={"row"}
-        className={"mx-2 justify-center items-center space-x-1"}
+      {/*<Stack*/}
+      {/*  direction={"row"}*/}
+      {/*  className={"mx-2 self-center items-center space-x-1"}*/}
+      {/*  onClick={() => setExpandChatBox((value) => !value)}*/}
+      {/*>*/}
+      <Button
+        // fullWidth
+        className={"lowercase text-gray-500 truncate text-lg"}
+        style={{ width: "100%", height: "fit-content" }}
+        color={"success"}
+        onClick={() => setExpandChatBox((value) => !value)}
       >
         <Typography component={"h1"} className="text-xl text-center text-black">
-          Ai Helper
+          Chatbot
         </Typography>
-        <IconButton
-          color={"success"}
-          onClick={() => setExpandChatBox((value) => !value)}
-        >
-          <KeyboardArrowDownIcon fontSize={"small"} />
-        </IconButton>
-      </Stack>
+        {/*<IconButton*/}
+        {/*  color={"success"}*/}
+        {/*  onClick={() => setExpandChatBox((value) => !value)}*/}
+        {/*>*/}
+        <KeyboardArrowDownIcon fontSize={"small"} />
+        {/*</IconButton>*/}
+      </Button>
       <Divider />
 
       {expandChatBox && (
-        <div
-          // initial={{opacity: 1}}
-          // transition={{duration: 0.5}}
-          className={"flex flex-col justify-between flex-1"}
-        >
-          <div className="overflow-y-auto flex-grow bg-white shadow-lg rounded-lg p-2 h-[400px]">
-            <div className="space-y-4">
-              {responses.map((msg, index) => (
-                <div
-                  key={index}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                >
-                  <div
-                    className={`max-w-xs p-3 rounded-lg ${
-                      msg.role === "user"
-                        ? "bg-slate-500 text-white"
-                        : "bg-gray-200 text-gray-800"
-                    }`}
-                  >
-                    <p>{msg.content}</p>
-                    <IconButton
-                      onClick={() => handleClickTextToAiVoice(msg.content)}
-                    >
-                      <PlayArrowIcon fontSize={"small"} />
-                    </IconButton>
-                  </div>
-                  {chatError && (
-                    <Snackbar autoHideDuration={5000} open={!!chatError}>
-                      <Alert
-                        icon={<ErrorIcon fontSize="inherit" />}
-                        severity="error"
-                      >
-                        {chatError}
-                      </Alert>
-                    </Snackbar>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          <Box
-            component={"form"}
-            className={
-              "py-2 flex flex-row items-center w-[100%] px-2 space-x-1"
-            }
+        <ClickAwayListener onClickAway={() => setExpandChatBox(false)}>
+          <div
+            // initial={{opacity: 1}}
+            // transition={{duration: 0.5}}
+            className={"flex flex-col justify-between flex-1"}
           >
-            <TextField
-              className="flex-1 border rounded-l-lg px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type={"text"}
-              size={"small"}
-              placeholder="Type your message..."
-              value={userMessage}
-              onChange={(event) => setUserMessage(event.target.value)}
-            />
-
-            <Button
-              type={"submit"}
-              className="bg-blue-500 text-white rounded-r-lg px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 self-center"
-              endIcon={<SendIcon fontSize={"small"} color={"primary"} />}
-              onSubmit={(event) => handleClickAskChatGpt(event)}
+            <div className="overflow-y-auto flex-grow bg-white shadow-lg rounded-lg p-2 h-[400px]">
+              <div className="space-y-4">
+                {responses.map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                  >
+                    <div
+                      className={`max-w-xs p-3 rounded-lg ${
+                        msg.role === "user"
+                          ? "bg-slate-500 text-white"
+                          : "bg-gray-200 text-gray-800"
+                      }`}
+                    >
+                      <p>{msg.content}</p>
+                      <IconButton
+                        onClick={() => handleClickTextToAiVoice(msg.content)}
+                      >
+                        <PlayArrowIcon fontSize={"small"} />
+                      </IconButton>
+                    </div>
+                    {chatError && (
+                      <Snackbar autoHideDuration={5000} open={!!chatError}>
+                        <Alert
+                          icon={<ErrorIcon fontSize="inherit" />}
+                          severity="error"
+                        >
+                          {chatError}
+                        </Alert>
+                      </Snackbar>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <Box
+              component={"form"}
+              className={
+                "py-2 flex flex-row items-center w-[100%] px-2 space-x-1"
+              }
             >
-              Send
-            </Button>
-          </Box>
-        </div>
+              <TextField
+                className="flex-1 border rounded-l-lg px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type={"text"}
+                size={"small"}
+                placeholder="Type your message..."
+                value={userMessage}
+                onChange={(event) => setUserMessage(event.target.value)}
+              />
+
+              <Button
+                type={"submit"}
+                className="bg-blue-500 text-white rounded-r-lg px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 self-center"
+                endIcon={<SendIcon fontSize={"small"} color={"primary"} />}
+                onSubmit={(event) => handleClickAskChatGpt(event)}
+              >
+                Send
+              </Button>
+            </Box>
+          </div>
+        </ClickAwayListener>
       )}
       {chatLoading && (
         <CircularProgress variant={"indeterminate"} color={"error"} size={10} />

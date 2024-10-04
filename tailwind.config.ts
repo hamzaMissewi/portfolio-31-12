@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
+  // plugins: [require("tailwindcss-animate")],
   // plugins: [require("tailwindcss-animate"), require("tailwindcss-scrollbar-hide")],
 };
 export default config;

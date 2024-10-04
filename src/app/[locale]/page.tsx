@@ -7,24 +7,21 @@ import ContactMe from "@/components/ContactMe";
 import { NextPage } from "next";
 import React from "react";
 import ChatBot from "@/components/ChatBot";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import Footer from "@/components/Footer";
-import Image from "next/image";
+import { useLocale } from "next-intl";
 
 const Home: NextPage = () => {
-  const t = useTranslations("Home");
+  // const t = useTranslations("Home");
+  const locale = useLocale();
 
   return (
     <div
       className={
         "relative bg-white dark:bg-gradient-to-t from-gray-200/0 via-gray-900/25 to-gray-900 dark:bg-white flex-grow" +
-        " w-full h-full dark:bg-[#1A1C29]"
-        // "min-w-screen items-center md:overflow-hidden overflow-y-scroll flex flex-col xl:-mt-48 space-y-2" +
-        // " bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory z-0"
+        " w-full h-full dark:bg-[#1A1C29] snap-y"
+        // "items-center md:overflow-hidden overflow-y-scroll flex flex-col xl:-mt-48 space-y-2 bg-[rgb(36,36,36)]
+        // text-white h-screen  snap-mandatory z-0"
       }
     >
-      {t("title")}
       <section id={"hero"} className={"snap-center"}>
         <Hero />
       </section>
@@ -50,27 +47,29 @@ const Home: NextPage = () => {
       </section>
 
       <section id={"chatbot"}>
-        <div className={"fixed z-100 right-2 bottom-0 p-1"}>
+        <div
+          className={`fixed z-[100] ${locale === "ar" ? "left-2" : "right-2"} bottom-2 p-1 w-fit self-end`}
+        >
           <ChatBot />
         </div>
       </section>
 
-      <footer className={"fixed cursor-pointer w-full"}>
-        <section id={"footer"} className={"snap-end bottom-0"}>
-          <Link href={"#hero"}>
-            <Image
-              width={100}
-              height={100}
-              className="w-12 h-12 rounded-full filter grayscale hover:grayscale-0"
-              src={
-                "https://res.cloudinary.com/hamzaostouri/image/upload/v1663664915/avatar_photos/ra3cbssf64n3ihc2fw0o.png"
-              }
-              alt={""}
-            />
-          </Link>
-        </section>
-      </footer>
-      <Footer />
+      {/*<section id={"footer"} className={"snap-end bottom-0"}>*/}
+      {/*  <footer className={"fixed cursor-pointer w-full"}>*/}
+      {/*    <Footer/>*/}
+      {/*    <Link href={"#hero"}>*/}
+      {/*      <Image*/}
+      {/*          width={100}*/}
+      {/*          height={100}*/}
+      {/*          className="w-12 h-12 rounded-full filter grayscale hover:grayscale-0"*/}
+      {/*          src={*/}
+      {/*            "https://res.cloudinary.com/hamzaostouri/image/upload/v1663664915/avatar_photos/ra3cbssf64n3ihc2fw0o.png"*/}
+      {/*          }*/}
+      {/*          alt={""}*/}
+      {/*      />*/}
+      {/*    </Link>*/}
+      {/*  </footer>*/}
+      {/*</section>*/}
     </div>
   );
 };

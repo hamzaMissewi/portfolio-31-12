@@ -76,7 +76,8 @@ function Experience() {
   return (
     <motion.div
       className={
-        "h-screen relative flex flex-col overflow-x-hidden text-left md:flex-row max-w-full justify-evenly mx-auto" +
+        // md:flex-row
+        "h-screen relative flex flex-col overflow-x-hidden text-left justify-evenly mx-auto" +
         " items-center z-0"
       }
     >
@@ -89,7 +90,7 @@ function Experience() {
       {/*  </p>*/}
       {/*</div>*/}
 
-      <div className="w-screen flex flex-col snap-x snap-mandatory z-10  max-w-6xl">
+      <div className="w-screen snap-x snap-mandatory z-10  max-w-6xl">
         <h3 className="z-1 uppercase tracking tracking-[20px] text-gray-500 text-2xl">
           {t("personalProjects.title")}
         </h3>
@@ -109,8 +110,8 @@ function Experience() {
               {t(`personalProjects.projects.${index}.description`)}
             </p>
 
-            <div className="relative">
-              {projectUrls.personal[index] && (
+            <div className={"relative mx-auto"}>
+              {projectUrls.personal?.[index].thumbnail && (
                 <motion.img
                   initial={{ y: -300, opacity: 0 }}
                   transition={{ duration: 1.2 }}
@@ -122,33 +123,32 @@ function Experience() {
                 />
               )}
 
-              <div className={"right-0 top-0 z-15"}>
-                {projectUrls.personal[index]?.live && (
-                  <Link
-                    href={projectUrls.personal[index].live}
-                    rel={
-                      projectUrls.personal[index]
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    target={projectUrls.personal[index] ? "_blank" : undefined}
-                  >
-                    <TabIcon fontSize={"small"} color={"error"} />
-                    <p>Live {projectUrls.personal[index].thumbnail}</p>
-                  </Link>
-                )}
-                {/*TODO*/}
-                <CodeIcon fontSize={"small"} color={"error"} />
+              <div className={"absolute right-0 top-0 z-15"}>
+                {/*{projectUrls.personal[index]?.live && (*/}
+                <Link
+                  href={projectUrls.personal[index]?.live || ""}
+                  rel={
+                    projectUrls.personal[index]
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  target={projectUrls.personal[index] ? "_blank" : undefined}
+                >
+                  <TabIcon fontSize={"small"} color={"error"} />
+                  <p>Live {projectUrls.personal[index].thumbnail}</p>
+                </Link>
+                {/*)}*/}
+                {/*<CodeIcon fontSize={"small"} color={"error"} />*/}
               </div>
             </div>
 
-            <div className={"space-y-10 px-0 md:px-10"}>
-              <h4 className={"text-4xl font-semibold text-center"}>
-                <span className={"underline decoration-[#F7AB0A]/50"}>
-                  Case Study {index + 1} of {projectUrls.personal.length}
-                </span>
-              </h4>
-            </div>
+            {/*<div className={"space-y-10 px-0 md:px-10"}>*/}
+            <h4 className={"text-4xl font-semibold text-center"}>
+              <span className={"underline decoration-[#F7AB0A]/50"}>
+                Case Study {index + 1} of {projectUrls.personal.length}
+              </span>
+            </h4>
+            {/*</div>*/}
           </div>
         ))}
       </div>

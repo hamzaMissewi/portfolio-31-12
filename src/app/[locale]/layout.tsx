@@ -1,4 +1,5 @@
-import React from "react";
+// import React from "react";
+import "../globals.css";
 import Header from "@/components/Header";
 import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
@@ -8,6 +9,7 @@ import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { ThemeProviderProps } from "next-themes/dist/types";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import Footer from "@/components/Footer";
 
 // import Head from "next/head";
 
@@ -76,12 +78,18 @@ async function Layout({
         >
           <NextIntlClientProvider messages={messages}>
             <ClerkProvider publishableKey={clerkFrontendApi}>
-              <div className="flex flex-col w-full h-full min-h-screen overflow-x-hidden mx-auto">
-                <Header />
+              <div className="flex flex-col w-full h-full space-y-2 min-h-screen overflow-x-hidden mx-auto">
+                <header>
+                  <Header />
+                </header>
                 <div className={"container flex flex-grow spacing-2 w-full"}>
                   <Sidebar />
                   <div className={"w-full flex-grow"}>{children}</div>
                 </div>
+
+                <footer className={"sticky bottom-0 w-full"}>
+                  <Footer />
+                </footer>
               </div>
             </ClerkProvider>
           </NextIntlClientProvider>
