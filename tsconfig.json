@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
+    //    "target": "es5",
+    //    "module": "esnext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -27,32 +27,31 @@
     "baseUrl": ".",
     "paths": {
       // This helps TypeScript resolve module paths without extensions
+      //      "@/*": [
+      //        "src/*"
+      //      ]
       //      "@/app/*": [
       //        "src/app/*"
       //      ],
       //      "@/components/*": [
       //        "src/components/*"
       //      ],
-      //      "@/*": [
-      //        "src/*"
-      //      ]
       //      "@/lib/*": [
       //        "./src/lib/*"
       //      ],
       //      "@/hooks/*": [
       //        "./src/hooks/*"
       //      ]
-    }
-
+    },
+    "module": "esnext"
   },
   "include": [
     "next-env.d.ts",
     //    "src/**/*.tsx",
     "**/*.ts",
     "**/*.tsx",
+    ".next/types/**/*.ts",
     "build/types/**/*.ts"
-    //    ".next/types/**/*.ts",
-    //    "build/types/**/*.ts",
   ],
   "exclude": [
     "node_modules"
