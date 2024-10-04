@@ -39,7 +39,7 @@ async function Layout({
   const clerkFrontendApi = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
   return (
-    <Html
+    <html
       lang={locale}
       suppressHydrationWarning
       dir={locale === "ar" ? "rtl" : "ltr"}
@@ -87,7 +87,7 @@ async function Layout({
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
-    </Html>
+    </html>
   );
 }
 
