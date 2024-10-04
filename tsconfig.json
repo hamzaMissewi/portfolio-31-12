@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    //    "target": "es5",
     "module": "esnext",
     "lib": [
       "dom",
@@ -50,7 +50,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-    //    "build/types/**/*.ts"
+    //    "build/types/**/*.ts",
+    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,4 +1,3 @@
-// import React from "react";
 import "../globals.css";
 import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
