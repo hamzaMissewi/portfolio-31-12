@@ -58,12 +58,12 @@ function Experience() {
   // const projectRef = useRef<HTMLDivElement | null>(null);
 
   const numberPersonalProjects = Array.from(
-      {length: projectUrls.personal.length},
-      (_, index) => index, //+ 1,
+    { length: projectUrls.personal.length },
+    (_, index) => index, //+ 1,
   );
   const numberProfessionalProjects = Array.from(
-      {length: projectUrls.professional.length},
-      (_, index) => index,
+    { length: projectUrls.professional.length },
+    (_, index) => index,
   );
 
   const handleOpenCodeDemo = useCallback((code?: string) => {
@@ -79,8 +79,8 @@ function Experience() {
   return (
     <motion.div
       className={
-          "h-screen relative flex flex-col overflow-hidden text-left md:flex-row max-w-full justify-evenly mx-auto" +
-          " items-center z-0"
+        "h-screen relative flex flex-col overflow-hidden text-left md:flex-row max-w-full justify-evenly mx-auto" +
+        " items-center z-0"
       }
     >
       <div className={"flex flex-col "}>
@@ -98,14 +98,14 @@ function Experience() {
         </h3>
 
         {Array.from(
-            {length: projectUrls.personal.length - 1},
-            (_, index) => index,
+          { length: projectUrls.personal.length - 1 },
+          (_, index) => index,
         ).map((i) => (
           <div
             key={i}
             className={
-                "relative h-fit flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20" +
-                " md:p-44"
+              "relative h-fit flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20" +
+              " md:p-44"
             }
           >
             <p className={"text-lg text-center md:text-left"}>
@@ -114,34 +114,34 @@ function Experience() {
 
             <div className="relative">
               {projectUrls.personal[i] && (
-                  <motion.img
-                      initial={{y: -300, opacity: 0}}
-                      transition={{duration: 1.2}}
-                      whileInView={{opacity: 1, y: 0}}
-                      viewport={{once: true}}
-                      src={projectUrls.personal[i].thumbnail}
-                      alt={"project name"}
-                      className="rounded-md w-[100%] md:h-[550px] sm:w-10 sm:h-10 items-center object-center p-2"
-                  />
+                <motion.img
+                  initial={{ y: -300, opacity: 0 }}
+                  transition={{ duration: 1.2 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  src={projectUrls.personal[i].thumbnail}
+                  alt={"project name"}
+                  className="rounded-md w-[100%] md:h-[550px] sm:w-10 sm:h-10 items-center object-center p-2"
+                />
               )}
 
               <div className={"right-0 top-0 z-15"}>
-                {projectUrls.personal[i] && (
-                    <Link
-                        href={projectUrls.personal[i].live}
-                        rel={
-                          projectUrls.personal[i]
-                              ? "noopener noreferrer"
-                              : undefined
-                        }
-                        target={projectUrls.personal[i] ? "_blank" : undefined}
-                    >
-                      <TabIcon fontSize={"small"} color={"error"}/>
-                      <p>Live {projectUrls.personal[i].thumbnail}</p>
-                    </Link>
+                {projectUrls.personal[i]?.live && (
+                  <Link
+                    href={projectUrls.personal[i].live}
+                    rel={
+                      projectUrls.personal[i]
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    target={projectUrls.personal[i] ? "_blank" : undefined}
+                  >
+                    <TabIcon fontSize={"small"} color={"error"} />
+                    <p>Live {projectUrls.personal[i].thumbnail}</p>
+                  </Link>
                 )}
                 {/*TODO*/}
-                <CodeIcon fontSize={"small"} color={"error"}/>
+                <CodeIcon fontSize={"small"} color={"error"} />
               </div>
             </div>
 
@@ -157,60 +157,60 @@ function Experience() {
       </div>
 
       <div
-          className={
-            "relative w-full flex flex-wrap overflow-y-hidden snap-x snap-mandatory z-20"
-          }
+        className={
+          "relative w-full flex flex-wrap overflow-y-hidden snap-x snap-mandatory z-20"
+        }
       >
         <h3 className="z-1 uppercase tracking tracking-[20px] text-gray-500 text-2xl">
           {t("professionalProjects.title")}
         </h3>
 
         {Array.from(
-            {length: projectUrls.professional.length - 1},
-            (_, index) => index,
+          { length: projectUrls.professional.length - 1 },
+          (_, index) => index,
         ).map((index) => {
           // const url = t(`professionalProjects.projects.${index}`);
           return (
-              <div>
-                <h3 className={"text-lg text-center md:text-left"}>
-                  {t(`professionalProjects.projects.${index}.society`)}
-                </h3>
-                <p className={"text-lg text-center md:text-left"}>
-                  {t(`professionalProjects.projects.${index}.description`)}
-                </p>
+            <div>
+              <h3 className={"text-lg text-center md:text-left"}>
+                {t(`professionalProjects.projects.${index}.society`)}
+              </h3>
+              <p className={"text-lg text-center md:text-left"}>
+                {t(`professionalProjects.projects.${index}.description`)}
+              </p>
 
-                {projectUrls.professional[index] && (
-                    <motion.img
-                        initial={{y: -300, opacity: 0}}
-                        transition={{duration: 1.2}}
-                        whileInView={{opacity: 1, y: 0}}
-                        viewport={{once: true}}
-                        src={projectUrls.professional[index].thumbnail}
-                        width={250}
-                        height={250}
-                        alt={`${index} professional project`}
-                        className={
-                          "rounded-md md:w-[100%] md:h-[550px] sm:w-10 sm:h-10 items-center object-center p-2"
-                        }
-                    />
-                )}
+              {projectUrls.professional[index] && (
+                <motion.img
+                  initial={{ y: -300, opacity: 0 }}
+                  transition={{ duration: 1.2 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  src={projectUrls.professional[index].thumbnail}
+                  width={250}
+                  height={250}
+                  alt={`${index} professional project`}
+                  className={
+                    "rounded-md md:w-[100%] md:h-[550px] sm:w-10 sm:h-10 items-center object-center p-2"
+                  }
+                />
+              )}
 
-                {/*<div*/}
-                {/*  className={*/}
-                {/*    "flex flex-row absolute right-0 bottom-0 space-x-2 z-2"*/}
-                {/*  }*/}
-                {/*>*/}
-                {/*<Link*/}
-                {/*  href={project.code || ""}*/}
-                {/*  rel={project.code ? "noopener noreferrer" : undefined}*/}
-                {/*  target={project.code ? "_blank" : undefined}*/}
-                {/*>*/}
-                {/*  <CodeIcon fontSize={"small"} color={"error"} />*/}
-                {/*  <p>Code</p>*/}
-                {/*    <TabIcon fontSize={"small"} color={"error"} />*/}
-                {/*    <p>Live</p>*/}
-                {/*</Link>*/}
-              </div>
+              {/*<div*/}
+              {/*  className={*/}
+              {/*    "flex flex-row absolute right-0 bottom-0 space-x-2 z-2"*/}
+              {/*  }*/}
+              {/*>*/}
+              {/*<Link*/}
+              {/*  href={project.code || ""}*/}
+              {/*  rel={project.code ? "noopener noreferrer" : undefined}*/}
+              {/*  target={project.code ? "_blank" : undefined}*/}
+              {/*>*/}
+              {/*  <CodeIcon fontSize={"small"} color={"error"} />*/}
+              {/*  <p>Code</p>*/}
+              {/*    <TabIcon fontSize={"small"} color={"error"} />*/}
+              {/*    <p>Live</p>*/}
+              {/*</Link>*/}
+            </div>
           );
         })}
       </div>
