@@ -16,18 +16,24 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "build/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
   ]
 }
-
 //{
 //  "compilerOptions": {
 //    "lib": [
