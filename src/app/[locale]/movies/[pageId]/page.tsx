@@ -2,15 +2,7 @@ import { Typography } from "@mui/material";
 import { getDiscoverMoviesByPage } from "@/lib/getMovies";
 import MovieCard from "@/components/movies/sonny/MovieCard";
 
-// type IMovieDetails = {
-//     params: { movieId: string },
-//    movie?: { title: string, trailer?: string, description?: string, }
-// title: string,
-// trailer?: string,
-// description?: string
-// }
-
-export async function PageMovies({
+export default async function Page({
   params,
   searchParams,
 }: {
