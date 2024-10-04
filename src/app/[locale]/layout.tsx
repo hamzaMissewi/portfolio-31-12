@@ -7,8 +7,9 @@ import Sidebar from "@/components/Sidebar";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/app/layout";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Head, Html } from "next/document";
+import { Html } from "next/document";
 import "@/styles/globals.css";
+import Head from "next/head";
 
 
 export enum Language {
@@ -42,22 +43,23 @@ async function RootLayout({
       suppressHydrationWarning
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
-      <Head>
-        {/*<meta name="description" content="Global description for the site." />*/}
-        <title className={"text-gray-800 accent-gray-300 mb-5"}>
-          Hamza Missaoui's Portfolio
-        </title>
+      {/*<Head>*/}
+      {/*  /!*<meta name="description" content="Global description for the site." />*!/*/}
+      {/*  <title className={"text-gray-800 accent-gray-300 mb-5"}>*/}
+      {/*    Hamza Missaoui's Portfolio*/}
+      {/*  </title>*/}
 
-        <meta name="description" content="Welcome to the Home Page" />
-        <meta property="og:title" content="Home Page" />
-        <meta property="og:description" content="Welcome to the Home Page" />
-        <meta
-          property="og:image"
-          content="/assets/b2b-alive-ltd-icon.svg"
-          color="#5bbad5"
-        />
-        {/*<link  href="/path/to/image.jpg" />*/}
-      </Head>
+      {/*  <meta name="description" content="Welcome to the Home Page" />*/}
+      {/*  <meta property="og:title" content="Home Page" />*/}
+      {/*  <meta property="og:description" content="Welcome to the Home Page" />*/}
+      {/*  <meta*/}
+      {/*    property="og:image"*/}
+      {/*    content="/assets/b2b-alive-ltd-icon.svg"*/}
+      {/*    color="#5bbad5"*/}
+      {/*  />*/}
+      {/*  /!*<link  href="/path/to/image.jpg" />*!/*/}
+      {/*</Head>*/}
+      <Header />
 
       <body
         suppressHydrationWarning={true}
@@ -73,7 +75,6 @@ async function RootLayout({
           <NextIntlClientProvider messages={messages}>
             <ClerkProvider publishableKey={clerkFrontendApi}>
               <div className="flex flex-col min-h-screen overflow-x-hidden mx-auto">
-                <Header />
                 <div className={"container flex flex-grow spacing-2 w-full"}>
                   <Sidebar />
                   <div className={"w-full flex-grow"}>{children}</div>

@@ -5,6 +5,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import { img_300, noPicture } from "./config";
 import "@/components/movies/Carousel.css";
 import { TMDB_API_KEY } from "@/lib/getMovies";
+import Image from "next/image";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();
@@ -24,7 +25,7 @@ const Gallery = ({ id, media_type }: IGallery) => {
           width={100}
           height={100}
           src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
-          alt={c?.name}
+          alt={c?.name || ""}
           onDragStart={handleDragStart}
           className="carouselItem__img"
         />

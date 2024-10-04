@@ -10,6 +10,7 @@ import ChatBot from "@/components/ChatBot";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   const t = useTranslations("Home");

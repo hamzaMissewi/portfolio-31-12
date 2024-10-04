@@ -56,7 +56,7 @@ function About() {
           <p className={"text-base"}>{t("description")}</p>
           <ul>
             {skillKeys.map((key) => (
-              <li>{t(`skills.${key}`)}</li>
+              <li key={key}>{t(`skills.${key}`)}</li>
             ))}
 
             {/*<li>Cross-Functional Collaboration: "Proven track record of working effectively with*/}

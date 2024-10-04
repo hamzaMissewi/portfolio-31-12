@@ -6,6 +6,7 @@ import { InstagramIcon } from "lucide-react";
 import React from "react";
 import { Stack } from "@mui/material";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const Footer = () => {
   const t = useTranslations("Footer");

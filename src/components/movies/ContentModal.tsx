@@ -6,6 +6,7 @@ import { Backdrop, Box, Button, Fade, Modal, styled } from "@mui/material";
 import Carousel from "./Carousel";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { TMDB_API_KEY } from "@/lib/getMovies";
+import Image from "next/image";
 
 const StyledModal = styled(Modal)({
   display: "flex",
@@ -115,7 +116,7 @@ export default function ContentModal({
                         ? `${img_500}/${content.poster_path}`
                         : unavailable
                     }
-                    alt={content.name || content.title}
+                    alt={content.name || content.title || ""}
                     className="ContentModal__portrait"
                   />
                   <Image
@@ -126,7 +127,7 @@ export default function ContentModal({
                         ? `${img_500}/${content.backdrop_path}`
                         : unavailableLandscape
                     }
-                    alt={content.name || content.title}
+                    alt={content.name || content.title || ""}
                     className="ContentModal__landscape"
                   />
                   <div className="ContentModal__about">

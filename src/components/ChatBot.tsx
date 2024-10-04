@@ -69,7 +69,7 @@ function ChatBot() {
         setExpandChatBox(true);
       }
     },
-    [askChatGpt, userMessage],
+    [askChatGpt, userMessage, enqueueSnackbar, responses],
   );
 
   // TODO TEXT TO SPEESH
