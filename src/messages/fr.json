@@ -27,7 +27,8 @@
     "welcome": "Bonjour et bienvenue {username}",
     "signUp": "S'inscrire",
     "signIn": "Se connecter",
-    "signOut": "se déconnecter"
+    "signOut": "se déconnecter",
+    "getInTouch": "Entrer en contact"
   },
   "Home": {
     "title": "Maison"
@@ -90,31 +91,31 @@
     "description": "J'ai travaillé sur l'application principale d'une société de contenu visuel dans Typescript sur différentes fonctionnalités et tâches, m'a permis d'acquérir une expérience pratique avec React et TypeScript pour le front-end, et Node.js avec Koa js pour le back-end, tâches travaillées  ",
     "personalProjects": {
       "title": "Projets personnels",
-      "1": {
+      "0": {
         "description": "Travailler sur une application avec Python et Django destinée aux réservations d'hôtel dans n'importe quelle région du pays sélectionné"
       },
-      "2": {
+      "1": {
         "description": "Concevoir et implémenter une application clone de sites Web Amazon"
       },
-      "3": {
+      "2": {
         "description": "Créer un clone simplifié de Google Drive"
       },
-      "4": {
+      "3": {
         "description": "portefeuille"
       }
     },
     "professionalProjects": {
       "title": "Projets professionnels",
       "projects": {
-        "1": {
+        "0": {
           "society": "b2bAliveLtd",
           "description": "Travailler sur la principale application Web progressive dans le domaine de la publicité et de l'affichage numérique qui aide l'utilisateur à gérer les médias et à ajouter des présentations."
         },
-        "2": {
+        "1": {
           "society": "b2bAliveLtd",
           "description": "Serveur de travail de l'application principale avec nœud TypeScript et graphql"
         },
-        "3": {
+        "2": {
           "society": "globalnet3S",
           "description": "Concepter et implémenter une application mobile avec React Native comme uber clone"
         }
@@ -127,5 +128,10 @@
     "socialMedia": "Coordonnées",
     "address": "Adresse, Tunisie, Mourouj 1 rue aigle, zip 2074",
     "email": "E-mail"
+  },
+  "Chatbot": {
+    "title": "Chatbot",
+    "typeMessage": "Tapez votre message...",
+    "send": "Envoyer"
   }
 }

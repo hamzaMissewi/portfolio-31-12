@@ -1,11 +1,13 @@
 "use client";
 import { useCallback } from "react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import CodeIcon from "@mui/icons-material/Code";
 import TabIcon from "@mui/icons-material/Tab";
+import Image from "next/image";
+import { Tooltip } from "@mui/material";
+import { useTranslations } from "next-intl";
 
 // export type ProjectType = {
 //   title: string;
@@ -19,66 +21,73 @@ const projectUrls: {
   professional: { title?: string; thumbnail?: string; live?: string }[];
   personal: { title?: string; thumbnail?: string; live?: string }[];
 } = {
+  personal: [
+    {
+      title: "netlify movies web app",
+      thumbnail:
+        "https://res.cloudinary.com/hamzaostouri/image/upload/v1728135248/Capture_d_%C3%A9cran_2024-10-05_143358_eawvpb.png",
+      live: "https://quirky-wright-757726.netlify.app/",
+    },
+    {
+      title: "amazon clone with react",
+      thumbnail: "",
+      live: "https://clone-127fa.web.app/",
+    },
+    {
+      title: "google calendar clone app with react",
+      thumbnail: "",
+      live: "https://calendar.google.com/calendar/u/0/r?pli=1",
+    },
+    {
+      title: "old portfolio app",
+      thumbnail:
+        "https://res.cloudinary.com/hamzaostouri/image/upload/v1728134489/Capture_d_%C3%A9cran_2024-10-05_142025_vusnbp.png",
+      live: "https://hamza-missaoui-resume.netlify.app/",
+    },
+  ],
   professional: [
     {
-      thumbnail: "https://res.cloudinary.com/hamzaostouri/image/upload/v1724472245/Capture_d_%C3%A9cran_2024-08-22_131442_utriiu.png",
+      thumbnail:
+        "https://res.cloudinary.com/hamzaostouri/image/upload/v1724472245/Capture_d_%C3%A9cran_2024-08-22_131442_utriiu.png",
       // live: "",
     },
     {
-      thumbnail: "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022099/Capture_d_%C3%A9cran_2024-03-18_192908_xsd9iw.png",
+      thumbnail:
+        "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022099/Capture_d_%C3%A9cran_2024-03-18_192908_xsd9iw.png",
       // live: ""
     },
     {
-      thumbnail: "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022087/Capture_d_%C3%A9cran_2024-03-19_161306_nblwjp.png",
+      thumbnail:
+        "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022087/Capture_d_%C3%A9cran_2024-03-19_161306_nblwjp.png",
       // live: ""
     },
     {
-      thumbnail: "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022637/b2b-ui-schedule-page_biyxel.png",
+      thumbnail:
+        "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022637/b2b-ui-schedule-page_biyxel.png",
       // live: ""
     },
     {
-      thumbnail: "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022637/graphql-playground_mprfrb.png",
+      thumbnail:
+        "https://res.cloudinary.com/hamzaostouri/image/upload/v1728022637/graphql-playground_mprfrb.png",
       // live: ""
     },
-    // {thumbnail: schedulePageCapture.src, live: ""},
-  ],
-  personal: [
-    {title: "netlify movies react web app", live: "https://quirky-wright-757726.netlify.app/"},
-    {live: "https://clone-127fa.web.app/"},
-    {live: "https://calendar.google.com/calendar/u/0/r?pli=1"},
-    {live: "https://hamza-missaoui-resume.netlify.app/"},
   ],
 };
 
 function Experience() {
   const t = useTranslations("Experience");
-  const router = useRouter();
 
-  // const numberPersonalProjects = Array.from(
-  //   { length: projectUrls.personal.length },
-  //   (_, index) => index, //+ 1,
-  // );
-  // const numberProfessionalProjects = Array.from(
-  //   { length: projectUrls.professional.length },
-  //   (_, index) => index,
-  // );
-
-  const handleOpenCodeDemo = useCallback((code?: string) => {
-    if (!code) return;
-    router.push(code);
-  }, []);
-
-  // const handleOpenLiveDemo = useCallback((live?: string) => {
-  //   if (!live) return;
-  //   router.push(live);
+  // const router = useRouter();
+  // const handleOpenCodeDemo = useCallback((code?: string) => {
+  //   if (!code) return;
+  //   router.push(code);
   // }, []);
 
   return (
     <motion.div
       className={
-        // md:flex-row
-        "h-screen relative flex flex-col overflow-x-hidden text-left justify-evenly mx-auto" +
-        " items-center z-0"
+        "min-h-screen flex flex-col overflow-hidden text-left justify-evenly mx-auto" +
+        " z-0"
       }
     >
       {/*<div className={"flex flex-col"}>*/}
@@ -90,125 +99,145 @@ function Experience() {
       {/*  </p>*/}
       {/*</div>*/}
 
-      <div className="w-screen snap-x snap-mandatory z-10  max-w-6xl">
+      <div className="flex flex-col space-y-2 snap-x snap-mandatory z-10  max-w-6xl">
         <h3 className="z-1 uppercase tracking tracking-[20px] text-gray-500 text-2xl">
           {t("personalProjects.title")}
         </h3>
 
-        {Array.from(
-          { length: projectUrls.personal.length - 1 },
-          (_, index) => index,
-        ).map((index) => (
+        {/*{Array.from(*/}
+        {/*  { length: projectUrls.personal.length - 1 },*/}
+        {/*  (_, index) => index,*/}
+        {/*)*/}
+        {projectUrls.personal.map((personalProject, index) => (
           <div
             key={index}
             className={
-              "relative h-fit flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20" +
-              " md:p-44"
+              "relative flex-shrink-0"
+              // "relative h-fit flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20" +
+              // " md:p-44"
             }
           >
-            <p className={"text-lg text-center md:text-left"}>
-              {t(`personalProjects.projects.${index}.description`)}
-            </p>
+            <div className={"flex items-center space-x-2"}>
+              {/*<p className={"text-lg text-center md:text-left"}>*/}
+              {/*  {t(`personalProjects.projects.1.description`)}*/}
+              {/*</p>*/}
 
-            <div className={"relative mx-auto"}>
-              {projectUrls.personal?.[index].thumbnail && (
-                <motion.img
-                  initial={{ y: -300, opacity: 0 }}
-                  transition={{ duration: 1.2 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  src={projectUrls.personal[index].thumbnail}
-                  alt={"project name"}
-                  className="rounded-md w-[100%] md:h-[550px] sm:w-10 sm:h-10 items-center object-center p-2"
-                />
+              {personalProject.title && (
+                <p className={"text-lg text-center md:text-left"}>
+                  {personalProject.title}
+                </p>
               )}
-
-              <div className={"absolute right-0 top-0 z-15"}>
-                {/*{projectUrls.personal[index]?.live && (*/}
-                <Link
-                  href={projectUrls.personal[index]?.live || ""}
-                  rel={
-                    projectUrls.personal[index]
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  target={projectUrls.personal[index] ? "_blank" : undefined}
-                >
-                  <TabIcon fontSize={"small"} color={"error"} />
-                  <p>Live {projectUrls.personal[index].thumbnail}</p>
-                </Link>
-                {/*)}*/}
-                {/*<CodeIcon fontSize={"small"} color={"error"} />*/}
-              </div>
             </div>
 
-            {/*<div className={"space-y-10 px-0 md:px-10"}>*/}
-            <h4 className={"text-4xl font-semibold text-center"}>
-              <span className={"underline decoration-[#F7AB0A]/50"}>
+            <div className={"flex items-center justify-center"}>
+              <div className={"relative w-fit-content"}>
+                {personalProject.thumbnail && (
+                  <Image
+                    // initial={{ y: -300, opacity: 0 }}
+                    // transition={{ duration: 1.2 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // viewport={{ once: true }}
+                    // src={
+                    //   "https://res.cloudinary.com/hamzaostouri/image/upload/v1724472245/Capture_d_%C3%A9cran_2024-08-22_131442_utriiu.png"
+                    // }
+                    width={250}
+                    height={250}
+                    src={personalProject.thumbnail}
+                    alt={""}
+                    // sm:w-10 sm:h-10 w-[100%] md:h-[550px]
+                    className="rounded-md items-center object-center p-2"
+                  />
+                )}
+
+                {personalProject.live && (
+                  <Link
+                    className={"absolute z-1 right-0 top-0"}
+                    href={personalProject.live}
+                    rel={"noopener noreferrer"}
+                    target={"_blank"}
+                  >
+                    <Tooltip title={"Live"}>
+                      <TabIcon fontSize={"small"} color={"error"} />
+                    </Tooltip>
+                    {/*<p>Live</p>*/}
+                  </Link>
+                  // <CodeIcon fontSize={"small"} color={"error"} />
+                )}
+              </div>
+
+              <p
+                className={
+                  "text-sm font-semibold text-center decoration-[#F7AB0A]/50"
+                }
+              >
+                {/*<span className={""}>*/}
                 Case Study {index + 1} of {projectUrls.personal.length}
-              </span>
-            </h4>
-            {/*</div>*/}
+              </p>
+            </div>
           </div>
         ))}
       </div>
 
       <div
-        className={
-          "relative w-full flex flex-wrap overflow-y-hidden snap-x snap-mandatory z-20"
-        }
+        className={"relative w-full flex flex-wrap snap-x snap-mandatory z-20"}
       >
         <h3 className="z-1 uppercase tracking tracking-[20px] text-gray-500 text-2xl">
           {t("professionalProjects.title")}
         </h3>
 
-        {Array.from(
-          { length: projectUrls.professional.length - 1 },
-          (_, index) => index,
-        ).map((index) => {
-          return (
-            <div key={index}>
-              <h3 className={"text-lg text-center md:text-left"}>
-                {t(`professionalProjects.projects.${index}.society`)}
-              </h3>
+        {/*{Array.from(*/}
+        {/*  { length: projectUrls.professional.length - 1 },*/}
+        {/*  (_, index) => index,*/}
+        {/*)*/}
+        {projectUrls.professional.map((proProject, index) => (
+          <div key={index}>
+            {/*<h3 className={"text-lg text-center md:text-left"}>*/}
+            {/*  {t(`professionalProjects.projects.${index}.society`)}*/}
+            {/*</h3>*/}
+            {/*<p className={"text-lg text-center md:text-left"}>*/}
+            {/*  {t(`professionalProjects.projects.${index}.description`)}*/}
+            {/*</p>*/}
+
+            {proProject.title && (
               <p className={"text-lg text-center md:text-left"}>
-                {t(`professionalProjects.projects.${index}.description`)}
+                {proProject.title}
               </p>
+            )}
 
-              {projectUrls.professional[index] && (
-                <motion.img
-                  initial={{ y: -300, opacity: 0 }}
-                  transition={{ duration: 1.2 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  src={projectUrls.professional[index].thumbnail}
-                  width={250}
-                  height={250}
-                  alt={`${index} professional project`}
-                  className={
-                    "rounded-md md:w-[100%] md:h-[550px] sm:w-10 sm:h-10 items-center object-center p-2"
-                  }
-                />
-              )}
+            {proProject.thumbnail && (
+              <Image
+                // initial={{ y: -300, opacity: 0 }}
+                // transition={{ duration: 1.2 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // viewport={{ once: true }}
+                src={proProject.thumbnail}
+                width={250}
+                height={150}
+                alt={`${index} professional project`}
+                className={
+                  // md:w-[100%] md:h-[550px] sm:w-10 sm:h-10
+                  "rounded-md  items-center object-center p-2"
+                }
+              />
+            )}
 
-              {/*<div*/}
-              {/*  className={*/}
-              {/*    "flex flex-row absolute right-0 bottom-0 space-x-2 z-2"*/}
-              {/*  }*/}
-              {/*>*/}
-              {/*<Link*/}
-              {/*  href={project.code || ""}*/}
-              {/*  rel={project.code ? "noopener noreferrer" : undefined}*/}
-              {/*  target={project.code ? "_blank" : undefined}*/}
-              {/*>*/}
-              {/*  <CodeIcon fontSize={"small"} color={"error"} />*/}
-              {/*  <p>Code</p>*/}
-              {/*    <TabIcon fontSize={"small"} color={"error"} />*/}
-              {/*    <p>Live</p>*/}
-              {/*</Link>*/}
-            </div>
-          );
-        })}
+            {/*<div*/}
+            {/*  className={*/}
+            {/*    "flex flex-row absolute right-0 bottom-0 space-x-2 z-2"*/}
+            {/*  }*/}
+            {/*>*/}
+            {/*<Link*/}
+            {/*  href={project.code || ""}*/}
+            {/*  rel={project.code ? "noopener noreferrer" : undefined}*/}
+            {/*  target={project.code ? "_blank" : undefined}*/}
+            {/*>*/}
+            {/*  <CodeIcon fontSize={"small"} color={"error"} />*/}
+            {/*  <p>Code</p>*/}
+            {/*    <TabIcon fontSize={"small"} color={"error"} />*/}
+            {/*    <p>Live</p>*/}
+            {/*</Link>*/}
+          </div>
+        ))}
       </div>
     </motion.div>
   );

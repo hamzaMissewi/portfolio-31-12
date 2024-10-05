@@ -3,7 +3,6 @@ import React, { useCallback, useState } from "react";
 import {
   Alert,
   Box,
-  Button,
   CircularProgress,
   ClickAwayListener,
   Divider,
@@ -19,8 +18,11 @@ import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useAskChatGptHook } from "../hooks/useAskOpenAi4o";
+import { useTranslations } from "next-intl";
+import { Button } from "./ui/button";
 
 function ChatBot() {
+  const t = useTranslations("Chatbot");
   const { askChatGpt } = useAskChatGptHook();
   const [userMessage, setUserMessage] = useState<string | undefined>(undefined);
   const [chatLoading, setChatLoading] = useState(false);
@@ -38,7 +40,7 @@ function ChatBot() {
       setChatLoading(true);
       try {
         if (!userMessage) {
-          enqueueSnackbar("ask anything", {
+          enqueueSnackbar("", {
             variant: "error",
             autoHideDuration: 5000,
           });
@@ -89,41 +91,41 @@ function ChatBot() {
       transition={{ duration: 1.2 }}
       whileInView={{ opacity: 1, x: 0 }}
       animate={{ x: -10, opacity: 1, scale: 1 }}
-      // viewport={{once: true}}
-      className="min-h-0 w-fit flex flex-col bg-gray-100 rounded-lg border-2 border-amber-400"
+      viewport={{ once: true }}
+      className="w-fit flex flex-col rounded-lg border-2 border-amber-400 dark:bg-chatbot-dark bg-chatbot-light z-99"
     >
-      {/*<Stack*/}
-      {/*  direction={"row"}*/}
-      {/*  className={"mx-2 self-center items-center space-x-1"}*/}
-      {/*  onClick={() => setExpandChatBox((value) => !value)}*/}
-      {/*>*/}
-      <Button
-        // fullWidth
-        className={"lowercase text-gray-500 truncate text-lg"}
-        style={{ width: "100%", height: "fit-content" }}
-        color={"success"}
+      <div
+        className={
+          "flex justify-center items-center px-2 dark:bg-chatbot-light bg-chatbot-dark space-x-2 text-lg" +
+          " dark:text-black" +
+          " text-white"
+        }
         onClick={() => setExpandChatBox((value) => !value)}
       >
-        <Typography component={"h1"} className="text-xl text-center text-black">
-          Chatbot
-        </Typography>
-        {/*<IconButton*/}
-        {/*  color={"success"}*/}
-        {/*  onClick={() => setExpandChatBox((value) => !value)}*/}
+        {/*<Button*/}
+        {/*  className={"lowercase text-lg dark:text-black text-white"}*/}
         {/*>*/}
+        <Typography
+          component={"h1"}
+          className="text-xl font-bold text-center lowercase"
+        >
+          {t("title")}
+        </Typography>
+        {/*</Button>*/}
         <KeyboardArrowDownIcon fontSize={"small"} />
-        {/*</IconButton>*/}
-      </Button>
+      </div>
       <Divider />
 
       {expandChatBox && (
         <ClickAwayListener onClickAway={() => setExpandChatBox(false)}>
-          <div
-            // initial={{opacity: 1}}
-            // transition={{duration: 0.5}}
-            className={"flex flex-col justify-between flex-1"}
+          <motion.div
+            initial={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className={
+              "flex flex-col justify-between flex-1 dark:bg-chatbot-dark bg-chatbot-light"
+            }
           >
-            <div className="overflow-y-auto flex-grow bg-white shadow-lg rounded-lg p-2 h-[400px]">
+            <div className="overflow-y-auto flex-grow shadow-lg rounded-lg p-2 h-[400px]">
               <div className="space-y-4">
                 {responses.map((msg, index) => (
                   <div
@@ -133,7 +135,7 @@ function ChatBot() {
                     <div
                       className={`max-w-xs p-3 rounded-lg ${
                         msg.role === "user"
-                          ? "bg-slate-500 text-white"
+                          ? "bg-slate-500 text-red"
                           : "bg-gray-200 text-gray-800"
                       }`}
                     >
@@ -165,24 +167,25 @@ function ChatBot() {
               }
             >
               <TextField
-                className="flex-1 border rounded-l-lg px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="flex-1 border rounded-lg px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-black text-white"
                 type={"text"}
                 size={"small"}
-                placeholder="Type your message..."
+                placeholder={t("typeMessage")}
                 value={userMessage}
                 onChange={(event) => setUserMessage(event.target.value)}
               />
 
               <Button
                 type={"submit"}
-                className="bg-blue-500 text-white rounded-r-lg px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 self-center"
-                endIcon={<SendIcon fontSize={"small"} color={"primary"} />}
+                className="dark:bg-black bg-white rounded-r-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 self-center items-center"
+                // endIcon={<SendIcon fontSize={"small"} color={"primary"} />}
                 onSubmit={(event) => handleClickAskChatGpt(event)}
               >
-                Send
+                <span>{t("send")}</span>
+                <SendIcon fontSize={"small"} color={"primary"} />
               </Button>
             </Box>
-          </div>
+          </motion.div>
         </ClickAwayListener>
       )}
       {chatLoading && (

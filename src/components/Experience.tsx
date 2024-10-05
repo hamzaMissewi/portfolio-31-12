@@ -60,8 +60,8 @@ function WorkExperience() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
       className={
-        "min-h-screen snap-start relative flex flex-col md:flex-row w-full px-10" +
-        " justify-evenly mx-auto items-center space-y-4"
+        "snap-start relative flex flex-col md:flex-row w-full px-10" +
+        " justify-evenly mx-auto items-center space-y-4 max-w-full"
       }
     >
       {/*<h3 className="absolute top-0 uppercase text-gray-500 tracking-[20px] text-3xl">*/}
@@ -70,7 +70,7 @@ function WorkExperience() {
 
       <div
         className={
-          "w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory text-white"
+          "w-full flex space-x-5 overflow-x-scroll p-10 snap-x snap-mandatory"
         }
       >
         <ExperienceCard

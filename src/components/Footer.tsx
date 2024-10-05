@@ -23,8 +23,8 @@ const Footer = () => {
 
   return (
     // footer-container
-    <div className="w-full mt-2 text-white bg-slate-800">
-      <div className="flex flex-row space-x-4 w-full">
+    <div className="sticky w-full dark:bg-darkBlueBackground bg-lightBackground">
+      <div className="flex flex-row space-x-4">
         <Link href="/" className={"hover:underline text-blue-500"}>
           <span>Homepage</span>
         </Link>
@@ -45,10 +45,10 @@ const Footer = () => {
           <b>Whatsapp: </b>(+216) 56521184
         </p>
 
-          <span
-              onClick={handleClickLocationMap}
-              className="text-blue cursor-pointer underline"
-          >
+        <span
+          onClick={handleClickLocationMap}
+          className="text-blue cursor-pointer underline"
+        >
           {t("address")}
         </span>
 
@@ -73,6 +73,7 @@ const Footer = () => {
 
         <Link
           href="https://github.com/HamzaMissewi"
+          // https://github.com/HamzaOstouri
           rel={"noopener noreferrer"}
           target={"_blank"}
           className={"flex space-x-4"}

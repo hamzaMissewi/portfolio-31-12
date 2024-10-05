@@ -16,12 +16,19 @@ export function ThemeToggler() {
   const [mounted, setMounted] = useState(false);
   // After the component mounts, we can safely use the theme
   useEffect(() => setMounted(true), []);
+    console.log("global theme ", theme);
 
   if (!mounted) return null; // Prevents hydration mismatch
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger
+        asChild
+        className={
+          "border dark:border-white border-black dark:bg-black bg-white"
+        }
+        // style={{ backgroundColor: theme === "light" ? "white" : "black" }}
+      >
         {/*<Button*/}
         {/*  variant="outline"*/}
         {/*  size="icon"*/}
@@ -37,7 +44,7 @@ export function ThemeToggler() {
         <Button
           variant="outline"
           size="icon"
-          style={{ backgroundColor: theme === "light" ? "black" : "white" }}
+          // style={{ backgroundColor: theme === "light" ? "black" : "white" }}
           onClick={() =>
             setTheme((value) => (value === "light" ? "dark" : "light"))
           }
@@ -48,16 +55,19 @@ export function ThemeToggler() {
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent
+        align="end"
+        className={`absolute right-1 top-2 ${theme === "light" ? "text-black bg-white" : "text-white bg-black"}`}
+      >
         <DropdownMenuItem onClick={() => setTheme("light")}>
           Light
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
+        {/*<DropdownMenuItem onClick={() => setTheme("system")}>*/}
+        {/*  System*/}
+        {/*</DropdownMenuItem>*/}
       </DropdownMenuContent>
 
       {/*<DropdownMenuGroup>*/}

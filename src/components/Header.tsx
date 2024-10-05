@@ -4,16 +4,17 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { ButtonGroup, Stack } from "@mui/material";
+import { ButtonGroup } from "@mui/material";
 import Image from "next/image";
-import { SignedIn, SignedOut, SignOutButton, UserButton } from "@clerk/nextjs";
-
+import { SignedIn, SignOutButton, UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/clerk-react";
-import { useTranslations } from "next-intl";
-import NextTopLoader from "nextjs-toploader";
+import { useLocale, useTranslations } from "next-intl";
 import { ThemeToggler } from "./movies/sonny/ThemeToggler";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { Button } from "./ui/button";
+import UpdateLanguageDialog, {
+  useUpdateLanguageDialog,
+} from "./common/UpdateLanguage";
 // import SearchInput from "@/components/movies/sonny/SearchInput";
 
 // const b2bAliveLogo =
@@ -26,47 +27,75 @@ const Header: React.FC = () => {
   const router = useRouter();
   const t = useTranslations("Navbar");
 
+  // const [openUpdateLanguageDialog, setOpenUpdateLanguageDialog] = useState(false);
+
+  const { updateLanguageDialogProps, openUpdateLanguageDialog } =
+    useUpdateLanguageDialog();
+  const locale = useLocale();
+
   return (
     <div
       className={
-        "sticky flex items-center justify-between backdrop-blur-0 bg-slate-800 dark:bg-white w-full z-20 border min-w-screen" +
-        " border-red-500"
+        "fixed flex items-center justify-between backdrop-blur-0 border border-darkBackground dark:border-customBlue" +
+        " bg-lightBackground" +
+        " dark:bg-darkBackground" +
+        " w-full z-20 min-w-screen max-h-[200px]" // px-2
       }
     >
-      <Link href="/" className="mr-10 bg-slate-800">
-        <Image
-          src={"/assets/b2b-alive-ltd-icon.svg"}
-          alt="Society Logo"
-          width={70}
-          height={50}
-          objectFit={"cover"}
-          style={{ position: "relative", padding: 1 }}
-          className={"cursor-pointer invert"}
-        />
+      <motion.div
+        initial={{ opacity: 0, x: -500, scale: 0.5 }}
+        animate={{ x: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5 }}
+        className={`flex flex-start space-x-2 items-center ${locale === "ar" ? "ml-10" : "mr-10"}`}
+      >
+        <Link
+          href="https://b2b-alive.com"
+          rel={"noopener noreferrer"}
+          target={"_blank"}
+        >
+          <Image
+            src={"/assets/b2b-alive-ltd-icon.svg"}
+            alt="Society Logo"
+            width={40}
+            height={20}
+            objectFit={"cover"}
+            className={
+              "cursor-pointer bg-lightBackground w-15 h-full relative p-1 my-1"
+            }
+          />
+        </Link>
+      </motion.div>
 
-        {/*<h1 className="text-4xl mb-4 font-semibold">{t("title")}</h1>*/}
-        {/*<p>{t("description")}</p>*/}
-      </Link>
+      {/*<div className={"flex flex-grow"} />*/}
 
-      <div className={"flex flex-grow"}>
+      <div
+        className={
+          // "flex justify-center space-x-2 border child:border-black dark:bg-black bg-white  grid grid-cols-3 gap-2"
+          "grid grid-cols-2 gap-2"
+        }
+      >
+        <Button asChild onClick={openUpdateLanguageDialog} color={"info"}>
+          Update Language
+        </Button>
         <LocaleSwitcher />
         <ThemeToggler />
+        {/*<SearchInput />*/}
       </div>
 
-      <div>
+      <div className="sm:hidden flex w-xl">
         {user && isSignedIn ? (
-          <Stack direction={"row"} alignItems={"center"}>
-            <h1 className={"text-xl text-black"}>
+          <div className={"flex flex-row space-x-2 items-center"}>
+            <h1 className={"text-xl font-semibold"}>
               {t("welcome", { username: user?.username })}
             </h1>
             <UserButton />
             <SignedIn>
               <SignOutButton />
             </SignedIn>
-          </Stack>
+          </div>
         ) : (
           // <SignedOut>
-          <ButtonGroup color={"inherit"} size={"small"}>
+          <ButtonGroup color={"success"} size={"small"}>
             <Button
               type={"button"}
               asChild
@@ -88,23 +117,18 @@ const Header: React.FC = () => {
               {t("signUp")}
             </Button>
           </ButtonGroup>
-          // </SignedOut>
         )}
       </div>
-      <NextTopLoader color="#000" showSpinner={false} />
 
-      {/*<div className="flex flex-row space-x-2 flex-wrap my-2 px-2">*/}
-      {/*<SearchInput />*/}
-      {/*<ThemeToggler />*/}
-      {/*</div>*/}
+      {/*<NextTopLoader color="#000" showSpinner={false} />*/}
 
       {/*<div className={"fixed top-0 w-full items-start justify-between mx-auto z-20 p-5 flex xl:items-center"}>*/}
 
       <motion.div
-        initial={{ opacity: 0, x: -500, scale: 0.5 }}
+        initial={{ opacity: 0, x: 500, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 1.5 }}
-        className={"flex flex-row items-center"}
+        className={`flex flex-row items-center cursor-pointer ${locale === "ar" ? "ml-2" : "mr-2"}`}
       >
         <SocialIcon
           url={"https://www.youtube.com/@hamza-topg"}
@@ -112,35 +136,25 @@ const Header: React.FC = () => {
           fgColor={"gray"}
           target={"_blank"}
         />
+
         <SocialIcon
-          url={"https://www.github.com/HamzaOstouri"}
+          url={"https://www.github.com/hamzaMissewi"}
           bgColor={"transparent"}
           fgColor={"gray"}
           target={"_blank"}
         />
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, x: 500, scale: 0.5 }}
-        animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5 }}
-        className={"flex flex-row items-center text-gray-300 cursor-pointer"}
-      >
-        <SocialIcon
-          className={"cursor-pointer"}
-          network={"email"}
-          fgColor={"gray"}
-          bgColor={"transparent"}
-        />
-
-        <Link href={"mailto:hamza.missaoui47@gmail.com?subject=want_require"}>
-          <p
-            className={"uppercase hidden md:inline-flex text-sm text-gray-400"}
-          >
-            Get in Touch
-          </p>
+        <Link href={"mailto:hamza.missaoui@b2b-alive.com?subject=want_require"}>
+          <SocialIcon
+            className={"cursor-pointer"}
+            network={"email"}
+            fgColor={"gray"}
+            bgColor={"transparent"}
+          />
+          <p className={" hidden md:inline-flex text-md"}>{t("getInTouch")}</p>
         </Link>
       </motion.div>
+      <UpdateLanguageDialog {...updateLanguageDialogProps} />
     </div>
   );
 };

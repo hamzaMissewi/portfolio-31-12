@@ -9,17 +9,16 @@ function Sidebar() {
   return (
     <div
       className={
-        "max-w-[30%] flex flex-col space-y-2 mr-1 shadow shadow-slate-700 bg-slate-800 border-1 dark:bg-gray-950 dark:hover:bg-gray-800" +
-        " border-black"
+        "space-y-2" +
+        "bg-lightBackground dark:bg-darkBlueBackground border border-black dark:border-white  shadow" +
+        " hover:shadow-slate-700 hidden xl:flex flex-col"
       }
     >
       {/*<Typography component={"h5"} style={{ color: "#ccc" }}>*/}
       {/*  Sidebar*/}
       {/*</Typography>*/}
       <div
-        className={
-          "rounded-lg border border-gray-200 p-4 shadow-sm transition-colors hover:bg-gray-50 text-white"
-        }
+        className={"rounded-lg shadow-sm transition-colors hover:bg-gray-50"}
       >
         <MenuList>
           <Link href={"/"}>

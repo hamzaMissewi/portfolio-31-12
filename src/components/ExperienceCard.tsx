@@ -23,7 +23,10 @@ const ExperienceCard = ({
   return (
     <article
       className={
-        "flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[200px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden"
+        "flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[200px] md:w-[600px] xl:w-[900px]" +
+        " snap-center dark:bg-[#292929] bg-lightBackground p-10 hover:opacity-100 opacity-40 cursor-pointer" +
+        " transition-opacity duration-200" +
+        " overflow-hidden"
       }
     >
       <Link
@@ -37,7 +40,7 @@ const ExperienceCard = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className={
-            "w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-fill object-center"
+            "w-32 h-32 rounded-full xl:w-[200px] xl:h-[200px] object-fill object-center bg-white"
           }
           src={image}
           alt={""}
@@ -55,7 +58,7 @@ const ExperienceCard = ({
                 key={i}
                 width={100}
                 height={100}
-                className={"h-12 w-12 rounded-full object-fill bg-white"}
+                className={"h-12 w-12 rounded-full object-fill"}
                 alt={image.name}
                 src={image.url}
               />

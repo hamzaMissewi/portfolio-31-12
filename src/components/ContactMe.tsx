@@ -219,9 +219,7 @@ function ContactMe() {
             style={{ width: "100%" }}
           />
           <LoadingButton
-            className={
-              "bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg"
-            }
+            className={"bg-[#F7AB0A] py-5 px-10 rounded-md font-bold text-lg"}
             disabled={!isValid}
             loading={emailSending}
             type={"submit"}

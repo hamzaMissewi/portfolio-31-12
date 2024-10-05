@@ -13,11 +13,10 @@ NODE_ENV = "development"
 
 [context.production]
 publish = "build/"
-command = "make publish"
+#command = "make publish"
 
-
-[context.deploy-preview]
-publish = "build/"
+#[context.deploy-preview]
+#publish = "build/"
 
 [build.environment]
 NODE_ENV = "development"

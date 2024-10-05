@@ -3,10 +3,6 @@ import React, { ChangeEvent, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import { locales } from "../lib/intl";
-import { Button } from "../components/ui/button";
-import UpdateLanguageDialog, {
-  useUpdateLanguageDialog,
-} from "../components/common/UpdateLanguage";
 
 // const useLanguage = () => {
 //   const router = useCustomRouter();
@@ -31,13 +27,9 @@ import UpdateLanguageDialog, {
 interface ILocaleSwitcher {}
 
 export default function LocaleSwitcher({}: ILocaleSwitcher) {
-  const { updateLanguageDialogProps, openUpdateLanguageDialog } =
-    useUpdateLanguageDialog();
   const [isPending, startTransition] = useTransition();
   const localeActive = useLocale();
   const router = useRouter();
-    // const [openUpdateLanguageDialog, setOpenUpdateLanguageDialog] = useState(false);
-
 
   const onChangeLocale = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
@@ -49,9 +41,10 @@ export default function LocaleSwitcher({}: ILocaleSwitcher) {
   };
 
   return (
-    <div className={"border-2 rounded"}>
-      <p className="sr-only">change language</p>
+    <div className={"flex h-full self-center"}>
+      {/*<p className="sr-only">change language</p>*/}
       <select
+        className="py-1 rounded-md border dark:border-amber-100 border-black h-full"
         defaultValue={localeActive}
         disabled={isPending}
         onChange={onChangeLocale}
@@ -62,12 +55,6 @@ export default function LocaleSwitcher({}: ILocaleSwitcher) {
           </option>
         ))}
       </select>
-
-      <Button asChild onClick={openUpdateLanguageDialog} color={"info"}>
-        Update Language Dialog
-      </Button>
-
-      <UpdateLanguageDialog {...updateLanguageDialogProps} />
     </div>
   );
 }

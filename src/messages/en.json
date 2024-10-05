@@ -30,7 +30,8 @@
     "welcome": "Hello and welcome {username}",
     "signUp": "Sign up",
     "signIn": "Sign in",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "getInTouch": "Get in touch"
   },
   "ContactMe": {
     "title": "Contact me",
@@ -130,5 +131,10 @@
     "address": "Address: Tunisia, Mourouj 1 street eagle, zip 2074",
     "email": "Email: ",
     "emailValue": "Email: hamza.missaoui@b2b-alive.com"
+  },
+  "Chatbot": {
+    "title": "Chatbot",
+    "typeMessage": "Type your message...",
+    "send": "Send"
   }
 }

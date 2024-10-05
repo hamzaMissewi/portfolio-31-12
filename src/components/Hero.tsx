@@ -62,7 +62,7 @@ function Hero({}: HeroProps) {
       {/*/>*/}
       {/*</ImagesGrid>*/}
 
-      <div className={"z-20"}>
+      <div>
         <h2 className={"text-sm uppercase text-gray-500 pb-2 tracking-[15px]"}>
           {t("title")}
         </h2>

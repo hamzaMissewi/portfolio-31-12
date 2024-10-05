@@ -47,8 +47,7 @@ async function Layout({
       <head>
         <title>Hamza Missaoui's Portfolio</title>
         <link rel="icon" href="/assets/b2b-alive-ltd-icon.svg" />
-        {/*  /!*<meta name="description" content="Global description for the site." />*!/*/}
-        {/*  <meta name="description" content="Welcome to the Home Page" />*/}
+        <meta name="description" content="Hamza Missaoui Next resume" />
         {/*  <meta property="og:title" content="Home Page" />*/}
         {/*  <meta property="og:description" content="Welcome to the Home Page" />*/}
         {/*  <meta*/}
@@ -56,7 +55,6 @@ async function Layout({
         {/*    content="/assets/b2b-alive-ltd-icon.svg"*/}
         {/*    color="#5bbad5"*/}
         {/*  />*/}
-        {/*  /!*<link  href="/path/to/image.jpg" />*!/*/}
       </head>
 
       <body
@@ -64,7 +62,7 @@ async function Layout({
         suppressHydrationWarning={true}
       >
         <ThemeProvider
-          themes={["dark", "light", "system"]}
+          themes={["dark", "light"]}
           attribute="class"
           defaultTheme="system"
           enableSystem
@@ -72,16 +70,24 @@ async function Layout({
         >
           <NextIntlClientProvider messages={messages}>
             <ClerkProvider publishableKey={clerkFrontendApi}>
-              <div className="flex flex-col w-full h-full space-y-2 min-h-screen overflow-x-hidden mx-auto">
+              <div className="flex flex-col mx-auto">
                 <header>
                   <Header />
                 </header>
-                <div className={"container flex flex-grow spacing-2 w-full"}>
+                <div
+                  className={
+                    "flex flex-grow flex-1 spacing-2 overflow-x-hidden"
+                  }
+                >
                   <Sidebar />
-                  <div className={"w-full flex-grow"}>{children}</div>
+                  <div className={"flex p-1 overflow-x-auto"}>{children}</div>
                 </div>
 
-                <footer className={"sticky bottom-0 w-full"}>
+                <footer
+                  className={
+                    "max-h-[300px] flex flex-wrap overflow-y-auto bottom-0 mt-2 px-1"
+                  }
+                >
                   <Footer />
                 </footer>
               </div>

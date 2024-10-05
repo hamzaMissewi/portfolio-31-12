@@ -15,9 +15,10 @@ const Home: NextPage = () => {
 
   return (
     <div
+      // dark:bg-gradient-to-t from-gray-200/0 via-gray-900/25 to-gray-900
+      // dark:bg-[#1A1C29]
       className={
-        "relative bg-white dark:bg-gradient-to-t from-gray-200/0 via-gray-900/25 to-gray-900 dark:bg-white flex-grow" +
-        " w-full h-full dark:bg-[#1A1C29] snap-y"
+        "bg-lightBackground dark:bg-gradient-to-b from-slate-900/100 via-gray-900 to-gray-300 w-full h-full snap-y mb-5"
         // "items-center md:overflow-hidden overflow-y-scroll flex flex-col xl:-mt-48 space-y-2 bg-[rgb(36,36,36)]
         // text-white h-screen  snap-mandatory z-0"
       }
@@ -46,13 +47,13 @@ const Home: NextPage = () => {
         <ContactMe />
       </section>
 
-      <section id={"chatbot"}>
-        <div
-          className={`fixed z-[100] ${locale === "ar" ? "left-2" : "right-2"} bottom-2 p-1 w-fit self-end`}
-        >
-          <ChatBot />
-        </div>
-      </section>
+      <div
+        className={`fixed z-100 ${locale === "ar" ? "left-3" : "right-3"} bottom-1`}
+      >
+        {/*<section id={"chatbot"}>*/}
+        <ChatBot />
+        {/*</section>*/}
+      </div>
 
       {/*<section id={"footer"} className={"snap-end bottom-0"}>*/}
       {/*  <footer className={"fixed cursor-pointer w-full"}>*/}
