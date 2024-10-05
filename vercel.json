@@ -1,0 +1,19 @@
+{
+  "cleanUrls": true,
+  "buildCommand": "next build",
+  "builds": [
+    {
+      "src": "src/*.js",
+      "use": "@vercel/next",
+      "config": {
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/src/$1"
+    }
+  ],
+  "outputDirectory": "build"
+}
