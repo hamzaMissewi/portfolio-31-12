@@ -8,41 +8,42 @@ import TabIcon from "@mui/icons-material/Tab";
 import Image from "next/image";
 import { Tooltip } from "@mui/material";
 import { useTranslations } from "next-intl";
+import { CodeIcon } from "lucide-react";
 
-// export type ProjectType = {
-//   title: string;
-//   description?: string;
-//   url?: string;
-//   code?: string;
-//   live?: string;
-// };
+export type ProjectType = {
+  // description?: string;
+  title?: string;
+  thumbnail?: string;
+  liveUrl?: string;
+  code?: string;
+};
 
 const projectUrls: {
-  professional: { title?: string; thumbnail?: string; live?: string }[];
-  personal: { title?: string; thumbnail?: string; live?: string }[];
+  professional: ProjectType[];
+  personal: ProjectType[];
 } = {
   personal: [
     {
       title: "netlify movies web app",
       thumbnail:
         "https://res.cloudinary.com/hamzaostouri/image/upload/v1728135248/Capture_d_%C3%A9cran_2024-10-05_143358_eawvpb.png",
-      live: "https://quirky-wright-757726.netlify.app/",
+      liveUrl: "https://quirky-wright-757726.netlify.app/",
     },
     {
       title: "amazon clone with react",
       thumbnail: "",
-      live: "https://clone-127fa.web.app/",
+      liveUrl: "https://clone-127fa.web.app/",
     },
     {
       title: "google calendar clone app with react",
       thumbnail: "",
-      live: "https://calendar.google.com/calendar/u/0/r?pli=1",
+      liveUrl: "https://calendar.google.com/calendar/u/0/r?pli=1",
     },
     {
       title: "old portfolio app",
       thumbnail:
         "https://res.cloudinary.com/hamzaostouri/image/upload/v1728134489/Capture_d_%C3%A9cran_2024-10-05_142025_vusnbp.png",
-      live: "https://hamza-missaoui-resume.netlify.app/",
+      liveUrl: "https://hamza-missaoui-resume.netlify.app/",
     },
   ],
   professional: [
@@ -143,16 +144,20 @@ function Experience() {
                     width={250}
                     height={250}
                     src={personalProject.thumbnail}
-                    alt={""}
+                    alt={"project"}
                     // sm:w-10 sm:h-10 w-[100%] md:h-[550px]
                     className="rounded-md items-center object-center p-2"
                   />
                 )}
 
-                {personalProject.live && (
+                <div
+                  className={
+                    "absolute absolute z-1 right-0 top-0 flex items-center"
+                  }
+                ></div>
+                {personalProject.liveUrl && (
                   <Link
-                    className={"absolute z-1 right-0 top-0"}
-                    href={personalProject.live}
+                    href={personalProject.liveUrl}
                     rel={"noopener noreferrer"}
                     target={"_blank"}
                   >
@@ -161,7 +166,17 @@ function Experience() {
                     </Tooltip>
                     {/*<p>Live</p>*/}
                   </Link>
-                  // <CodeIcon fontSize={"small"} color={"error"} />
+                )}
+                {personalProject.code && (
+                  <Link
+                    href={personalProject.code}
+                    rel={"noopener noreferrer"}
+                    target={"_blank"}
+                  >
+                    <Tooltip title={"Code"}>
+                      <CodeIcon fontSize={"small"} color={"error"} />
+                    </Tooltip>
+                  </Link>
                 )}
               </div>
 
@@ -170,7 +185,6 @@ function Experience() {
                   "text-sm font-semibold text-center decoration-[#F7AB0A]/50"
                 }
               >
-                {/*<span className={""}>*/}
                 Case Study {index + 1} of {projectUrls.personal.length}
               </p>
             </div>
