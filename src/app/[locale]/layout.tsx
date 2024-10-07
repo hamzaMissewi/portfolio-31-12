@@ -47,7 +47,7 @@ async function Layout({
       <head>
         <title>Hamza Missaoui's Portfolio</title>
         <link rel="icon" href="/assets/b2b-alive-ltd-icon.svg" />
-        <meta name="description" content="Hamza Missaoui Next resume" />
+        <meta name="description" content="Hamza Missaoui Resume" />
         {/*  <meta property="og:title" content="Home Page" />*/}
         {/*  <meta property="og:description" content="Welcome to the Home Page" />*/}
         {/*  <meta*/}
@@ -70,25 +70,26 @@ async function Layout({
         >
           <NextIntlClientProvider messages={messages}>
             <ClerkProvider publishableKey={clerkFrontendApi}>
-              <div className="flex flex-col mx-auto">
+              <div className="flex flex-col mx-auto overflow-hidden">
                 <header>
                   <Header />
                 </header>
                 <div
                   className={
-                    "flex flex-grow flex-1 spacing-2 overflow-x-hidden"
+                    // "flex flex-grow flex-1 spacing-2 overflow-x-hidden"
+                    "flex flex-grow flex-1 spacing-2"
                   }
                 >
                   <Sidebar />
-                  <div className={"flex p-1 overflow-x-auto"}>{children}</div>
+                  <div className={"p-1 overflow-x-auto"}>{children}</div>
                 </div>
 
                 <footer
-                  className={
-                    "max-h-[300px] flex flex-wrap overflow-y-auto bottom-0 mt-2 px-1"
-                  }
+                  className={"max-h-[300px] flex flex-wrap bottom-0 mt-2 px-1"}
                 >
-                  <Footer />
+                  <section id={"footer"} className={"snap-end"}>
+                    <Footer />
+                  </section>
                 </footer>
               </div>
             </ClerkProvider>

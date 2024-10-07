@@ -1,8 +1,8 @@
 import Hero from "../../components/Hero";
 import About from "../../components/About";
-import WorkExperience from "../../components/Experience";
+import Experience from "../../components/Experience";
 import Skills from "../../components/Skills";
-import Experience from "../../components/Projects";
+import Projects from "../../components/Projects";
 import ContactMe from "../../components/ContactMe";
 import { NextPage } from "next";
 import React from "react";
@@ -18,59 +18,35 @@ const Home: NextPage = () => {
       // dark:bg-gradient-to-t from-gray-200/0 via-gray-900/25 to-gray-900
       // dark:bg-[#1A1C29]
       className={
-        "bg-lightBackground dark:bg-gradient-to-b from-slate-900/100 via-gray-900 to-gray-300 w-full h-full snap-y mb-5"
-        // "items-center md:overflow-hidden overflow-y-scroll flex flex-col xl:-mt-48 space-y-2 bg-[rgb(36,36,36)]
-        // text-white h-screen  snap-mandatory z-0"
+        "bg-lightBackground dark:bg-gradient-to-b from-slate-900/100 via-gray-900 to-gray-300 w-full" +
+        " h-full snap-y" +
+        " mb-5 overflow-auto snap-mandatory z-0 min-h-screen"
+        // "md:overflow-hidden overflow-y-scroll flex flex-col xl:-mt-48 space-y-2
       }
     >
-      <section id={"hero"} className={"snap-center"}>
+      <section id={"hero"} className={"snap-start"}>
         <Hero />
       </section>
-
       <section id={"about"} className={"snap-center"}>
         <About />
       </section>
-
       <section id={"experience"} className={"snap-center"}>
-        <WorkExperience />
-      </section>
-
-      <section id={"skills"} className={"snap-start"}>
-        <Skills />
-      </section>
-
-      <section id={"projects"} className={"snap-start"}>
         <Experience />
       </section>
-
-      <section id={"contactMe"} className={"snap-start"}>
+      <section id={"skills"} className={"snap-center"}>
+        <Skills />
+      </section>
+      <section id={"projects"} className={"snap-center"}>
+        <Projects />
+      </section>
+      <section id={"contactMe"} className={"snap-center"}>
         <ContactMe />
       </section>
-
       <div
-        className={`fixed z-100 ${locale === "ar" ? "left-3" : "right-3"} bottom-1`}
+        className={`fixed z-1 ${locale === "ar" ? "left-3" : "right-3"} bottom-1`}
       >
-        {/*<section id={"chatbot"}>*/}
         <ChatBot />
-        {/*</section>*/}
       </div>
-
-      {/*<section id={"footer"} className={"snap-end bottom-0"}>*/}
-      {/*  <footer className={"fixed cursor-pointer w-full"}>*/}
-      {/*    <Footer/>*/}
-      {/*    <Link href={"#hero"}>*/}
-      {/*      <Image*/}
-      {/*          width={100}*/}
-      {/*          height={100}*/}
-      {/*          className="w-12 h-12 rounded-full filter grayscale hover:grayscale-0"*/}
-      {/*          src={*/}
-      {/*            "https://res.cloudinary.com/hamzaostouri/image/upload/v1663664915/avatar_photos/ra3cbssf64n3ihc2fw0o.png"*/}
-      {/*          }*/}
-      {/*          alt={""}*/}
-      {/*      />*/}
-      {/*    </Link>*/}
-      {/*  </footer>*/}
-      {/*</section>*/}
     </div>
   );
 };

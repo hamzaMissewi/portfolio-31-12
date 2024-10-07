@@ -12,6 +12,13 @@ const config: Config = {
         customBlue: "#1DA1F2", // Custom blue color
         customGreen: "#4CAF50", // Custom green color
         customPink: "#FF4081", // Custom pink color
+        blackToWhite: {
+          1: "rgb(40,40,40)",
+          2: "rgb(104,104,104)",
+          3: "#a2a1a1",
+          4: "rgb(206,204,204)",
+          5: "rgb(239,239,239)",
+        },
         darkBackground: "#333333", // Dark mode background
         lightBackground: "#d8d8d8",
         darkBlueBackground: "#05254d",

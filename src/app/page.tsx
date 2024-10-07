@@ -11,8 +11,8 @@ import { redirect } from "next/navigation";
 //   return children;
 // }
 function Page() {
-  redirect("/en");
-  // redirect("/en", RedirectType.replace);
+  // redirect("/en");
+  redirect("/en", RedirectType.replace);
 }
 
 export default Page;

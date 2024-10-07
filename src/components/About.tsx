@@ -32,7 +32,7 @@ function About() {
       >
         {t("title")}
       </h3>
-      <div className={"relative flex flex-row items-center"}>
+      <div className={"relative flex items-center space-x-2"}>
         <motion.img
           className={
             "self-start mt-2 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-fill md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px]"
@@ -46,7 +46,7 @@ function About() {
           }
         />
 
-        <div className={"space-y-10 "}>
+        <div className={"flex flex-col space-y-10"}>
           <h4 className={"text-4xl text-center"}>
             {t("intro")}
             {/*<span className={"underline decoration-[#F7AB0A]/50"}>*/}

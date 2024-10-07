@@ -53,7 +53,7 @@ const competences: { name: string; url: string }[] = [
 ];
 
 
-function WorkExperience() {
+function Experience() {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -139,4 +139,4 @@ function WorkExperience() {
   );
 }
 
-export default WorkExperience;
+export default Experience;

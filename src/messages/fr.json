@@ -91,17 +91,19 @@
     "description": "J'ai travaillé sur l'application principale d'une société de contenu visuel dans Typescript sur différentes fonctionnalités et tâches, m'a permis d'acquérir une expérience pratique avec React et TypeScript pour le front-end, et Node.js avec Koa js pour le back-end, tâches travaillées  ",
     "personalProjects": {
       "title": "Projets personnels",
-      "0": {
-        "description": "Travailler sur une application avec Python et Django destinée aux réservations d'hôtel dans n'importe quelle région du pays sélectionné"
-      },
-      "1": {
-        "description": "Concevoir et implémenter une application clone de sites Web Amazon"
-      },
-      "2": {
-        "description": "Créer un clone simplifié de Google Drive"
-      },
-      "3": {
-        "description": "portefeuille"
+      "projects": {
+        "0": {
+          "description": "Travailler sur une application avec Python et Django destinée aux réservations d'hôtel dans n'importe quelle région du pays sélectionné"
+        },
+        "1": {
+          "description": "Concevoir et implémenter une application clone de sites Web Amazon"
+        },
+        "2": {
+          "description": "Créer un clone simplifié de Google Drive"
+        },
+        "3": {
+          "description": "portefeuille"
+        }
       }
     },
     "professionalProjects": {
@@ -126,7 +128,10 @@
     "copyright": "2024 Hamza Missaoui. Tous les droits réservés",
     "phone": "Téléphone",
     "socialMedia": "Coordonnées",
-    "address": "Adresse, Tunisie, Mourouj 1 rue aigle, zip 2074",
+    "address": {
+      "title": "Adresse",
+      "value": "Tunisie, Mourouj 1 street  rue des aigles, zip 2074"
+    },
     "email": "E-mail"
   },
   "Chatbot": {

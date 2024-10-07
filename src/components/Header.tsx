@@ -26,12 +26,12 @@ const Header: React.FC = () => {
   const { user, isSignedIn, isLoaded } = useUser();
   const router = useRouter();
   const t = useTranslations("Navbar");
+    const locale = useLocale();
 
   // const [openUpdateLanguageDialog, setOpenUpdateLanguageDialog] = useState(false);
 
   const { updateLanguageDialogProps, openUpdateLanguageDialog } =
     useUpdateLanguageDialog();
-  const locale = useLocale();
 
   return (
     <div
@@ -39,15 +39,16 @@ const Header: React.FC = () => {
         "fixed flex items-center justify-between backdrop-blur-0 border border-darkBackground dark:border-customBlue" +
         " bg-lightBackground" +
         " dark:bg-darkBackground" +
-        " w-full z-20 min-w-screen max-h-[200px]" // px-2
+        " w-full z-20 min-w-screen max-h-[200px]"
       }
     >
       <motion.div
         initial={{ opacity: 0, x: -500, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: 1 }}
         className={`flex flex-start space-x-2 items-center ${locale === "ar" ? "ml-10" : "mr-10"}`}
       >
+        <Link href="/">Home</Link>
         <Link
           href="https://b2b-alive.com"
           rel={"noopener noreferrer"}
@@ -57,8 +58,8 @@ const Header: React.FC = () => {
             src={"/assets/b2b-alive-ltd-icon.svg"}
             alt="Society Logo"
             width={40}
-            height={20}
-            objectFit={"cover"}
+            height={30}
+            // objectFit={"cover"}
             className={
               "cursor-pointer bg-lightBackground w-15 h-full relative p-1 my-1"
             }
@@ -144,15 +145,25 @@ const Header: React.FC = () => {
           target={"_blank"}
         />
 
-        <Link href={"mailto:hamza.missaoui@b2b-alive.com?subject=want_require"}>
+        {/*<Link href={"mailto:hamza.missaoui@b2b-alive.com?subject=want_require"}>*/}
+        <div
+          className="flex items-center cursor-pointer border border-bg-customOrange"
+          onClick={() =>
+            router.push(
+              "mailto:hamza.missaoui@b2b-alive.com?subject=want_require",
+            )
+          }
+        >
           <SocialIcon
-            className={"cursor-pointer"}
+            // className={"cursor-pointer"}
             network={"email"}
             fgColor={"gray"}
             bgColor={"transparent"}
+            // href={"mailto:hamza.missaoui@b2b-alive.com?subject=want_require"}
           />
-          <p className={" hidden md:inline-flex text-md"}>{t("getInTouch")}</p>
-        </Link>
+          <p className={"hidden md:inline-flex text-sm"}>{t("getInTouch")}</p>
+        </div>
+        {/*</Link>*/}
       </motion.div>
       <UpdateLanguageDialog {...updateLanguageDialogProps} />
     </div>
