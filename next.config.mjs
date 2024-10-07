@@ -5,6 +5,12 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    rewrites: async () => [
+        {
+            source: '/',
+            destination: '/portfolio',
+        },
+    ],
     distDir: 'build',
     // reactStrictMode: true,
     pageExtensions: ["html", "jsx", "tsx", "ts"],
