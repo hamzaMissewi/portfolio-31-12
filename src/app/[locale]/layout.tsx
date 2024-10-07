@@ -9,7 +9,6 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Header from "../../components/Header";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/Footer";
-// import Head from "next/head";
 
 function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
@@ -48,13 +47,8 @@ async function Layout({
         <title>Hamza Missaoui's Portfolio</title>
         <link rel="icon" href="/assets/b2b-alive-ltd-icon.svg" />
         <meta name="description" content="Hamza Missaoui Resume" />
-        {/*  <meta property="og:title" content="Home Page" />*/}
-        {/*  <meta property="og:description" content="Welcome to the Home Page" />*/}
-        {/*  <meta*/}
-        {/*    property="og:image"*/}
-        {/*    content="/assets/b2b-alive-ltd-icon.svg"*/}
-        {/*    color="#5bbad5"*/}
-        {/*  />*/}
+        {/*  <meta property="og:title" content="Welcome to the Home Page" />*/}
+        {/*  <meta* property="og:image" content="/assets/b2b-alive-ltd-icon.svg"*/}
       </head>
 
       <body
@@ -74,19 +68,12 @@ async function Layout({
                 <header>
                   <Header />
                 </header>
-                <div
-                  className={
-                    // "flex flex-grow flex-1 spacing-2 overflow-x-hidden"
-                    "flex flex-grow flex-1 spacing-2"
-                  }
-                >
+                <div className={"flex flex-grow flex-1 spacing-1"}>
                   <Sidebar />
                   <div className={"p-1 overflow-x-auto"}>{children}</div>
                 </div>
 
-                <footer
-                  className={"max-h-[300px] flex flex-wrap bottom-0 mt-2 px-1"}
-                >
+                <footer className="max-h-[300px] flex flex-wrap bottom-0 mt-2 px-1">
                   <section id={"footer"} className={"snap-end"}>
                     <Footer />
                   </section>
