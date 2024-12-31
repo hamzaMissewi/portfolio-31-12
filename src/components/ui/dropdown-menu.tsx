@@ -9,7 +9,7 @@ import { ChevronRight, CheckCircleOutline, Circle } from "@mui/icons-material";
 //     DotFilledIcon,
 // } from "@radix-ui/react-icons";
 
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
 

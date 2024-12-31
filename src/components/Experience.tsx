@@ -1,8 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import ExperienceCard from "../components/ExperienceCard";
-
-// type ExperienceProps = {};
+import ExperienceCard from "@/components/ExperienceCard";
+import { englishRawData } from "@/lib/data/english";
 
 const competences: { name: string; url: string }[] = [
   {
@@ -12,7 +11,6 @@ const competences: { name: string; url: string }[] = [
   {
     name: "react js",
     url: "https://logos-world.net/wp-content/uploads/2023/08/React-Symbol.png",
-    // url: "https://miro.medium.com/v2/resize:fit:522/0*Hdm7hBTZ-hKlbtlV.png",
   },
   {
     name: "next js",
@@ -52,7 +50,6 @@ const competences: { name: string; url: string }[] = [
   },
 ];
 
-
 function Experience() {
   return (
     <motion.div
@@ -75,64 +72,51 @@ function Experience() {
       >
         <ExperienceCard
           key={1}
-          title="Senior web developer expert in typescript, react, graphql, mongodb, node koa framework and other knowledge in many technologies"
-          image={
+          title={englishRawData.work_experience.title}
+          companyLogo={
             "https://media.licdn.com/dms/image/C4E0BAQECttqhzuGqBw/company-logo_200_200/0/1651029832992/b2b_alive_logo?e=2147483647&v=beta&t=yaQVzsyhkQw3LhBJexMtVjWovIEQXEzzxRmGTF20RHk"
           }
-          imageLink={"https://www.b2b-alive.com/en/"}
-          companyName="B2b alive Ltd"
-          description="Started work on first october 2022 until today ,gain skills in Typescript and list of technologies and tools"
-          images={competences.slice(0, 6)}
+          companyLink={englishRawData.work_experience.site}
+          companyName={englishRawData.work_experience.name}
+          date={englishRawData.work_experience.date}
+          // date={"October 1, 2022 – November 1, 2024"}
+          description={englishRawData.work_experience.content.join(" ")}
+          usedTechs={competences.slice(0, 6)}
         />
         <ExperienceCard
           key={2}
-          title={"End of studies internship in b2b alive"}
-          image={
+          // title={"End of studies internship (stage PFE) in b2b alive"}
+          title={englishRawData.internships.pfe.title}
+          companyLogo={
             "https://media.licdn.com/dms/image/C4E0BAQECttqhzuGqBw/company-logo_200_200/0/1651029832992/b2b_alive_logo?e=2147483647&v=beta&t=yaQVzsyhkQw3LhBJexMtVjWovIEQXEzzxRmGTF20RHk"
           }
-          imageLink={"https://www.b2b-alive.com/en/"}
-          companyName="B2b alive Ltd"
-          description="Started work on first october 2022 until today ,gain skills in Typescript and list of technologies and tools"
+          companyLink={"https://www.b2b-alive.com/en/"}
+          companyName={englishRawData.internships.pfe.company}
+          description={englishRawData.internships.pfe.content}
         />
         <ExperienceCard
           key={3}
-          title={"End of studies internship in b2b alive"}
-          image={
+          title={englishRawData.internships.technician.title}
+          companyLogo={
             "https://www.gnet.tn/wp-content/uploads/2018/11/logo-gnet-1.png"
           }
-          companyName="Globalnet 3s"
-          images={[competences[10], competences[9]]}
+          companyName={englishRawData.internships.technician.company}
+          description={englishRawData.internships.technician.content}
+          companyLink={"https://www.3s.com.tn/groupe-3s-tunisie/"}
+          usedTechs={[competences[10], competences[9]]}
         />
         <ExperienceCard
           key={4}
-          image={
-            "https://www.sofrecom.com/media/layout/img/sofrecom-meta-logo-small.png"
+          title={englishRawData.internships.initial.title}
+          companyLogo={
+            "https://www.gnet.tn/wp-content/uploads/2018/11/logo-gnet-1.png"
+            // "https://www.sofrecom.com/media/layout/img/sofrecom-meta-logo-small.png"
           }
-          title={"sofrecom"}
-          imageLink={"https://www.sofrecom.com/"}
+          companyName={englishRawData.internships.initial.company}
+          companyLink={"https://www.3s.com.tn/groupe-3s-tunisie/"}
+          usedTechs={[competences[7], competences[8]]}
+          // companyLink={"https://www.sofrecom.com/"}
           // image="https://res.cloudinary.com/hamzaostouri/image/upload/c_thumb,w_200,g_face/v1724472245/Capture_d_%C3%A9cran_2024-08-22_131452_kjywl9.png"
-        />
-
-        <ExperienceCard
-          key={5}
-          image={
-            "https://upload.wikimedia.org/wikipedia/fr/thumb/8/8d/FSTLOGO.svg/1200px-FSTLOGO.svg.png"
-          }
-          title={"Faculté des sciences"}
-          description={"Study of engineering in FST"}
-          images={[competences[6]]}
-          imageLink={"https://fst.rnu.tn/fr"}
-        />
-
-        <ExperienceCard
-          key={6}
-          image={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvTYjHM0eyAaO-4ekxHljFwe_tnpl4U5huaQ&s"
-          }
-          title={"ULT (université libre de tunis)"}
-          description={""}
-          images={competences.slice(0, 3)}
-          imageLink={"https://www.ult-tunisie.com/"}
         />
       </div>
     </motion.div>

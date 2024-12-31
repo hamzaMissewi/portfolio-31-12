@@ -1,24 +1,14 @@
 import axios, { AxiosResponse } from "axios";
-import { NextApiResponse } from "next";
 import OpenAI from "openai";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import ChatCompletion = OpenAI.ChatCompletion;
 
-// export const openAI = new OpenAI({
-//     apiKey: process.env.OPENAI_API_KEY,
-// });
-
-// export async function POST(req: NextApiRequest, res: NextApiResponse) {
-export async function POST(req: NextRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
+export async function POST(req: NextRequest) {
   const request = await req.json();
   const { prompt } = request.body;
 
   if (!prompt) {
-    return res.status(400).json({ error: "Prompt is required" });
-    // return NextResponse.json({ error: "Prompt is required" });
+    return NextResponse.json({ error: "Prompt is required" }, { status: 404 });
   }
   try {
     // const response = await openAI.chat.completions.create({
@@ -31,13 +21,13 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
           {
             role: "user",
             content: prompt,
-            //     type: 'image_url',
-            //     image_url: {
-            //         url: imageB64,
-            //         detail: 'low'
-            //     }
           },
-          { role: "system", content: "You are a helpful assistant." },
+          {
+            role: "system",
+            content:
+              "Your role is to help the user to search for user about movies or about" +
+              " website data.",
+          },
         ],
         max_tokens: 1000,
       },
@@ -54,11 +44,14 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     const message = response.data.choices[0].message?.content; //|| 'Sorry, I did not get that.';
 
     if (!message || message === "") {
-      res.status(404).json({
-        reply: null,
-        error: "No reply found for that question",
-      });
-      return;
+      throw new Error("No reply found for that question");
+      // return NextResponse.json(
+      //   {
+      //     reply: null,
+      //     error: "No reply found for that question",
+      //   },
+      //   { status: 500 },
+      // );
     }
 
     const usage = response.data.usage;
@@ -85,11 +78,12 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
       `OpenAI response for image with prompt: ${prompt}`,
     );
 
-    return res.status(200).json({ chatReply: message });
-
-    // return await response.data.object.blob()
+    return NextResponse.json({ chatReply: message }, { status: 200 });
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Error getting response" });
+    return NextResponse.json(
+      { error: "Error getting response" },
+      { status: 500 },
+    );
   }
 }

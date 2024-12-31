@@ -1,5 +1,5 @@
 import CarouselBanner from "./CarouselBanner";
-import { getDiscoverMovies } from "../../../lib/getMovies";
+import { getDiscoverMovies } from "@/lib/getMovies";
 
 type Props = {
   id?: string;

@@ -1,10 +1,11 @@
 // "use client";
-import {MenuItem, MenuList} from "@mui/material";
-import { Link } from "../lib/intl";
-import {useTranslations} from "next-intl";
+import { MenuItem, MenuList } from "@mui/material";
+import { Link } from "@/lib/intl";
+import { useLocale, useTranslations } from "next-intl";
 
 function Sidebar() {
   const t = useTranslations("Sidebar");
+  const locale = useLocale();
 
   return (
     <div
@@ -24,10 +25,10 @@ function Sidebar() {
           <Link href={"/"}>
             <MenuItem>{t("mainPage")}</MenuItem>
           </Link>
-          <Link href={"/movies"}>
+          <Link href={`/${locale}/movies`}>
             <MenuItem>{t("moviesPage")}</MenuItem>
           </Link>
-          <Link href={"/about"}>
+          <Link href={`/${locale}/profile`}>
             <MenuItem>{t("aboutPage")}</MenuItem>
           </Link>
         </MenuList>

@@ -5,12 +5,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../../../components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { Genres } from "../../../../tmdbTypings";
+import { Genres } from "@/lib/tmdbTypings";
 
-async function GenreDropdown() {
+async function GenresDropdown() {
   const url = "https://api.themoviedb.org/3/genre/movie/list?language=en";
   const options: RequestInit = {
     method: "GET",
@@ -48,4 +48,4 @@ async function GenreDropdown() {
   );
 }
 
-export default GenreDropdown;
+export default GenresDropdown;

@@ -1,5 +1,5 @@
 import CarouselBanner from "./CarouselBanner";
-import { SearchResults } from "../../../../tmdbTypings";
+import { SearchResults } from "@/lib/tmdbTypings";
 
 async function Banner() {
   const url =

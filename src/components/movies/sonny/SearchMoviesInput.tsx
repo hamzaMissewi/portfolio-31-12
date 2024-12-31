@@ -1,26 +1,24 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
-  Form,
+  Form as HookForm,
   FormControl,
   FormFieldProvider,
   FormItemProvider,
-} from "../../../context/Form";
+} from "@/context/Form";
 import * as z from "zod";
-import { Input } from "../../../components/ui/input";
+import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
+import Form from "next/form";
 // import { zodResolver } from "@hookform/resolvers/zod";
-// import {Resolver} from "react-hook-form/dist/types/resolvers";
 
 // Zod is a TypeScript-first schema validation library that is often used to validate and parse data in web applications. It provides a robust and type-safe way to define schemas for various types of data, such as forms, API responses, and other user inputs. Here’s how Zod can be beneficial in a Next.js application:
 const formSchema = z.object({
   input: z.string().min(2).max(50),
 });
 
-function SearchInput() {
+export function SearchMoviesInput() {
   const router = useRouter();
-
-  // 1. Define your form.
   // const form = useForm<z.infer<typeof formSchema>>({
   const form = useForm({
     resolver: undefined, //zodResolver(formSchema),
@@ -29,19 +27,24 @@ function SearchInput() {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log("search movies values ", values);
     router.push(`/search/${values.input}`);
-    // router.push(`/search/${form.watch("input")}`)
+    // ✅ This will be type-safe and validated.
+    router.push(`/search/${form.watch("input")}`);
   }
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 bg-white dark:bg-white"
+    <HookForm {...form}>
+      <Form
+        action={`/search/${form.watch("input")}`}
+        className="space-y-8 bg-white dark:bg-white sm:mx-2 md:mx-4"
+        style={{
+          flexGrow: 1,
+        }}
       >
+        {/*<form*/}
+        {/*  onSubmit={form.handleSubmit(onSubmit)}*/}
+        {/*  className="space-y-8 bg-white dark:bg-white"*/}
+        {/*>*/}
         <FormFieldProvider
           control={form.control}
           name="input"
@@ -53,9 +56,7 @@ function SearchInput() {
             </FormItemProvider>
           )}
         />
-      </form>
-    </Form>
+      </Form>
+    </HookForm>
   );
 }
-
-export default SearchInput;

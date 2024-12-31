@@ -1,9 +1,9 @@
 "use client";
-import BackgroundCircles from "../components/BackgroundCircles";
+import BackgroundCircles from "@/components/BackgroundCircles";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import Link from "next/link";
-import CloudinaryImage from "../components/cloudinary/CloudinaryImage";
-import data from "../lib/images.json";
+import CloudinaryImage from "@/components/cloudinary/CloudinaryImage";
+import images from "@/lib/images.json";
 import { useLocale, useTranslations } from "next-intl";
 
 type HeroProps = { text?: string };
@@ -52,15 +52,14 @@ function Hero({}: HeroProps) {
       }
     >
       <BackgroundCircles />
-      <CloudinaryImage width={200} height={200} url={data.hero["1"].url} />
-      {/*<ImagesGrid title="Hamza Hero">*/}
+      <CloudinaryImage width={200} height={200} url={images.hero["1"].url} />
+
       {/*<motion.img*/}
       {/*    className={"relative object-cover rounded-full h-[230px] w-[250px]"}*/}
       {/*    alt={"profile picture"}*/}
       {/*    width={200}*/}
       {/*    height={200}*/}
       {/*/>*/}
-      {/*</ImagesGrid>*/}
 
       <div>
         <h2 className={"text-sm uppercase text-gray-500 pb-2 tracking-[15px]"}>

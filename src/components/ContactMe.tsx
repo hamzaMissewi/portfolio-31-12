@@ -13,12 +13,10 @@ import {
 } from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { SendMailOutput } from "../hooks/useSendMail";
-import { useEnqueueSnackbar } from "../components/common/Alerter";
+import { useEnqueueSnackbar } from "@/components/common/Alerter";
 import { Snackbar, SnackbarCloseReason } from "@mui/base";
 import { useTranslations } from "next-intl";
-import { MailFieldsType } from "../lib/nodemailer";
-
-
+import { MailFieldsType } from "@/lib/nodemailer";
 
 const initContact = {
   // subject: "send me message", //"Pleasure doing business as web developer",
@@ -83,7 +81,7 @@ function ContactMe() {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            // Authorization: `Bearer ${process.env.MAIL_PASSWORD}`,
+            // Authorization: `Bearer ${process.env.NODEMAILER_PASSWORD}`,
           },
         });
         const data = await response.json();

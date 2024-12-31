@@ -22,10 +22,17 @@ export type SearchResults = {
   total_results: number;
 };
 
+// https://developer.themoviedb.org/reference/genre-movie-list
 export type Genre = {
   id: number;
   name: string;
 };
+
+// id
+// integer
+// Defaults to 0
+// name
+// string
 
 export type Genres = {
   genres: Genre[];

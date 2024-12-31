@@ -1,6 +1,7 @@
 // Movie suggestions with azure ai
+import { NextRequest } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const term = searchParams.get("term");
 
@@ -13,8 +14,6 @@ export async function GET(request: Request) {
       },
     },
   );
-
   const message = await res.text();
-
   return Response.json({ message });
 }

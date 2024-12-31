@@ -5,7 +5,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import { img_300, noPicture } from "./config";
 import "@/components/movies/Carousel.css";
 import Image from "next/image";
-import { TMDB_API_KEY } from "../../lib/getMovies";
+import { TMDB_API_KEY } from "@/lib/getMovies";
 
 const handleDragStart: React.DragEventHandler<HTMLImageElement> = (e) =>
   e.preventDefault();

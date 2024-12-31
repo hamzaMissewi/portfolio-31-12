@@ -1,7 +1,6 @@
-import { fetchChatCompletion } from "../../../lib/azure";
+import { fetchChatCompletion } from "@/lib/azure";
 
 async function AIAzureSuggestion({ term }: { term: string }) {
-  // call the fetch function
   const completion = await fetchChatCompletion(term);
 
   return (

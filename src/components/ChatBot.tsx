@@ -8,7 +8,6 @@ import {
   Divider,
   IconButton,
   TextField,
-  Typography,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { Snackbar } from "@mui/base";
@@ -18,20 +17,22 @@ import { motion } from "framer-motion";
 import { useSnackbar } from "notistack";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useAskChatGptHook } from "../hooks/useAskOpenAi4o";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 function ChatBot() {
   const t = useTranslations("Chatbot");
   const { askChatGpt } = useAskChatGptHook();
   const [userMessage, setUserMessage] = useState<string | undefined>(undefined);
   const [chatLoading, setChatLoading] = useState(false);
-  const [responses, setResponses] = useState<
-    { role: string; content: string }[]
-  >([]);
   const [chatError, setChatError] = useState<string | undefined>(undefined);
   const [expandChatBox, setExpandChatBox] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
+  const locale = useLocale();
+  const [responses, setResponses] = useState<
+    { role: string; content: string }[]
+  >([]);
 
   const handleClickAskChatGpt = useCallback(
     async (event: React.FormEvent<HTMLButtonElement>) => {
@@ -92,26 +93,23 @@ function ChatBot() {
       whileInView={{ opacity: 1, x: 0 }}
       animate={{ x: -10, opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      className="w-fit flex flex-col rounded-lg border-2 border-amber-400 dark:bg-chatbot-dark bg-chatbot-light z-99"
+      className={cn(
+        "w-fit flex flex-col rounded-lg border-2 border-amber-400 dark:bg-chatbot-dark bg-chatbot-light" +
+          " z-99",
+        `fixed z-50 ${locale === "ar" ? "left-3" : "right-3"} bottom-1`,
+      )}
     >
       <div
         className={
           "flex justify-center items-center px-2 dark:bg-chatbot-light bg-chatbot-dark space-x-2 text-lg" +
-          " dark:text-black" +
-          " text-white"
+          " dark:text-black text-white"
         }
         onClick={() => setExpandChatBox((value) => !value)}
       >
-        {/*<Button*/}
         {/*  className={"lowercase text-lg dark:text-black text-white"}*/}
-        {/*>*/}
-        <Typography
-          component={"h1"}
-          className="text-xl font-bold text-center lowercase"
-        >
+        <h1 className="text-xl font-bold text-center lowercase">
           {t("title")}
-        </Typography>
-        {/*</Button>*/}
+        </h1>
         <KeyboardArrowDownIcon fontSize={"small"} />
       </div>
       <Divider />

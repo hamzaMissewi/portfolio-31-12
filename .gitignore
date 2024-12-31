@@ -16,6 +16,14 @@
 # production
 /build
 
+/functions
+/test
+*.txt
+*ignore*
+*test*
+**/*ignore*
+**__*
+
 # misc
 .DS_Store
 *.pem
@@ -37,5 +45,3 @@ next-env.d.ts
 /src/js*
 
 .vercel
-*.txt
-!/functions/

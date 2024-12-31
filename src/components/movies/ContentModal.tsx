@@ -5,7 +5,7 @@ import "@/components/movies/ContentModal.css";
 import { Backdrop, Box, Button, Fade, Modal, styled } from "@mui/material";
 import Carousel from "./Carousel";
 import YouTubeIcon from "@mui/icons-material/YouTube";
-import { TMDB_API_KEY } from "../../lib/getMovies";
+import { TMDB_API_KEY } from "@/lib/getMovies";
 import Image from "next/image";
 
 const StyledModal = styled(Modal)({

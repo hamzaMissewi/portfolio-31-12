@@ -1,8 +1,8 @@
 "use client";
 import React, { ChangeEvent, useTransition } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import { locales, usePathname, useRouter } from "@/lib/intl";
 import { useLocale } from "next-intl";
-import { locales } from "../lib/intl";
 
 // const useLanguage = () => {
 //   const router = useCustomRouter();
@@ -30,12 +30,14 @@ export default function LocaleSwitcher({}: ILocaleSwitcher) {
   const [isPending, startTransition] = useTransition();
   const localeActive = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
 
   const onChangeLocale = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
 
     startTransition(() => {
-      router.replace(`/${nextLocale}`);
+      router.replace(pathname, { locale: nextLocale });
+      // router.replace(`/${nextLocale}`);
       // router.push(`/lang=${nextLocale}`); // This changes the URL
     });
   };

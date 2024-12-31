@@ -1,7 +1,7 @@
-import { Movie } from "../../../../tmdbTypings";
+import { Movie } from "@/lib/tmdbTypings";
 import MovieCard from "./MovieCard";
 import Link from "next/link";
-import { cn } from "../../../lib/utils";
+import { cn } from "@/lib/utils";
 
 type Props = { title: string; movies: Movie[]; isVertical?: boolean };
 
@@ -12,8 +12,7 @@ function MoviesCarousel({ title, movies, isVertical }: Props) {
 
       <div
         className={cn(
-          // "flex space-x-4 overflow-scroll scrollbar-hide px-5 lg:px-10 py-5",
-          "flex space-x-4 scrollbar-hide px-5 overflow-hidden lg:px-10 py-5",
+          "flex space-x-4 overflow-scroll scrollbar-hide px-5 lg:px-10 py-5",
           isVertical && "flex-col space-x-0 space-y-4",
         )}
       >
